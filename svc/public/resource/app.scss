@@ -1,0 +1,54 @@
+@import "variables";
+@import "navbar-inverse-atos";
+@import "bootstrap-override";
+
+html, body {
+  height: 100%;
+}
+
+label {
+  font-size: small;
+
+  &.required:after {
+    content: " *" !important;
+    color: red;
+  }
+
+  // for Radio or checkbox, add border and background as per government standard */
+  &.prompt {
+    font-weight: normal;
+    margin-right: 5px;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    padding: 3px 10px 3px 10px;
+
+    input {
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+  }
+}
+
+a {
+  cursor: pointer;
+}
+
+[data-ng-messages] {
+  color: darkred;
+  font-size: 9pt !important;
+  font-weight: bold;
+  margin: 2px 3px 2px 3px;
+}
+
+[type="submit"], [data-ng-click] {
+  cursor: pointer;
+}
+
+[ng\:cloak], [data-ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
+.disabled {
+  pointer-events: none;
+  color: gray !important;
+}

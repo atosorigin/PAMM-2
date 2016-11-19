@@ -1,0 +1,53 @@
+[
+  {
+    "description": "At start up",
+    "assertions": [
+      {
+        "passed": true
+      },
+      {
+        "passed": true
+      },
+      {
+        "passed": true
+      }
+    ],
+    "duration": 8654147135
+  },
+  {
+    "description": "Login With no credentials",
+    "assertions": [
+      {
+        "passed": true
+      },
+      {
+        "passed": true
+      }
+    ],
+    "duration": 52418121
+  },
+  {
+    "description": "Login With Incorrect Details",
+    "assertions": [
+      {
+        "passed": true
+      },
+      {
+        "passed": true
+      }
+    ],
+    "duration": 905419853
+  },
+  {
+    "description": "Login With Correct Details",
+    "assertions": [
+      {
+        "passed": true
+      },
+      {
+        "passed": true
+      }
+    ],
+    "duration": 1381344147
+  }
+]
