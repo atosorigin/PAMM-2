@@ -15,6 +15,7 @@ var app_routing_1 = require("./app.routing");
 var router_1 = require("@angular/router");
 var user_module_1 = require("./feature/user/user.module");
 var auth_module_1 = require("./feature/user/auth/auth.module");
+var common_1 = require("@angular/common");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -26,6 +27,9 @@ var AppModule = (function () {
                 user_module_1.UserModule,
                 auth_module_1.AuthModule,
                 app_routing_1.AppRouting
+            ],
+            providers: [
+                { provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }
             ],
             declarations: [
                 app_compponent_1.AppComponent,

@@ -1,0 +1,48 @@
+div {
+  max-width: 1200px;
+  margin: 100px auto auto auto;
+  padding: 5px; }
+  div form {
+    float: right;
+    margin-right: 50px;
+    width: 500px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 7px 7px 5px 0 rgba(30, 30, 50, 0.7);
+    padding: 30px; }
+    div form h3 {
+      color: #843534; }
+    @media (max-width: 767px) {
+      div form {
+        float: none;
+        margin-right: auto;
+        margin-left: auto; } }
+    @media (max-width: 480px) {
+      div form {
+        margin: 10px auto auto auto;
+        width: auto; } }
+    div form p {
+      font-size: 14pt; }
+    div form div {
+      margin-top: 5px; }
+    div form button {
+      width: 100%;
+      margin-top: 5px; }
+    div form .btn-cancel {
+      border: 1px solid darkgray; }
+    div form a {
+      color: #122b40; }
+    div form div.box {
+      margin: 5px 0 0 0;
+      border: 1px solid lightgray;
+      border-radius: 0 4px 4px 0;
+      background-color: white;
+      padding: 5px 15px 5px 15px;
+      font-size: 10pt; }
+      div form div.box * {
+        vertical-align: baseline; }
+    div form .fa {
+      width: 16px; }
+
+/*# sourceMappingURL=auth-child.css.map */

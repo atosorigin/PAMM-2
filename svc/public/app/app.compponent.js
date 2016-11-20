@@ -15,7 +15,8 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: "pamm",
-            template: "<router-outlet></router-outlet>"
+            template: "<router-outlet></router-outlet>",
+            encapsulation: core_1.ViewEncapsulation.Emulated
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

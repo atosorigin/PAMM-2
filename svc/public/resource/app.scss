@@ -44,10 +44,6 @@ a {
   cursor: pointer;
 }
 
-[ng\:cloak], [data-ng-cloak], .ng-cloak {
-  display: none !important;
-}
-
 .disabled {
   pointer-events: none;
   color: gray !important;

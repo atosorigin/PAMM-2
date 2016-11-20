@@ -12,6 +12,7 @@ var core_1 = require("@angular/core");
 var auth_component_1 = require("./auth.component");
 var auth_routing_1 = require("./auth.routing");
 var login_component_1 = require("./login.component");
+var register_component_1 = require("./register.component");
 var AuthModule = (function () {
     function AuthModule() {
     }
@@ -22,7 +23,8 @@ var AuthModule = (function () {
             ],
             declarations: [
                 auth_component_1.AuthComponent,
-                login_component_1.LoginComponent
+                login_component_1.LoginComponent,
+                register_component_1.RegisterComponent
             ],
             bootstrap: [auth_component_1.AuthComponent]
         }), 

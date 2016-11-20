@@ -12,11 +12,13 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var auth_component_1 = require("./auth.component");
 var login_component_1 = require("./login.component");
+var register_component_1 = require("./register.component");
 var routes = [
     {
-        path: 'user/auth', component: auth_component_1.AuthComponent,
+        path: "user/auth", component: auth_component_1.AuthComponent,
         children: [
-            { path: 'login', component: login_component_1.LoginComponent }
+            { path: "login", component: login_component_1.LoginComponent },
+            { path: "register", component: register_component_1.RegisterComponent }
         ]
     }
 ];

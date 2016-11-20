@@ -9,17 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var LoginComponent = (function () {
-    function LoginComponent() {
+var RegisterComponent = (function () {
+    function RegisterComponent() {
     }
-    LoginComponent = __decorate([
+    RegisterComponent = __decorate([
         core_1.Component({
-            templateUrl: "app/feature/user/auth/login.html",
+            templateUrl: "app/feature/user/auth/register.html",
             styleUrls: ["app/feature/user/auth/auth-child.css"]
         }), 
         __metadata('design:paramtypes', [])
-    ], LoginComponent);
-    return LoginComponent;
+    ], RegisterComponent);
+    return RegisterComponent;
 }());
-exports.LoginComponent = LoginComponent;
-//# sourceMappingURL=login.component.js.map
+exports.RegisterComponent = RegisterComponent;
+//# sourceMappingURL=register.component.js.map

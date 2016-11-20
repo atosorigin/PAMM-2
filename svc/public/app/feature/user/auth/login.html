@@ -1,0 +1,28 @@
+<div>
+  <form name="loginForm" method="post" novalidate>
+    <div class="input-group">
+      <label class="sr-only" for="username">Username</label>
+      <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+      <input class="form-control" type="email" id="username" name="username"
+             data-ng-model="login.credentials.username"
+             placeholder="User Name (email address)" required data-lowercase autofocus>
+    </div>
+    <div class="input-group">
+      <label class="sr-only" for="password">Password</label>
+      <span class="input-group-addon"><i class="fa fa-key"></i></span>
+      <input class="form-control" type="password" data-ng-model="login.credentials.password" id="password"
+             name="password" placeholder="Password" required>
+    </div>
+
+    <div class="alert alert-danger" data-ng-show="login.hasAuthenticationError">
+      Please check your username and password and try again
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary" type="submit">LOGIN</button>
+    </div>
+    <div class="form-group">
+      <div><a routerLink="/user/auth/register" outerLinkActive="true">Don't have an account? Register</a></div>
+      <div><a data-ng-click="login.forgotPassword()">Forgotten password</a></div>
+    </div>
+  </form>
+</div>
