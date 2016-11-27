@@ -12,7 +12,7 @@ public class EmailService {
     private final MailerClient mailerClient;
 
     @Inject
-    public EmailService(MailerClient mailerClient) {
+    public EmailService(final MailerClient mailerClient) {
         this.mailerClient = mailerClient;
     }
 

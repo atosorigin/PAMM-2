@@ -18,7 +18,7 @@ POST        /register/admin             pamm.endpoint.admin.RegisterEndpoint.reg
 POST        /login/user                 pamm.endpoint.user.LoginEndpoint.login()
 POST        /login/admin                pamm.endpoint.admin.LoginEndpoint.login()
 
-POST        /audit                      pamm.infrastructure.audit.endpoint.AuditEndpoint.log()
+POST        /audit                      pamm.endpoint.audit.AuditEndpoint.log()
 
 #STATIC CONTENT
 

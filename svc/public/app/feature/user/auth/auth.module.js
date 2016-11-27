@@ -12,6 +12,8 @@ var core_1 = require("@angular/core");
 var auth_component_1 = require("./auth.component");
 var auth_routing_1 = require("./auth.routing");
 var login_component_1 = require("./login.component");
+var forms_1 = require("@angular/forms");
+var common_1 = require("@angular/common");
 var register_component_1 = require("./register.component");
 var AuthModule = (function () {
     function AuthModule() {
@@ -19,7 +21,9 @@ var AuthModule = (function () {
     AuthModule = __decorate([
         core_1.NgModule({
             imports: [
-                auth_routing_1.AuthRouting
+                auth_routing_1.AuthRouting,
+                forms_1.ReactiveFormsModule,
+                common_1.CommonModule
             ],
             declarations: [
                 auth_component_1.AuthComponent,

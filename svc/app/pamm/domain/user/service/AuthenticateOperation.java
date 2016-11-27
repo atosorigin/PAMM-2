@@ -18,11 +18,13 @@ public class AuthenticateOperation {
     private final UserAuthenticator authenticator;
 
     @Inject
-    public AuthenticateOperation(UserAuthenticator authenticator) {
+    public AuthenticateOperation(final UserAuthenticator authenticator) {
         this.authenticator = authenticator;
     }
 
-    public ServiceResult execute(final String username, final String password, Role role) {
+    public ServiceResult execute(final String username,
+                                 final String password,
+                                 final Role role) {
         final Principal userPrincipal = authenticator.authenticate(username, password, role);
 
         if (userPrincipal == null) {

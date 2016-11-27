@@ -12,7 +12,8 @@ public class DefaultFilter implements HttpFilters{
     private SecurityHeadersFilter securityHeadersFilter;
 
     @Inject
-    public DefaultFilter(GzipFilter gzip, SecurityHeadersFilter securityHeadersFilter) {
+    public DefaultFilter(final GzipFilter gzip,
+                         final SecurityHeadersFilter securityHeadersFilter) {
         this.gzip = gzip;
         this.securityHeadersFilter = securityHeadersFilter;
     }

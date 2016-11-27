@@ -9,13 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var forms_1 = require("@angular/forms");
 var RegisterComponent = (function () {
     function RegisterComponent() {
+        this.registerForm = new forms_1.FormGroup({});
     }
+    RegisterComponent.prototype.register = function () {
+        console.log("++++ Register submitted");
+    };
     RegisterComponent = __decorate([
         core_1.Component({
-            templateUrl: "app/feature/user/auth/register.html",
-            styleUrls: ["app/feature/user/auth/auth-child.css"]
+            moduleId: module.id,
+            templateUrl: "register.html",
+            styleUrls: ["auth-child.css"]
         }), 
         __metadata('design:paramtypes', [])
     ], RegisterComponent);

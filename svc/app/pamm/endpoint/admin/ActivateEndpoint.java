@@ -21,9 +21,9 @@ public class ActivateEndpoint extends Controller {
     private final UserAuthenticator authenticator;
 
     @Inject
-    public ActivateEndpoint(ActivateUserOperation activateUserOperation,
-                            UserAuthenticator authenticator,
-                            RequestUtil requestUtil) {
+    public ActivateEndpoint(final ActivateUserOperation activateUserOperation,
+                            final UserAuthenticator authenticator,
+                            final RequestUtil requestUtil) {
         this.activateUserOperation = activateUserOperation;
         this.requestUtil = requestUtil;
         this.authenticator = authenticator;

@@ -1,7 +1,7 @@
 package pamm.infrastructure.util;
 
-import com.google.inject.Singleton;
 import play.mvc.Http;
+import javax.inject.Singleton;
 
 @Singleton
 public class RequestUtil {

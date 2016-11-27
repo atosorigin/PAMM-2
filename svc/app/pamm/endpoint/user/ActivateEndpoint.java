@@ -14,7 +14,7 @@ import play.mvc.Result;
 import javax.inject.Inject;
 
 public class ActivateEndpoint extends Controller {
-    private static final Logger.ALogger LOG = Logger.of(UserSecuredEndpoint.class);
+    private static final Logger.ALogger LOG = Logger.of(ActivateEndpoint.class);
 
     private final ActivateUserOperation activateUserOperation;
     private final RequestUtil requestUtil;

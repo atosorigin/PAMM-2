@@ -1,6 +1,6 @@
-package pamm.infrastructure.audit.model;
+package pamm.domain.audit.model;
 
-import pamm.infrastructure.audit.service.AuditOperation;
+import pamm.domain.audit.service.AuditOperation;
 
 public class AuditInfo {
 
@@ -11,7 +11,7 @@ public class AuditInfo {
         return level;
     }
 
-    public void setLevel(AuditOperation.LEVEL level) {
+    public void setLevel(final AuditOperation.LEVEL level) {
         this.level = level;
     }
 

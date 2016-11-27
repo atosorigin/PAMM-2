@@ -20,17 +20,17 @@ public class RequestResetPasswordOperation {
     private final UserAuthenticator authenticator;
 
     @Inject
-    public RequestResetPasswordOperation(UserRepository repository,
-                                         UserAuthenticator authenticator,
-                                         EmailService emailService,
-                                         RequestUtil requestUtil) {
+    public RequestResetPasswordOperation(final UserRepository repository,
+                                         final UserAuthenticator authenticator,
+                                         final EmailService emailService,
+                                         final RequestUtil requestUtil) {
         this.repository = repository;
         this.emailService = emailService;
         this.requestUtil = requestUtil;
         this.authenticator = authenticator;
     }
 
-    public ServiceResult execute(JsonNode jsonRequest) {
+    public ServiceResult execute(final JsonNode jsonRequest) {
         final String email = jsonRequest.findPath("email").textValue().toLowerCase();
         final Principal.Role role = Principal.Role.valueOf(jsonRequest.findPath("role").textValue().toUpperCase());
         final User user = repository.findUserByEmail(email, role);
@@ -44,11 +44,13 @@ public class RequestResetPasswordOperation {
             final String verificationCode = authenticator.parseToken(token).getId().substring(0, 8);
 
             if (role.equals(Principal.Role.USER)) {
-                emailService.sendEmail(user.getEmail(), "Atos Learning Anywhere - Password Reset",
-                        views.html.mailtemplates.userPasswordChange.render(user, requestUtil.getBaseUrl(), token, verificationCode).toString());
+                emailService.sendEmail(user.getEmail(), "Atos [Your Project] - Password Reset",
+                    views.html.mailtemplates.userPasswordChange.render(user, requestUtil.getBaseUrl(), token,
+                        verificationCode).toString());
             } else {
-                emailService.sendEmail(user.getEmail(), "Atos Learning Anywhere - Password Reset",
-                        views.html.mailtemplates.adminPasswordChange.render(user, requestUtil.getBaseUrl(), token, verificationCode).toString());
+                emailService.sendEmail(user.getEmail(), "Atos [Your Project] - Password Reset",
+                    views.html.mailtemplates.adminPasswordChange.render(user, requestUtil.getBaseUrl(), token,
+                        verificationCode).toString());
             }
 
             return new ServiceResult(jsonRequest);

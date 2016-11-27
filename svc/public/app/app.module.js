@@ -10,12 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
+var router_1 = require("@angular/router");
+var common_1 = require("@angular/common");
+var user_module_1 = require("./feature/user/user.module");
 var app_compponent_1 = require("./app.compponent");
 var app_routing_1 = require("./app.routing");
-var router_1 = require("@angular/router");
-var user_module_1 = require("./feature/user/user.module");
-var auth_module_1 = require("./feature/user/auth/auth.module");
-var common_1 = require("@angular/common");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -25,7 +24,6 @@ var AppModule = (function () {
                 platform_browser_1.BrowserModule,
                 router_1.RouterModule,
                 user_module_1.UserModule,
-                auth_module_1.AuthModule,
                 app_routing_1.AppRouting
             ],
             providers: [

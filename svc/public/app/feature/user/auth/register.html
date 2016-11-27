@@ -1,5 +1,5 @@
 <div>
-  <form name="registerForm" data-ng-submit="r.register(registerForm)" method="post" novalidate>
+  <form [formGroup]="registerForm" (ngSubmit)="register()">
     <div class="logo"><span class="sr-only">Logo</span></div>
     <div class="input-group">
       <label class="sr-only" for="email">EMail</label>
@@ -37,9 +37,6 @@
       <input class="form-control" type="text" id="forename" name="forename"
              data-ng-model="r.details.forename" placeholder="Forename" required>
     </div>
-    <div data-ng-messages="registerForm.forename.$error" data-ng-if="registerForm.$submitted" role="alert">
-      <div data-ng-message="required">Please enter your Forename</div>
-    </div>
 
     <div class="input-group">
       <label class="sr-only" for="surname">Your Surname</label>
@@ -54,7 +51,6 @@
       * I have read and agree to the
       <a class="link" data-ng-click="r.showTermsOfUse()">Terms of Use</a>
     </div>
-
     <button type="submit" class="btn btn-primary">REGISTER</button>
     <button type="button" data-ng-click="r.cancel()" class="btn btn-cancel">CANCEL</button>
   </form>

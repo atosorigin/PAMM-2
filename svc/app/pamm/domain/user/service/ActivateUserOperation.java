@@ -11,7 +11,7 @@ public class ActivateUserOperation {
     private final UserRepository userRepository;
 
     @Inject
-    public ActivateUserOperation(UserRepository userRepository) {
+    public ActivateUserOperation(final UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 

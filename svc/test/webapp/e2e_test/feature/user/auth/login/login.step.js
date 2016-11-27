@@ -29,7 +29,6 @@ module.exports = function loginTest() {
         });
     });
 
-
     test.Then("There are no error messages on the page", function (next) {
         expect(login.invalidLoginError.isDisplayed()).to.eventually.be.false;
         expect(login.usernameRequiredError.isPresent()).to.eventually.be.false;

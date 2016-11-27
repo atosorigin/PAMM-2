@@ -22,17 +22,18 @@ public class SecuredAction extends Action.Simple {
         tokenType = Token.Type.ACCESS;
     }
 
-    public SecuredAction(Principal.Role role) {
+    public SecuredAction(final Principal.Role role) {
         this.role = role;
         tokenType = Token.Type.ACCESS;
     }
 
-    public SecuredAction(Principal.Role role, Token.Type tokenType) {
+    public SecuredAction(final Principal.Role role,
+                         final Token.Type tokenType) {
         this.role = role;
         this.tokenType = tokenType;
     }
 
-    public SecuredAction(Token.Type tokenType) {
+    public SecuredAction(final Token.Type tokenType) {
         this.role = null;
         this.tokenType = tokenType;
     }

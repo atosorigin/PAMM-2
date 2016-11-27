@@ -1,8 +1,8 @@
-package pamm.infrastructure.audit.service;
+package pamm.domain.audit.service;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import pamm.endpoint.ServiceResult;
-import pamm.infrastructure.audit.model.AuditInfo;
+import pamm.domain.audit.model.AuditInfo;
 import play.Logger;
 import play.libs.Json;
 

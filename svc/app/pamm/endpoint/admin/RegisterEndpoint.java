@@ -11,7 +11,7 @@ public class RegisterEndpoint extends ResourceEndpoint {
     private final RegisterAdminOperation registerAdminOperation;
 
     @Inject
-    public RegisterEndpoint(RegisterAdminOperation registerAdminOperation) {
+    public RegisterEndpoint(final RegisterAdminOperation registerAdminOperation) {
         this.registerAdminOperation = registerAdminOperation;
     }
 

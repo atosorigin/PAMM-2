@@ -12,7 +12,7 @@
         "passed": true
       }
     ],
-    "duration": 8654147135
+    "duration": 1828655303
   },
   {
     "description": "Login With no credentials",
@@ -24,7 +24,7 @@
         "passed": true
       }
     ],
-    "duration": 52418121
+    "duration": 63176904
   },
   {
     "description": "Login With Incorrect Details",
@@ -36,7 +36,7 @@
         "passed": true
       }
     ],
-    "duration": 905419853
+    "duration": 859548234
   },
   {
     "description": "Login With Correct Details",
@@ -48,6 +48,6 @@
         "passed": true
       }
     ],
-    "duration": 1381344147
+    "duration": 1263074153
   }
 ]

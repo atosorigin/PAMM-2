@@ -18,18 +18,20 @@
 
     <appender name="AUDIT" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${application.home}/logs/audit.log</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!-- Daily rollover with compression -->
-            <fileNamePattern>${application.home}/logs/audit_%d{yyyy-MM-dd}.%i.gz</fileNamePattern>
-            <!-- keep 30 days worth of history -->
-            <maxHistory>30</maxHistory>
-            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <maxFileSize>5MB</maxFileSize>
-            </timeBasedFileNamingAndTriggeringPolicy>
-        </rollingPolicy>
         <encoder>
             <pattern>%date - %message%n%xException</pattern>
         </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover. Make sure the path matches the one in the file element or else
+             the rollover logs are placed in the working directory. -->
+            <fileNamePattern>${application.home}/logs/audit_%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>5MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <!-- keep 30 days' worth of history -->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
     </appender>
 
     <!--
@@ -63,7 +65,7 @@
         <appender-ref ref="STDOUT"/>
     </logger>
 
-    <logger name="pamm.infrastructure.audit.service" additivity="false">
+    <logger name="pamm.domain.audit.service" additivity="false">
         <appender-ref ref="AUDIT"/>
     </logger>
 

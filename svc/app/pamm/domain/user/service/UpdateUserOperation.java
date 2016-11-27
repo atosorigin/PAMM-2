@@ -13,7 +13,7 @@ public class UpdateUserOperation {
     private final UserRepository repository;
 
     @Inject
-    public UpdateUserOperation(UserRepository repository) {
+    public UpdateUserOperation(final UserRepository repository) {
         this.repository = repository;
     }
 

@@ -20,7 +20,9 @@ public class ResetPasswordOperation {
         this.cipher = cipher;
     }
 
-    public ServiceResult execute(Principal principal, String userVerificationCode, String newPassword) {
+    public ServiceResult execute(final Principal principal,
+                                 final String userVerificationCode,
+                                 final String newPassword) {
         final String verificationCode = principal.getClaims().getId().substring(0, 8);
 
         if (!userVerificationCode.equals(verificationCode)) {

@@ -14,7 +14,7 @@ public class RequestResetPasswordEndpoint extends ResourceEndpoint {
     private final RequestResetPasswordOperation requestResetPasswordOperation;
 
     @Inject
-    public RequestResetPasswordEndpoint(RequestResetPasswordOperation requestResetPasswordOperation) {
+    public RequestResetPasswordEndpoint(final RequestResetPasswordOperation requestResetPasswordOperation) {
         this.requestResetPasswordOperation = requestResetPasswordOperation;
     }
 

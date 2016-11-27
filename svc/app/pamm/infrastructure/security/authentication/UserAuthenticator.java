@@ -14,8 +14,12 @@ import pamm.infrastructure.util.RandomKeyGenerator;
 import play.Configuration;
 
 import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Singleton;
 import java.util.Date;
 
+@Singleton
+@Named
 public class UserAuthenticator {
     private final Configuration configuration;
     private final Cipher cipher;
@@ -23,10 +27,10 @@ public class UserAuthenticator {
     private final UserRepository userRepository;
 
     @Inject
-    public UserAuthenticator(Configuration configuration,
-                             Cipher cipher,
-                             RandomKeyGenerator randomKeyGenerator,
-                             UserRepository userRepository) {
+    public UserAuthenticator(final Configuration configuration,
+                             final Cipher cipher,
+                             final RandomKeyGenerator randomKeyGenerator,
+                             final UserRepository userRepository) {
         this.configuration = configuration;
         this.cipher = cipher;
         this.randomKeyGenerator = randomKeyGenerator;
@@ -74,14 +78,16 @@ public class UserAuthenticator {
         }
     }
 
-    public Claims parseToken(String token) {
+    public Claims parseToken(final String token) {
         final Claims claims = Jwts.parser()
             .setSigningKey(TextCodec.BASE64.encode(getSecretKey()))
             .parseClaimsJws(token).getBody();
         return claims;
     }
 
-    public Principal authenticate(final String username, final String plaintextPassword, final Principal.Role role) {
+    public Principal authenticate(final String username,
+                                  final String plaintextPassword,
+                                  final Principal.Role role) {
         final User user = userRepository.findUserByEmail(username, role);
         if (user != null && user.getActivationDate() != null) {
             if (cipher.verify(plaintextPassword, user.getPassword())) {

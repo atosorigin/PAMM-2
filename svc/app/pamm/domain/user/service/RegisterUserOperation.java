@@ -28,12 +28,12 @@ public class RegisterUserOperation {
     private final WhiteListRepository whiteListRepository;
 
     @Inject
-    public RegisterUserOperation(UserRepository repository,
-                                 BCryptCipher cipher,
-                                 UserAuthenticator authenticator,
-                                 EmailService emailService,
-                                 RequestUtil requestUtil,
-                                 WhiteListRepository whiteListRepository) {
+    public RegisterUserOperation(final UserRepository repository,
+                                 final BCryptCipher cipher,
+                                 final UserAuthenticator authenticator,
+                                 final EmailService emailService,
+                                 final RequestUtil requestUtil,
+                                 final WhiteListRepository whiteListRepository) {
         this.repository = repository;
         this.cipher = cipher;
         this.emailService = emailService;
@@ -42,7 +42,7 @@ public class RegisterUserOperation {
         this.whiteListRepository = whiteListRepository;
     }
 
-    public ServiceResult execute(JsonNode jsonRequest) {
+    public ServiceResult execute(final JsonNode jsonRequest) {
         final String userEmail = jsonRequest.findPath("email").textValue();
 
         if (jsonRequest.findPath("activationDate").textValue() != null) {
@@ -66,8 +66,9 @@ public class RegisterUserOperation {
         repository.set(user);
 
         final String token = authenticator.generateJwtTokenForUser(user, Token.Type.ACTIVATE);
-        emailService.sendEmail(user.getEmail(), "Welcome to Atos Learn Anywhere Admin Portal. Please activate your account",
-                views.html.mailtemplates.userActivation.render(user, requestUtil.getBaseUrl(), token).toString());
+        emailService.sendEmail(user.getEmail(),
+            "Welcome to Atos [Your Project] User Portal. Please activate your account",
+            views.html.mailtemplates.userActivation.render(user, requestUtil.getBaseUrl(), token).toString());
 
         return new ServiceResult(jsonRequest);
     }

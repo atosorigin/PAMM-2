@@ -1,7 +1,6 @@
 package pamm.infrastructure.util;
 
-import com.google.inject.Singleton;
-
+import javax.inject.Singleton;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 

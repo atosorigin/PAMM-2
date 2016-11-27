@@ -2,7 +2,6 @@ package pamm.endpoint.admin;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import pamm.domain.user.service.AuthenticateOperation;
-import pamm.endpoint.ResourceEndpoint;
 import play.Logger;
 import play.db.jpa.Transactional;
 import play.mvc.Controller;
@@ -24,7 +23,7 @@ public class LoginEndpoint extends Controller {
     private final AuthenticateOperation authenticateOperation;
 
     @Inject
-    public LoginEndpoint(AuthenticateOperation authenticateOperation) {
+    public LoginEndpoint(final AuthenticateOperation authenticateOperation) {
         this.authenticateOperation = authenticateOperation;
     }
 
@@ -51,7 +50,8 @@ public class LoginEndpoint extends Controller {
             final String password = authValue[1];
 
             try {
-                final JsonNode userPrincipal = authenticateOperation.execute(username, password, Role.ADMIN).getResult();
+                final JsonNode userPrincipal = authenticateOperation.execute(username, password,
+                    Role.ADMIN).getResult();
 
                 if (userPrincipal == null) {
                     return unauthorized("Incorrect Credentials");

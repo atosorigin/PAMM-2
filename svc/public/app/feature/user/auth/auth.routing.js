@@ -18,7 +18,8 @@ var routes = [
         path: "user/auth", component: auth_component_1.AuthComponent,
         children: [
             { path: "login", component: login_component_1.LoginComponent },
-            { path: "register", component: register_component_1.RegisterComponent }
+            { path: "register", component: register_component_1.RegisterComponent },
+            { path: "activate", component: register_component_1.RegisterComponent }
         ]
     }
 ];

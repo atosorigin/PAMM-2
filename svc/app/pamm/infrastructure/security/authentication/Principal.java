@@ -48,14 +48,17 @@ public class Principal {
         return Token.Type.valueOf(claims.get(ClaimProperties.TYPE).toString());
     }
 
-    public Principal(String authToken, Token.Status tokenStatus, Claims claims) {
+    public Principal(final String authToken,
+                     final Token.Status tokenStatus,
+                     final Claims claims) {
         this.authToken = authToken;
         this.tokenStatus = tokenStatus;
         this.claims = claims;
         this.subject = claims.getSubject();
     }
 
-    public Principal(String authToken, Token.Status tokenStatus) {
+    public Principal(final String authToken,
+                     final Token.Status tokenStatus) {
         this.authToken = authToken;
         this.tokenStatus = tokenStatus;
         this.claims = null;

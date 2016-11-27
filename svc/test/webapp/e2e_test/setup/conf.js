@@ -22,8 +22,8 @@ config = {
     specs: [],
 
     onPrepare: function () {
-        browser.driver.manage().window().setPosition(0, 0);
-        browser.driver.manage().window().setSize(1280, 1080);
+        browser.driver.manage().window().setPosition(3841, 100);
+        browser.driver.manage().window().setSize(1280, 800);
         global.EC = protractor.ExpectedConditions;
         global.DBServiceCaller = require("./db-service-caller.js");
         global.DialogPage = require("./dialog.page.js");

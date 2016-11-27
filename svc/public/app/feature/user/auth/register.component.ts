@@ -1,9 +1,22 @@
 import {Component} from "@angular/core";
+import {FormGroup} from "@angular/forms";
 
 @Component({
-    templateUrl: "app/feature/user/auth/register.html",
-    styleUrls: ["app/feature/user/auth/auth-child.css"]
+    moduleId: module.id,
+    templateUrl: "register.html",
+    styleUrls: ["auth-child.css"]
 })
 
 export class RegisterComponent {
+    private registerForm: FormGroup;
+
+
+    constructor() {
+        this.registerForm = new FormGroup({
+        });
+    }
+
+    register() {
+        console.log("++++ Register submitted");
+    }
 }

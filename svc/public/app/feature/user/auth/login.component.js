@@ -9,13 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var forms_1 = require("@angular/forms");
 var LoginComponent = (function () {
     function LoginComponent() {
+        this.hasAuthenticationError = false;
+        this.loginForm = new forms_1.FormGroup({
+            "username": new forms_1.FormControl("", forms_1.Validators.required),
+            "password": new forms_1.FormControl("", forms_1.Validators.required)
+        });
     }
+    LoginComponent.prototype.login = function () {
+        console.log("++++++++++++");
+        console.log(this.loginForm);
+    };
     LoginComponent = __decorate([
         core_1.Component({
-            templateUrl: "app/feature/user/auth/login.html",
-            styleUrls: ["app/feature/user/auth/auth-child.css"]
+            moduleId: module.id,
+            templateUrl: "login.html",
+            styleUrls: ["auth-child.css"]
         }), 
         __metadata('design:paramtypes', [])
     ], LoginComponent);

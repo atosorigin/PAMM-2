@@ -20,17 +20,17 @@ public class ServiceResult {
     private Object rawResult;
     private File fileResult;
 
-    public ServiceResult(JsonNode result) {
+    public ServiceResult(final JsonNode result) {
         this.result = result;
         this.status = Status.SUCCESS;
     }
 
-    public ServiceResult(File fileResult) {
+    public ServiceResult(final File fileResult) {
         this.fileResult = fileResult;
         this.status = Status.SUCCESS;
     }
 
-    public ServiceResult(String message) {
+    public ServiceResult(final String message) {
         final ObjectNode messageNode = Json.newObject();
         messageNode.put("message", message);
 
@@ -38,12 +38,12 @@ public class ServiceResult {
         this.status = Status.SUCCESS;
     }
 
-    public ServiceResult(Status status, JsonNode result) {
+    public ServiceResult(final Status status, final JsonNode result) {
         this.result = result;
         this.status = status;
     }
 
-    public ServiceResult(Status status, String message) {
+    public ServiceResult(final Status status, final String message) {
         final ObjectNode messageNode = Json.newObject();
         messageNode.put("message", message);
         result = messageNode;
@@ -51,7 +51,7 @@ public class ServiceResult {
         this.status = status;
     }
 
-    public ServiceResult(Status status) {
+    public ServiceResult(final Status status) {
         this.result = null;
         this.status = status;
     }
