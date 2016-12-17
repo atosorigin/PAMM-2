@@ -1,6 +1,7 @@
 import {Component} from "@angular/core";
 
 @Component({
+    moduleId: module.id,
     template: `
 
     <div class="user-auth" data-ng-cloak>
@@ -13,7 +14,7 @@ import {Component} from "@angular/core";
       </footer>
     </div>`,
 
-    styleUrls: ["app/feature/user/auth/auth.css"]
+    styleUrls: ["auth.css"]
 })
 
 export class AuthComponent {

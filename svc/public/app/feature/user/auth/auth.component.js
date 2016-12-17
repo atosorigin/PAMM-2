@@ -12,14 +12,15 @@ var core_1 = require("@angular/core");
 var AuthComponent = (function () {
     function AuthComponent() {
     }
-    AuthComponent = __decorate([
-        core_1.Component({
-            template: "\n\n    <div class=\"user-auth\" data-ng-cloak>\n      <header class=\"container-fluid\">\n          <h1>PAMM-2 </h1>\n      </header>\n      <main><router-outlet></router-outlet></main>\n      <footer>\n        <div><i class=\"fa fa-copyright\"></i>2016 Atos EPI- Powered by PAMM2</div>\n      </footer>\n    </div>",
-            styleUrls: ["app/feature/user/auth/auth.css"]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], AuthComponent);
     return AuthComponent;
 }());
+AuthComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        template: "\n\n    <div class=\"user-auth\" data-ng-cloak>\n      <header class=\"container-fluid\">\n          <h1>PAMM-2 </h1>\n      </header>\n      <main><router-outlet></router-outlet></main>\n      <footer>\n        <div><i class=\"fa fa-copyright\"></i>2016 Atos EPI- Powered by PAMM2</div>\n      </footer>\n    </div>",
+        styleUrls: ["auth.css"]
+    }),
+    __metadata("design:paramtypes", [])
+], AuthComponent);
 exports.AuthComponent = AuthComponent;
 //# sourceMappingURL=auth.component.js.map

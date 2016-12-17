@@ -9,7 +9,7 @@
     width: 100%;
     max-width: 1200px;
     height: 100px;
-    background: url("../../../../resource/image/logo_atos_white.svg") 5px center no-repeat;
+    background: url("/resource/image/logo_atos_white.svg") 5px center no-repeat;
     background-size: 150px;
     color: white; }
     .user-auth header h1 {
@@ -26,7 +26,7 @@
           font-size: 18pt; } }
   .user-auth main {
     flex: 1;
-    background: url("../../../../resource/image/bg.jpg") left top no-repeat;
+    background: url("/resource/image/bg.jpg") left top no-repeat;
     background-size: cover;
     top: 100px; }
   .user-auth footer {

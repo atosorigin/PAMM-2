@@ -10,8 +10,7 @@ import {AuthModule} from "./auth/auth.module";
     ],
     declarations: [
         UserComponent
-    ],
-    bootstrap: [UserComponent]
+    ]
 })
 export class UserModule {
 }

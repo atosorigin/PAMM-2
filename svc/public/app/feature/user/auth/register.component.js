@@ -17,15 +17,15 @@ var RegisterComponent = (function () {
     RegisterComponent.prototype.register = function () {
         console.log("++++ Register submitted");
     };
-    RegisterComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            templateUrl: "register.html",
-            styleUrls: ["auth-child.css"]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], RegisterComponent);
     return RegisterComponent;
 }());
+RegisterComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        templateUrl: "register.html",
+        styleUrls: ["auth-child.css"]
+    }),
+    __metadata("design:paramtypes", [])
+], RegisterComponent);
 exports.RegisterComponent = RegisterComponent;
 //# sourceMappingURL=register.component.js.map

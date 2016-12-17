@@ -74,7 +74,7 @@ label {
   font-size: small; }
   label.required:after {
     content: " *" !important;
-    color: red; }
+    color: darkred; }
   label.prompt {
     font-weight: normal;
     margin-right: 5px;
@@ -85,16 +85,12 @@ label {
       margin-left: 5px;
       margin-right: 5px; }
 
-a {
-  cursor: pointer; }
-
-[data-ng-messages] {
+.error {
   color: darkred;
   font-size: 9pt !important;
-  font-weight: bold;
-  margin: 2px 3px 2px 3px; }
+  font-weight: bold; }
 
-[type="submit"], [data-ng-click] {
+a, [type="submit"] {
   cursor: pointer; }
 
 .disabled {

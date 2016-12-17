@@ -10,27 +10,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
+var datatype_service_1 = require("../../../service/datatype.service");
 var LoginComponent = (function () {
-    function LoginComponent() {
+    function LoginComponent(dataType) {
+        this.dataType = dataType;
+        this.submitted = false;
         this.hasAuthenticationError = false;
+    }
+    LoginComponent.prototype.ngOnInit = function () {
         this.loginForm = new forms_1.FormGroup({
-            "username": new forms_1.FormControl("", forms_1.Validators.required),
+            "username": new forms_1.FormControl("", forms_1.Validators.compose([
+                forms_1.Validators.required,
+                this.dataType.email,
+            ])),
             "password": new forms_1.FormControl("", forms_1.Validators.required)
         });
-    }
+    };
     LoginComponent.prototype.login = function () {
+        this.submitted = true;
         console.log("++++++++++++");
         console.log(this.loginForm);
     };
-    LoginComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            templateUrl: "login.html",
-            styleUrls: ["auth-child.css"]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], LoginComponent);
     return LoginComponent;
 }());
+LoginComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        templateUrl: "login.html",
+        styleUrls: ["auth-child.css"],
+        providers: [datatype_service_1.DataTypeService]
+    }),
+    __metadata("design:paramtypes", [datatype_service_1.DataTypeService])
+], LoginComponent);
 exports.LoginComponent = LoginComponent;
 //# sourceMappingURL=login.component.js.map

@@ -11,7 +11,7 @@ label {
 
   &.required:after {
     content: " *" !important;
-    color: red;
+    color: darkred;
   }
 
   // for Radio or checkbox, add border and background as per government standard */
@@ -29,18 +29,13 @@ label {
   }
 }
 
-a {
-  cursor: pointer;
-}
-
-[data-ng-messages] {
+.error {
   color: darkred;
   font-size: 9pt !important;
   font-weight: bold;
-  margin: 2px 3px 2px 3px;
 }
 
-[type="submit"], [data-ng-click] {
+a, [type="submit"] {
   cursor: pointer;
 }
 

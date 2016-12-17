@@ -17,6 +17,7 @@ var routes = [
     {
         path: "user/auth", component: auth_component_1.AuthComponent,
         children: [
+            { path: "", redirectTo: "login", pathMatch: 'full' },
             { path: "login", component: login_component_1.LoginComponent },
             { path: "register", component: register_component_1.RegisterComponent },
             { path: "activate", component: register_component_1.RegisterComponent }
@@ -26,18 +27,18 @@ var routes = [
 var AuthRouting = (function () {
     function AuthRouting() {
     }
-    AuthRouting = __decorate([
-        core_1.NgModule({
-            imports: [
-                router_1.RouterModule.forChild(routes)
-            ],
-            exports: [
-                router_1.RouterModule
-            ]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], AuthRouting);
     return AuthRouting;
 }());
+AuthRouting = __decorate([
+    core_1.NgModule({
+        imports: [
+            router_1.RouterModule.forChild(routes)
+        ],
+        exports: [
+            router_1.RouterModule
+        ]
+    }),
+    __metadata("design:paramtypes", [])
+], AuthRouting);
 exports.AuthRouting = AuthRouting;
 //# sourceMappingURL=auth.routing.js.map

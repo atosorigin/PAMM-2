@@ -15,10 +15,6 @@ div {
     box-shadow: 7px 7px 5px 0 rgba(30, 30, 50, 0.7);
     padding: 30px;
 
-    h3 {
-      color: #843534;
-    }
-
     @media (max-width: $break-width) {
       float: none;
       margin-right: auto;
@@ -28,10 +24,6 @@ div {
     @media (max-width: $min-width) {
       margin: 10px auto auto auto;
       width: auto;
-    }
-
-    p {
-      font-size: 14pt;
     }
 
     div {
@@ -63,8 +55,5 @@ div {
       }
     }
 
-    .fa {
-      width: 16px;
-    }
   }
 }

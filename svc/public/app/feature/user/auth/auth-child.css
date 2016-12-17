@@ -11,8 +11,6 @@ div {
     background: rgba(255, 255, 255, 0.9);
     box-shadow: 7px 7px 5px 0 rgba(30, 30, 50, 0.7);
     padding: 30px; }
-    div form h3 {
-      color: #843534; }
     @media (max-width: 767px) {
       div form {
         float: none;
@@ -22,8 +20,6 @@ div {
       div form {
         margin: 10px auto auto auto;
         width: auto; } }
-    div form p {
-      font-size: 14pt; }
     div form div {
       margin-top: 5px; }
     div form button {
@@ -42,7 +38,5 @@ div {
       font-size: 10pt; }
       div form div.box * {
         vertical-align: baseline; }
-    div form .fa {
-      width: 16px; }
 
 /*# sourceMappingURL=auth-child.css.map */
