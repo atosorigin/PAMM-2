@@ -13,6 +13,8 @@ export class UserContext {
     }
 
     login(username: string, password: string, role: Role): Observable<User> {
+        this.logout();
+
         let loginUrl: string;
 
         if (role === Role.ADMIN) {

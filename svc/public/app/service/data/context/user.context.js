@@ -19,6 +19,7 @@ var UserContext = (function () {
         this._user = null;
     }
     UserContext.prototype.login = function (username, password, role) {
+        this.logout();
         var loginUrl;
         if (role === role_1.Role.ADMIN) {
             loginUrl = "login/admin";

@@ -12,12 +12,22 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var router_1 = require("@angular/router");
 var user_module_1 = require("./feature/user/user.module");
-var app_compponent_1 = require("./app.compponent");
-var app_routing_1 = require("./app.routing");
 var http_1 = require("@angular/http");
 var user_context_1 = require("./service/data/context/user.context");
 var data_access_service_1 = require("./service/data/data-access.service");
 var datatype_service_1 = require("./service/datatype.service");
+var AppComponent = (function () {
+    function AppComponent() {
+    }
+    AppComponent = __decorate([
+        core_1.Component({
+            selector: "app",
+            template: "<router-outlet></router-outlet>"
+        }), 
+        __metadata('design:paramtypes', [])
+    ], AppComponent);
+    return AppComponent;
+}());
 var AppModule = (function () {
     function AppModule() {
     }
@@ -25,20 +35,21 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [
                 platform_browser_1.BrowserModule,
-                router_1.RouterModule,
+                router_1.RouterModule.forRoot([
+                    { path: "", redirectTo: "/user/auth/login", pathMatch: "full" },
+                ], { useHash: true }),
                 http_1.HttpModule,
-                user_module_1.UserModule,
-                app_routing_1.AppRouting
+                user_module_1.UserModule
             ],
             declarations: [
-                app_compponent_1.AppComponent,
+                AppComponent
             ],
             providers: [
                 datatype_service_1.DataTypeService,
                 data_access_service_1.DataAccessService,
                 user_context_1.UserContext
             ],
-            bootstrap: [app_compponent_1.AppComponent]
+            bootstrap: [AppComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);
