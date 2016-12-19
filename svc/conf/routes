@@ -1,0 +1,29 @@
+# Routes
+# This file defines all service routes (Higher priority routes first)
+
+# NOTE***** Static content should be listed at the end of the file******
+
+# ~~~~
+
+# Endpoints
+GET         /activate/:key/user         pamm.endpoint.user.ActivateEndpoint.activate(key: String)
+GET         /activate/:key/admin        pamm.endpoint.admin.ActivateEndpoint.activate(key: String)
+
+POST        /reset                      pamm.endpoint.auth.RequestResetPasswordEndpoint.requestReset()
+PUT         /reset                      pamm.endpoint.auth.ResetPasswordEndpoint.reset()
+
+POST        /register/user              pamm.endpoint.user.RegisterEndpoint.register()
+POST        /register/admin             pamm.endpoint.admin.RegisterEndpoint.register()
+
+POST        /login/user                 pamm.endpoint.user.LoginEndpoint.login()
+POST        /login/admin                pamm.endpoint.admin.LoginEndpoint.login()
+
+POST        /audit                      pamm.endpoint.audit.AuditEndpoint.log()
+
+#STATIC CONTENT
+
+# Home page
+GET         /                           controllers.Assets.at(path="/public", file="index.html")
+
+# Map static resources from the /public folder to the /assets URL path
+GET         /*file                      controllers.Assets.versioned(path="/public", file: Asset)

@@ -1,0 +1,43 @@
+@import "auth-config";
+
+div {
+  max-width: $max-width;
+  margin: auto;
+  padding: 5px;
+
+  form {
+    float: right;
+    margin-top: 100px;
+    margin-right: 50px;
+    width: 500px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 7px 7px 5px 0 rgba(30, 30, 50, 0.7);
+    padding: 30px;
+
+    @media (max-width: $break-width) {
+      float: none;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    @media (max-width: $min-width) {
+      margin: 10px auto auto auto;
+      width: auto;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 5px;
+    }
+
+    .btn-cancel {
+      border: 1px solid darkgray;
+    }
+
+    a {
+      color: #122b40;
+    }
+  }
+}

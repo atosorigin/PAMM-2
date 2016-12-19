@@ -1,0 +1,46 @@
+@import "variables";
+@import "navbar-inverse-atos";
+@import "bootstrap-override";
+
+html, body {
+  height: 100%;
+}
+
+label {
+  font-size: small;
+
+  &.required:after {
+    content: " *" !important;
+    color: #b20000;
+  }
+
+  // for Radio or checkbox, add border and background as per government standard */
+  &.prompt {
+    font-weight: normal;
+    margin-right: 5px;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    padding: 3px 10px 3px 10px;
+
+    input {
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+  }
+}
+
+div.error {
+  border-top: 2px solid $error;
+  color: $error;
+  font-size: 9pt;
+  font-weight: bold;
+}
+
+a, [type="submit"] {
+  cursor: pointer;
+}
+
+.disabled {
+  pointer-events: none;
+  color: gray;
+}

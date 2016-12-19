@@ -1,0 +1,7 @@
+{
+  "userName": "test.user@atos.net",
+  "password": "password1",
+  "incorrectPassword": "xxxxx",
+  "homeURL": "/#/user/home",
+  "loginURL": "/#/user/login"
+}
