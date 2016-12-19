@@ -8,6 +8,10 @@ const routes: Routes = [
     {
         path: "user/auth", component: AuthComponent,
         children: [
+            {
+                path: "",
+                redirectTo: "login",
+            },
             {path: "login", component: LoginComponent},
             {path: "register", component: RegisterComponent},
             {path: "activate", component: RegisterComponent}

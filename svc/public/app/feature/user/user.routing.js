@@ -17,18 +17,18 @@ var routes = [
 var UserRouting = (function () {
     function UserRouting() {
     }
-    UserRouting = __decorate([
-        core_1.NgModule({
-            imports: [
-                router_1.RouterModule.forChild(routes)
-            ],
-            exports: [
-                router_1.RouterModule
-            ]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], UserRouting);
     return UserRouting;
 }());
+UserRouting = __decorate([
+    core_1.NgModule({
+        imports: [
+            router_1.RouterModule.forChild(routes)
+        ],
+        exports: [
+            router_1.RouterModule
+        ]
+    }),
+    __metadata("design:paramtypes", [])
+], UserRouting);
 exports.UserRouting = UserRouting;
 //# sourceMappingURL=user.routing.js.map

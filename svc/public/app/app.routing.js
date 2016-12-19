@@ -12,26 +12,26 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var routes = [
     {
-        path: '',
-        redirectTo: '/user/auth/login',
-        pathMatch: 'full'
+        path: "",
+        redirectTo: "/user/auth/login",
+        pathMatch: "full"
     },
 ];
 var AppRouting = (function () {
     function AppRouting() {
     }
-    AppRouting = __decorate([
-        core_1.NgModule({
-            imports: [
-                router_1.RouterModule.forRoot(routes)
-            ],
-            exports: [
-                router_1.RouterModule
-            ]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], AppRouting);
     return AppRouting;
 }());
+AppRouting = __decorate([
+    core_1.NgModule({
+        imports: [
+            router_1.RouterModule.forRoot(routes, { useHash: true })
+        ],
+        exports: [
+            router_1.RouterModule
+        ]
+    }),
+    __metadata("design:paramtypes", [])
+], AppRouting);
 exports.AppRouting = AppRouting;
 //# sourceMappingURL=app.routing.js.map

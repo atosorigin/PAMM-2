@@ -11,32 +11,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var router_1 = require("@angular/router");
-var common_1 = require("@angular/common");
 var user_module_1 = require("./feature/user/user.module");
 var app_compponent_1 = require("./app.compponent");
 var app_routing_1 = require("./app.routing");
+var http_1 = require("@angular/http");
 var AppModule = (function () {
     function AppModule() {
     }
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [
-                platform_browser_1.BrowserModule,
-                router_1.RouterModule,
-                user_module_1.UserModule,
-                app_routing_1.AppRouting
-            ],
-            providers: [
-                { provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }
-            ],
-            declarations: [
-                app_compponent_1.AppComponent,
-            ],
-            bootstrap: [app_compponent_1.AppComponent]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], AppModule);
     return AppModule;
 }());
+AppModule = __decorate([
+    core_1.NgModule({
+        imports: [
+            platform_browser_1.BrowserModule,
+            router_1.RouterModule,
+            http_1.HttpModule,
+            user_module_1.UserModule,
+            app_routing_1.AppRouting
+        ],
+        declarations: [
+            app_compponent_1.AppComponent,
+        ],
+        bootstrap: [app_compponent_1.AppComponent]
+    }),
+    __metadata("design:paramtypes", [])
+], AppModule);
 exports.AppModule = AppModule;
 //# sourceMappingURL=app.module.js.map
