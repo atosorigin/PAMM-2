@@ -34,11 +34,11 @@ var DataTypeService = (function () {
             }
         };
     };
+    DataTypeService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [])
+    ], DataTypeService);
     return DataTypeService;
 }());
-DataTypeService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [])
-], DataTypeService);
 exports.DataTypeService = DataTypeService;
 //# sourceMappingURL=datatype.service.js.map

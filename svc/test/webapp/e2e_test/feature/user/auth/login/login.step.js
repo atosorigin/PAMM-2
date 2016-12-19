@@ -36,30 +36,30 @@ module.exports = function loginTest() {
     });
 
 
-    test.Given("I try to login without entering any credentials", function (next) {
+    test.Given("I try to login without entering any user", function (next) {
         login.login().then(function () {
             next();
         });
     });
 
-    test.Then("I stay at the login view and I see an error for missing credentials", function (next) {
+    test.Then("I stay at the login view and I see an error for missing user", function (next) {
         expect(login.currentURL()).to.eventually.equal(browser.baseUrl + testData.loginURL);
         next();
     });
 
-    test.Given("I login with invalid credentials", function (next) {
+    test.Given("I login with invalid user", function (next) {
         login.fillInDetails(testData.userName, testData.incorrectPassword);
         login.login().then(function () {
             next();
         });
     });
 
-    test.Then("I stay at the login view and I see an error for invalid credentials", function (next) {
+    test.Then("I stay at the login view and I see an error for invalid user", function (next) {
         expect(login.invalidLoginError.isDisplayed()).to.eventually.be.true.and.notify(next);
         next();
     });
 
-    test.Given("I login with valid credentials", function (next) {
+    test.Given("I login with valid user", function (next) {
         login.fillInDetails(testData.userName, testData.password);
         login.login().then(function () {
             next();

@@ -27,18 +27,18 @@ var routes = [
 var AuthRouting = (function () {
     function AuthRouting() {
     }
+    AuthRouting = __decorate([
+        core_1.NgModule({
+            imports: [
+                router_1.RouterModule.forChild(routes)
+            ],
+            exports: [
+                router_1.RouterModule
+            ]
+        }), 
+        __metadata('design:paramtypes', [])
+    ], AuthRouting);
     return AuthRouting;
 }());
-AuthRouting = __decorate([
-    core_1.NgModule({
-        imports: [
-            router_1.RouterModule.forChild(routes)
-        ],
-        exports: [
-            router_1.RouterModule
-        ]
-    }),
-    __metadata("design:paramtypes", [])
-], AuthRouting);
 exports.AuthRouting = AuthRouting;
 //# sourceMappingURL=auth.routing.js.map

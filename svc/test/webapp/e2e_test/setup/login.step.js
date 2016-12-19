@@ -35,7 +35,7 @@ module.exports = function loginTest() {
         });
     });
 
-    test.Given("I login with valid credentials", function (next) {
+    test.Given("I login with valid user", function (next) {
         login.fillInDetails(testData.userName, testData.password);
         login.login().then(function () {
             next();

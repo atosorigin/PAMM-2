@@ -18,22 +18,22 @@ var register_component_1 = require("./register.component");
 var AuthModule = (function () {
     function AuthModule() {
     }
+    AuthModule = __decorate([
+        core_1.NgModule({
+            imports: [
+                auth_routing_1.AuthRouting,
+                forms_1.ReactiveFormsModule,
+                common_1.CommonModule
+            ],
+            declarations: [
+                auth_component_1.AuthComponent,
+                login_component_1.LoginComponent,
+                register_component_1.RegisterComponent
+            ]
+        }), 
+        __metadata('design:paramtypes', [])
+    ], AuthModule);
     return AuthModule;
 }());
-AuthModule = __decorate([
-    core_1.NgModule({
-        imports: [
-            auth_routing_1.AuthRouting,
-            forms_1.ReactiveFormsModule,
-            common_1.CommonModule
-        ],
-        declarations: [
-            auth_component_1.AuthComponent,
-            login_component_1.LoginComponent,
-            register_component_1.RegisterComponent
-        ]
-    }),
-    __metadata("design:paramtypes", [])
-], AuthModule);
 exports.AuthModule = AuthModule;
 //# sourceMappingURL=auth.module.js.map

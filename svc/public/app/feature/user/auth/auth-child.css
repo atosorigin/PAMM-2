@@ -1,9 +1,10 @@
 div {
   max-width: 1200px;
-  margin: 100px auto auto auto;
+  margin: auto;
   padding: 5px; }
   div form {
     float: right;
+    margin-top: 100px;
     margin-right: 50px;
     width: 500px;
     border-radius: 5px;
@@ -20,8 +21,6 @@ div {
       div form {
         margin: 10px auto auto auto;
         width: auto; } }
-    div form div {
-      margin-top: 5px; }
     div form button {
       width: 100%;
       margin-top: 5px; }
@@ -29,14 +28,5 @@ div {
       border: 1px solid darkgray; }
     div form a {
       color: #122b40; }
-    div form div.box {
-      margin: 5px 0 0 0;
-      border: 1px solid lightgray;
-      border-radius: 0 4px 4px 0;
-      background-color: white;
-      padding: 5px 15px 5px 15px;
-      font-size: 10pt; }
-      div form div.box * {
-        vertical-align: baseline; }
 
 /*# sourceMappingURL=auth-child.css.map */

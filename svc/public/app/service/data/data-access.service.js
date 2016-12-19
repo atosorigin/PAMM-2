@@ -9,23 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var forms_1 = require("@angular/forms");
-var RegisterComponent = (function () {
-    function RegisterComponent() {
-        this.registerForm = new forms_1.FormGroup({});
+var http_1 = require("@angular/http");
+var DataAccessService = (function () {
+    function DataAccessService(http) {
+        this.http = http;
     }
-    RegisterComponent.prototype.register = function () {
-        console.log("++++ Register submitted");
+    DataAccessService.prototype.createAuthorizationHeader = function (headers) {
+        headers.append('Authorization', 'Basic ' +
+            btoa('username:password'));
     };
-    RegisterComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            templateUrl: "register.html",
-            styleUrls: ["auth-child.css"]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], RegisterComponent);
-    return RegisterComponent;
+    DataAccessService.prototype.post = function (url, data) {
+        var headers = new http_1.Headers();
+        return this.http.post(url, data, {
+            headers: headers
+        });
+    };
+    DataAccessService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [http_1.Http])
+    ], DataAccessService);
+    return DataAccessService;
 }());
-exports.RegisterComponent = RegisterComponent;
-//# sourceMappingURL=register.component.js.map
+exports.DataAccessService = DataAccessService;
+//# sourceMappingURL=data-access.service.js.map

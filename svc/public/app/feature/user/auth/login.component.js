@@ -11,8 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
 var datatype_service_1 = require("../../../service/datatype.service");
+var user_context_1 = require("../../../service/data/context/user.context");
+var role_1 = require("../../../service/data/context/role");
 var LoginComponent = (function () {
-    function LoginComponent(dataType) {
+    function LoginComponent(userContext, dataType) {
+        this.userContext = userContext;
         this.dataType = dataType;
         this.submitted = false;
         this.hasAuthenticationError = false;
@@ -28,19 +31,23 @@ var LoginComponent = (function () {
     };
     LoginComponent.prototype.login = function () {
         this.submitted = true;
-        console.log("++++++++++++");
-        console.log(this.loginForm);
+        this.userContext.login(this.loginForm.controls["username"].value, this.loginForm.controls["password"].value, role_1.Role.USER)
+            .subscribe(function (user) {
+            console.log("++++++++++++++++++do navigate");
+        }, function (error) {
+            console.log("+++++++++++++");
+            console.log(error);
+        });
     };
+    LoginComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            templateUrl: "login.html",
+            styleUrls: ["auth-child.css"]
+        }), 
+        __metadata('design:paramtypes', [user_context_1.UserContext, datatype_service_1.DataTypeService])
+    ], LoginComponent);
     return LoginComponent;
 }());
-LoginComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        templateUrl: "login.html",
-        styleUrls: ["auth-child.css"],
-        providers: [datatype_service_1.DataTypeService]
-    }),
-    __metadata("design:paramtypes", [datatype_service_1.DataTypeService])
-], LoginComponent);
 exports.LoginComponent = LoginComponent;
 //# sourceMappingURL=login.component.js.map

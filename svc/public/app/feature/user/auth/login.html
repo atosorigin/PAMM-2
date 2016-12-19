@@ -3,33 +3,35 @@
     <div class="input-group">
       <label class="sr-only" for="username">Username</label>
       <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-      <input class="form-control" id="username" formControlName="username" placeholder="User Name (email address)">
+      <input class="form-control error" id="username" formControlName="username"
+             placeholder="User Name (email address)">
     </div>
-    <p class="error" *ngIf="submitted && loginForm.controls.username.errors?.required">
+    <div class="error" *ngIf="submitted && loginForm.controls.username.errors?.required">
       Please enter the your registered email address
-    </p>
-    <p class="error" *ngIf="submitted && loginForm.controls.username.errors?.email">
+    </div>
+    <div class="error" *ngIf="submitted && loginForm.controls.username.errors?.email">
       Please correct the entered email address
-    </p>
+    </div>
 
     <div class="input-group">
       <label class="sr-only" for="password">Password</label>
       <span class="input-group-addon"><i class="fa fa-key"></i></span>
       <input class="form-control" id="password" formControlName="password" placeholder="Password">
     </div>
-    <p class="error" *ngIf="submitted && loginForm.controls.password.errors?.required">
+    <div class="error" *ngIf="submitted && loginForm.controls.password.errors?.required">
       Please enter the your password
-    </p>
-
-    <div class="alert alert-danger" *ngIf="hasAuthenticationError">
-      Please check your username and password and try again
     </div>
+
     <div class="form-group">
       <button class="btn btn-primary" type="submit">LOGIN</button>
     </div>
+    <div class="error" *ngIf="hasAuthenticationError">
+      Please check your username and password and try again
+    </div>
+
     <div class="form-group">
-      <p><a [routerLink]="['/user/auth/register']">Don't have an account? Register</a></p>
-      <p><a data-ng-click="login.forgotPassword()">Forgotten password</a></p>
+      <div><a [routerLink]="['/user/auth/register']">Don't have an account? Register</a></div>
+      <div><a data-ng-click="login.forgotPassword()">Forgotten password</a></div>
     </div>
   </form>
 </div>

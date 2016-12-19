@@ -44,7 +44,7 @@ public class LoginEndpoint extends Controller {
             final String[] authValue = new String(decoded, "UTF-8").split(":");
 
             if (authValue.length != 2) {
-                return unauthorized("Incorrect Credentials");
+                return unauthorized("Incorrect ICredentials");
             }
             final String username = authValue[0];
             final String password = authValue[1];
@@ -54,7 +54,7 @@ public class LoginEndpoint extends Controller {
                     Role.ADMIN).getResult();
 
                 if (userPrincipal == null) {
-                    return unauthorized("Incorrect Credentials");
+                    return unauthorized("Incorrect ICredentials");
                 }
 
                 return ok(userPrincipal);
@@ -65,7 +65,7 @@ public class LoginEndpoint extends Controller {
                 return internalServerError();
             }
         } catch (UnsupportedEncodingException e) {
-            return badRequest("Malformed Credentials");
+            return badRequest("Malformed ICredentials");
         }
     }
 }

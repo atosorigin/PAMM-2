@@ -15,19 +15,19 @@ var auth_module_1 = require("./auth/auth.module");
 var UserModule = (function () {
     function UserModule() {
     }
+    UserModule = __decorate([
+        core_1.NgModule({
+            imports: [
+                user_routing_1.UserRouting,
+                auth_module_1.AuthModule
+            ],
+            declarations: [
+                user_component_1.UserComponent
+            ]
+        }), 
+        __metadata('design:paramtypes', [])
+    ], UserModule);
     return UserModule;
 }());
-UserModule = __decorate([
-    core_1.NgModule({
-        imports: [
-            user_routing_1.UserRouting,
-            auth_module_1.AuthModule
-        ],
-        declarations: [
-            user_component_1.UserComponent
-        ]
-    }),
-    __metadata("design:paramtypes", [])
-], UserModule);
 exports.UserModule = UserModule;
 //# sourceMappingURL=user.module.js.map

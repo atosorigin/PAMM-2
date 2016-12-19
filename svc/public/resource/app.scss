@@ -11,7 +11,7 @@ label {
 
   &.required:after {
     content: " *" !important;
-    color: darkred;
+    color: #b20000;
   }
 
   // for Radio or checkbox, add border and background as per government standard */
@@ -29,9 +29,11 @@ label {
   }
 }
 
-.error {
-  color: darkred;
-  font-size: 9pt !important;
+div.error {
+  border-top: 2px solid $error;
+  padding: 0;
+  color: $error;
+  font-size: 9pt;
   font-weight: bold;
 }
 
@@ -41,5 +43,5 @@ a, [type="submit"] {
 
 .disabled {
   pointer-events: none;
-  color: gray !important;
+  color: gray;
 }

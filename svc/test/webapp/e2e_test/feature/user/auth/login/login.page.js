@@ -2,8 +2,8 @@
 
 module.exports = (function () {
     function LoginPage() {
-        this.usernameField = element(by.model("login.credentials.username"));
-        this.passwordField = element(by.model("login.credentials.password"));
+        this.usernameField = element(by.model("login.user.username"));
+        this.passwordField = element(by.model("login.user.password"));
         this.loginButton = element(by.css('[type="submit"]'));
 
         this.usernameRequiredError = element(by.css('[data-ng-messages="loginForm.username.$error"]'));

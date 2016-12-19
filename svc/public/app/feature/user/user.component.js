@@ -12,13 +12,13 @@ var core_1 = require("@angular/core");
 var UserComponent = (function () {
     function UserComponent() {
     }
+    UserComponent = __decorate([
+        core_1.Component({
+            template: "<h1>user</h1>\n<router-outlet></router-outlet>"
+        }), 
+        __metadata('design:paramtypes', [])
+    ], UserComponent);
     return UserComponent;
 }());
-UserComponent = __decorate([
-    core_1.Component({
-        template: "<h1>user</h1>\n<router-outlet></router-outlet>"
-    }),
-    __metadata("design:paramtypes", [])
-], UserComponent);
 exports.UserComponent = UserComponent;
 //# sourceMappingURL=user.component.js.map

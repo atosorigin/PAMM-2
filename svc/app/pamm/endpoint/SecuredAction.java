@@ -42,19 +42,19 @@ public class SecuredAction extends Action.Simple {
         final String token = getTokenFromHeader(ctx);
 
         if (token == null) {
-            return F.Promise.pure(Results.unauthorized("No Credentials"));
+            return F.Promise.pure(Results.unauthorized("No ICredentials"));
         }
 
         final Principal principal = authenticator.validateToken(token);
 
         if (principal.getTokenStatus() == Token.Status.INVALID) {
-            return F.Promise.pure(Results.unauthorized("Invalid Credentials"));
+            return F.Promise.pure(Results.unauthorized("Invalid ICredentials"));
         } else if (principal.getTokenStatus() == Token.Status.EXPIRED) {
             return F.Promise.pure(Results.unauthorized("Token Expired"));
         } else if (!principal.getType().equals(tokenType)) {
-            return F.Promise.pure(Results.unauthorized("Invalid Credentials"));
+            return F.Promise.pure(Results.unauthorized("Invalid ICredentials"));
         } else if (role != null && !principal.getRole().equals(role)) {
-            return F.Promise.pure(Results.unauthorized("Invalid Credentials"));
+            return F.Promise.pure(Results.unauthorized("Invalid ICredentials"));
         } else {
             ctx.args.put(Principal.class.getName(), principal);
             return delegate.call(ctx);
