@@ -2,18 +2,23 @@ import {Injectable} from "@angular/core";
 import {Http, Headers, Response} from "@angular/http";
 import {Observable} from "rxjs/Observable";
 import "rxjs/add/operator/map";
+import "rxjs/add/operator/do";
+import "rxjs/add/operator/catch";
+import "rxjs/add/observable/throw";
 import {Role} from "./role";
 import {User} from "./user";
+import {SpinnerModalService} from "../../../lib/spinner-modal/spinner-modal.service";
 
 @Injectable()
 export class UserContext {
     private _user: User = null;
 
-    constructor(private http: Http) {
+    constructor(private http: Http, private spinnerModalService: SpinnerModalService) {
     }
 
     login(username: string, password: string, role: Role): Observable<User> {
         this.logout();
+        this.spinnerModalService.show();
 
         let loginUrl: string;
 
@@ -24,16 +29,22 @@ export class UserContext {
         }
 
         return this.http.post(loginUrl, {}, {
-            headers: new Headers({
-                "Authorization": `Basic ${btoa(username + ":" + password)}`,
-                "Accept": "application/json, text/plain, */*",
-                "Content-Type": "application/json;charset=UTF-8"
-            })
-        }).map(function (response: Response) {
-            let result = response.json();
-            this.user = new User(username, result.forename, result.surname, result.authToken, role);
-            return this.user;
-        });
+                headers: new Headers({
+                    "Authorization": `Basic ${btoa(username + ":" + password)}`,
+                    "Accept": "application/json, text/plain, */*",
+                    "Content-Type": "application/json;charset=UTF-8"
+                })
+            }
+        ).do(() => this.spinnerModalService.hide()
+        ).map((response: Response) => {
+                let result = response.json();
+                this._user = new User(username, result.forename, result.surname, result.authToken, role);
+                return this.user;
+            }
+        ).catch((response: Response) => {
+            this.spinnerModalService.hide();
+            return Observable.throw("");
+        })
     }
 
     logout() {

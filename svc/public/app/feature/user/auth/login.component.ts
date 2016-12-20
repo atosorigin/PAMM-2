@@ -5,6 +5,7 @@ import {DataTypeService} from "../../../service/datatype.service";
 import {Role} from "../../../service/data/context/role";
 import {User} from "../../../service/data/context/user";
 
+
 @Component({
     moduleId: module.id,
     templateUrl: "login.html",
@@ -33,13 +34,20 @@ export class LoginComponent implements OnInit {
 
     login() {
         this.submitted = true;
-        this.userContext.login(this.loginForm.controls["username"].value, this.loginForm.controls["password"].value, Role.USER)
-            .subscribe(
-                function (user: User) {
-                    console.log("++++++++++++++++++do navigate");
-                }, function (error: any) {
-                    console.log("+++++++++++++");
-                    console.log(error);
-                });
+        if (this.loginForm.valid) {
+            this.submitted = false;
+
+            this.userContext.login(this.loginForm.controls["username"].value, this.loginForm.controls["password"].value, Role.USER)
+                .subscribe(
+                    (user: User) => console.log("++++++++++++++++++do navigate"),
+                    (error: any) => {
+                        console.log("+++++++++++++");
+                        console.log(error);
+                    },
+                    () => {
+                        console.log("********************Done");
+                    }
+                )
+        }
     }
 }
