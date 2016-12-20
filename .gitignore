@@ -12,7 +12,7 @@ svc/test/webapp/cucumber/node_modules
 svc/test/webapp/e2e/node_modules
 svc/test/java/integration/logs
 svc/public/app/**/*.js
-svc/public/app/**/*.map
+svc/public/app/**/*.js.map
 target/
 testsetup/logs
 testsetup/target
