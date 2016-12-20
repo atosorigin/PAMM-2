@@ -8,6 +8,8 @@ import "rxjs/add/observable/throw";
 import {Role} from "./role";
 import {User} from "./user";
 import {SpinnerModalService} from "../../../lib/spinner-modal/spinner-modal.service";
+import {DataAccessError} from "../data-access.error";
+
 
 @Injectable()
 export class UserContext {
@@ -43,7 +45,12 @@ export class UserContext {
             }
         ).catch((response: Response) => {
             this.spinnerModalService.hide();
-            return Observable.throw("");
+
+            if (response.status === 401) {
+                return Observable.throw(DataAccessError.UNAUTHORIZED);
+            } else {
+                return Observable.throw(DataAccessError.SERVER);
+            }
         })
     }
 
