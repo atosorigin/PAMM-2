@@ -7,7 +7,7 @@ import "rxjs/add/operator/catch";
 import "rxjs/add/observable/throw";
 import {Role} from "./role";
 import {User} from "./user";
-import {SpinnerModalService} from "../../../lib/spinner-modal/spinner-modal.service";
+import {SpinnerModalService} from "../../ui/spinner-modal/spinner-modal.service";
 import {DataAccessError} from "../data-access.error";
 
 
