@@ -2,10 +2,11 @@ import {Component, OnInit} from "@angular/core";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {UserContext} from "../../../service/data/context/user.context";
-import {TypeValidator} from "../../../service/data/type.validator";
+import {DataType} from "../../../service/data/data-type";
 import {Role} from "../../../service/data/context/role";
 import {User} from "../../../service/data/context/user";
 import {DataAccessError} from "../../../service/data/data-access.error";
+import {SpinnerModalService} from "../../../lib/ui/spinner-modal/spinner-modal.service";
 
 @Component({
     moduleId: module.id,
@@ -20,8 +21,8 @@ export class LoginComponent implements OnInit {
     private hasAuthenticationError: boolean = false;
 
     constructor(private userContext: UserContext,
-                private dataType: TypeValidator,
-                private router: Router) {
+                private router: Router,
+                private spinnerModalService: SpinnerModalService) {
     }
 
     ngOnInit() {
@@ -29,7 +30,7 @@ export class LoginComponent implements OnInit {
             "username": new FormControl("",
                 Validators.compose([
                     Validators.required,
-                    this.dataType.email,
+                    DataType.email,
                 ])),
             "password": new FormControl("", Validators.required)
         });
@@ -38,6 +39,7 @@ export class LoginComponent implements OnInit {
     login() {
         this.submitted = true;
         this.hasAuthenticationError = false;
+        this.spinnerModalService.show();
 
         if (this.loginForm.valid) {
             this.submitted = false;
@@ -47,11 +49,13 @@ export class LoginComponent implements OnInit {
                 .subscribe(
                     (user: User) => this.router.navigate(["/user"]),
                     (error: DataAccessError) => {
+                        this.spinnerModalService.hide();
                         if (error === DataAccessError.UNAUTHORIZED) {
                             this.hasAuthenticationError = true;
                         } else {
                         }
-                    }
+                    },
+                    () => this.spinnerModalService.hide()
                 )
         }
     }

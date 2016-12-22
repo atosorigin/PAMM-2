@@ -5,6 +5,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {RegisterComponent} from "./register.component";
 import {RouterModule} from "@angular/router";
+import {PammModule} from "../../../lib/pamm.module";
 
 @NgModule({
     imports: [
@@ -19,14 +20,14 @@ import {RouterModule} from "@angular/router";
             }
         ]),
         ReactiveFormsModule,
-        CommonModule
+        CommonModule,
+        PammModule
     ],
     declarations: [
         AuthComponent,
         LoginComponent,
         RegisterComponent
-    ],
-    bootstrap: [AuthComponent]
+    ]
 })
 export class AuthModule {
 }

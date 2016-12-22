@@ -7,7 +7,6 @@ import "rxjs/add/operator/catch";
 import "rxjs/add/observable/throw";
 import {Role} from "./role";
 import {User} from "./user";
-import {SpinnerModalService} from "../../ui/spinner-modal/spinner-modal.service";
 import {DataAccessError} from "../data-access.error";
 
 
@@ -15,12 +14,11 @@ import {DataAccessError} from "../data-access.error";
 export class UserContext {
     private _user: User = null;
 
-    constructor(private http: Http, private spinnerModalService: SpinnerModalService) {
+    constructor(private http: Http) {
     }
 
     login(username: string, password: string, role: Role): Observable<User> {
         this.logout();
-        this.spinnerModalService.show();
 
         let loginUrl: string;
 
@@ -37,15 +35,12 @@ export class UserContext {
                     "Content-Type": "application/json;charset=UTF-8"
                 })
             }
-        ).do(() => this.spinnerModalService.hide()
         ).map((response: Response) => {
                 let result = response.json();
                 this._user = new User(username, result.forename, result.surname, result.authToken, role);
                 return this.user;
             }
         ).catch((response: Response) => {
-            this.spinnerModalService.hide();
-
             if (response.status === 401) {
                 return Observable.throw(DataAccessError.UNAUTHORIZED);
             } else {

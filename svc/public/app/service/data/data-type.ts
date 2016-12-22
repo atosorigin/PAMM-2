@@ -1,9 +1,7 @@
-import {Injectable} from "@angular/core";
 import {FormControl} from "@angular/forms";
 
-@Injectable()
-export class TypeValidator {
-    public email(control: FormControl) {
+export class DataType {
+    static email(control: FormControl) {
         if (control.value.trim().length === 0) {
             return null;
         }
@@ -16,7 +14,7 @@ export class TypeValidator {
             };
     }
 
-    public password(control: FormControl) {
+    static password(control: FormControl) {
         if (control.value.trim().length === 0) {
             return null;
         }

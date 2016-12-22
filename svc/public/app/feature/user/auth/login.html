@@ -4,7 +4,7 @@
       <label class="sr-only" for="username">Username</label>
       <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
       <input class="form-control error" id="username" formControlName="username"
-             placeholder="User Name (email address)">
+             placeholder="User Name (email address)" pammLowerCase>
     </div>
     <div class="error" *ngIf="submitted && loginForm.controls.username.errors?.required">
       Please enter the your registered email address

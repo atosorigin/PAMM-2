@@ -2,16 +2,13 @@ import {NgModule} from "@angular/core";
 import {BrowserModule} from "@angular/platform-browser";
 import {RouterModule} from "@angular/router";
 import {HttpModule} from "@angular/http";
-
-import { ModalModule } from 'angular2-modal';
-import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
-
+import {ModalModule} from "angular2-modal";
+import {BootstrapModalModule} from "angular2-modal/plugins/bootstrap";
 import {UserModule} from "./feature/user/user.module";
 import {AppComponent} from "./app.compponent";
-import {SpinnerModalService} from "./service/ui/spinner-modal/spinner-modal.service";
-import {SpinnerModalComponent} from "./service/ui/spinner-modal/spinner-modal.component";
+import {DataType} from "./service/data/data-type";
 import {UserContext} from "./service/data/context/user.context";
-import {TypeValidator} from "./service/data/type.validator";
+import {PammModule} from "./lib/pamm.module";
 
 @NgModule({
     imports: [
@@ -20,16 +17,16 @@ import {TypeValidator} from "./service/data/type.validator";
         HttpModule,
         ModalModule.forRoot(),
         BootstrapModalModule,
+        PammModule,
         UserModule
     ],
     declarations: [
-        AppComponent,
-        SpinnerModalComponent
+        AppComponent
     ],
     providers: [
-        UserContext,
-        TypeValidator,
-        SpinnerModalService],
+        DataType,
+        UserContext
+    ],
     bootstrap: [AppComponent]
 })
 
