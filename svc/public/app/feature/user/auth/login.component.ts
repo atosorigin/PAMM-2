@@ -39,9 +39,9 @@ export class LoginComponent implements OnInit {
     login() {
         this.submitted = true;
         this.hasAuthenticationError = false;
-        this.spinnerModalService.show();
 
         if (this.loginForm.valid) {
+            this.spinnerModalService.show();
             this.submitted = false;
             this.hasAuthenticationError = false;
 
@@ -58,5 +58,9 @@ export class LoginComponent implements OnInit {
                     () => this.spinnerModalService.hide()
                 )
         }
+    }
+
+    navigateToRegistration() {
+        this.router.navigate(["/user/auth/register"]);
     }
 }

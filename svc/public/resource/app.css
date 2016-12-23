@@ -98,4 +98,12 @@ a, [type="submit"] {
   pointer-events: none;
   color: gray; }
 
+.atos-logo:after {
+  background: url("/resource/image/logo_atos.svg") left center no-repeat;
+  width: 36px;
+  height: 12px;
+  background-size: 36px 12px;
+  display: inline-block;
+  content: ""; }
+
 /*# sourceMappingURL=app.css.map */

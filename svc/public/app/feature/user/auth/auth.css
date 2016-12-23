@@ -1,44 +1,35 @@
-.user-auth {
-  display: flex;
+div {
+  position: fixed;
   height: 100%;
+  width: 100%;
   min-height: 100vh;
-  flex-direction: column;
   overflow-y: auto;
-  background-color: #0066a1; }
-  .user-auth header {
-    width: 100%;
-    max-width: 1200px;
-    height: 90px;
-    min-height: 90px;
-    background: url("/resource/image/logo_atos_white.svg") 5px center no-repeat;
-    background-size: 150px;
-    color: white; }
-    .user-auth header h1 {
-      position: relative;
-      padding: 0 0 0 170px;
-      margin: 0;
-      top: 50%;
-      transform: translateY(-50%); }
-      @media (max-width: 767px) {
-        .user-auth header h1 {
-          font-size: 24pt; } }
-      @media (max-width: 549px) {
-        .user-auth header h1 {
-          font-size: 18pt; } }
-  .user-auth main {
-    flex: 1;
-    background: url("/resource/image/bg.jpg") left top no-repeat;
-    background-size: cover;
-    top: 90px; }
-  .user-auth footer {
-    height: 50px; }
-    .user-auth footer div {
+  background: url("/resource/image/bg.jpg") left top no-repeat;
+  background-size: cover; }
+  div main {
+    padding: 0 10px 0 10px;
+    position: relative;
+    width: 500px;
+    overflow-y: auto;
+    z-index: 100;
+    top: 40%;
+    margin: auto;
+    transform: translateY(-50%);
+    border-radius: 5px;
+    border: 1px solid gray;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 7px 7px 5px 0 rgba(30, 30, 50, 0.8); }
+    div main header {
+      background: url("/resource/image/adria-logo-blue.svg") center center no-repeat;
+      background-size: 150px;
+      height: 80px; }
+    div main footer {
+      border-top: 1px solid #204d74;
+      color: #204d74;
+      width: 100%;
       padding: 5px;
-      color: white;
-      font-size: 12pt;
-      margin: 10px auto auto auto;
+      font-size: 10pt;
+      font-weight: bold;
       text-align: center; }
-      .user-auth footer div * {
-        vertical-align: baseline; }
 
 /*# sourceMappingURL=auth.css.map */

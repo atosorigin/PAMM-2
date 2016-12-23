@@ -4,50 +4,49 @@
     <div class="input-group">
       <label class="sr-only" for="email">EMail</label>
       <span class="input-group-addon"><i class="fa fa-envelope">*</i></span>
-      <input class="form-control" type="email" data-ng-model="r.details.email" id="email" name="email"
-             placeholder="Your Email.  This will be your log in username" required data-lowercase autofocus>
+      <input class="form-control" formControlName="email" id="email"
+             placeholder="Your Email.  This will be your log in username" pammLowerCase autofocus>
     </div>
 
     <div class="input-group">
       <label class="sr-only" for="email">Confirm EMail</label>
       <span class="input-group-addon"><i class="fa fa-envelope">*</i></span>
-      <input class="form-control" type="email" data-ng-model="r.confirm.email" id="emailConfirm"
-             name="emailConfirm" placeholder="Retype the email to confirm" data-match="r.details.email"
-             data-lowercase required>
+      <input class="form-control" type="email" formControlName="email" id="emailConfirm"
+             placeholder="Retype the email to confirm" data-match="email"
+             pammLowerCase>
     </div>
 
     <div class="input-group">
       <label class="sr-only" for="password">Password</label>
       <span class="input-group-addon"><i class="fa fa-key">*</i></span>
-      <input class="form-control" type="password" data-ng-model="r.details.password" data-ng-pattern="r.$$dataType.PASSWORD"
-             id="password" name="password" placeholder="Password" minlength="8" maxlength="255" required>
+      <input class="form-control" type="password" formControlName="password"
+             id="password" placeholder="Password" minlength="8" maxlength="255">
     </div>
 
     <div class="input-group">
       <label class="sr-only" for="passwordConfirm">Confirm Password</label>
       <span class="input-group-addon"><i class="fa fa-key">*</i></span>
-      <input class="form-control" type="password" data-ng-model="r.confirm.password"
-             id="passwordConfirm" name="passwordConfirm" placeholder="Retype the password to confirm"
-             data-match="r.details.password" required>
+      <input class="form-control" type="password" formControlName="password"
+             id="passwordConfirm" placeholder="Retype the password to confirm">
     </div>
 
     <div class="input-group">
       <label class="sr-only" for="forename">Your Forename</label>
       <span class="input-group-addon"><i class="fa fa-user">*</i></span>
       <input class="form-control" type="text" id="forename" name="forename"
-             data-ng-model="r.details.forename" placeholder="Forename" required>
+             formControlName="forename" placeholder="Forename">
     </div>
 
     <div class="input-group">
       <label class="sr-only" for="surname">Your Surname</label>
       <span class="input-group-addon"><i class="fa fa-user">*</i></span>
-      <input class="form-control" type="text" data-ng-model="r.details.surname" id="surname"
-             name="surname" placeholder="Surname" required>
+      <input class="form-control" type="text" formControlName="surname" id="surname"
+             placeholder="Surname">
     </div>
 
     <div class="box">
-      <input type="checkbox" data-ng-model="register.termsofuse" name="termsofuse"
-             title="Terms of use agreement" required/>
+      <input type="checkbox" formControlName="register.termsofuse" name="termsofuse"
+             title="Terms of use agreement"/>
       * I have read and agree to the
       <a class="link" data-ng-click="r.showTermsOfUse()">Terms of Use</a>
     </div>

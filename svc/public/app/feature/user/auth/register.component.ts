@@ -3,8 +3,7 @@ import {FormGroup} from "@angular/forms";
 
 @Component({
     moduleId: module.id,
-    templateUrl: "register.html",
-    styleUrls: ["auth-child.css"]
+    templateUrl: "register.html"
 })
 
 export class RegisterComponent {

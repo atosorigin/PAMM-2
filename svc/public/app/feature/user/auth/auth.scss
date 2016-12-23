@@ -1,62 +1,41 @@
-@import "../../../../resource/variables";
-@import "auth-config";
-
 $image-path: "/resource/image";
 
-$header-height: 90px;
-$footer-height: 50px;
-
-.user-auth {
-  display: flex;
+div {
+  position: fixed;
   height: 100%;
+  width:100%;
   min-height: 100vh;
-  flex-direction: column;
   overflow-y: auto;
-  background-color: $brand-color;
-
-  header {
-    width: 100%;
-    max-width: $max-width;
-    height: $header-height;
-    min-height: $header-height;
-    background: url("#{$image-path}/logo_atos_white.svg") 5px center no-repeat;
-    background-size: 150px;
-    color: white;
-
-    h1 {
-      position: relative;
-      padding: 0 0 0 170px;
-      margin: 0;
-      top: 50%;
-      transform: translateY(-50%);
-
-      @media (max-width: $break-width) {
-        font-size: 24pt;
-      }
-
-      @media (max-width: $min-break-width) {
-        font-size: 18pt;
-      }
-    }
-  }
+  background: url("#{$image-path}/bg.jpg") left top no-repeat;
+  background-size: cover;
 
   main {
-    flex: 1;
-    background: url("#{$image-path}/bg.jpg") left top no-repeat;
-    background-size: cover;
-    top: $header-height;
-  }
+    padding: 0 10px 0 10px;
+    position: relative;
+    width: 500px;
+    overflow-y: auto;
+    z-index: 100;
+    top: 40%;
+    margin: auto;
+    transform: translateY(-50%);
+    border-radius: 5px;
+    border: 1px solid gray;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 7px 7px 5px 0 rgba(30, 30, 50, 0.8);
 
-  footer {
-    height: $footer-height;
-    div {
-      * {
-        vertical-align: baseline;
-      }
+    header {
+      background: url("#{$image-path}/adria-logo-blue.svg") center center no-repeat;
+      background-size: 150px;
+      height: 80px;
+    }
+
+    footer {
+      border-top: 1px solid #204d74;
+      color: #204d74;
+      width: 100%;
       padding: 5px;
-      color: white;
-      font-size: 12pt;
-      margin: 10px auto auto auto;
+      font-size: 10pt;
+      font-weight: bold;
       text-align: center;
     }
   }

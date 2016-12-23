@@ -14,12 +14,11 @@ import {SpinnerModalService} from "./spinner-modal.service";
             background: rgba(255,255,255,0.6);
             z-index: 1000;
         }
-        
         i {
             position: relative;
-            top: 50%;
+            top: 40%;
             left: 50%;
-            transform: translate(-50%);
+            transform: translateX(-50%);
             color: #0066a1;
         }
     `]

@@ -5,12 +5,11 @@ import {NgControl} from "@angular/forms";
     selector: '[pammUpperCase]'
 })
 export class UpperCaseDirective {
-    constructor(private el: ElementRef, private control: NgControl) {
+    constructor(private elementRef: ElementRef, private control: NgControl) {
     }
 
-    @HostListener('input', ['$event']) onEvent($event: any) {
-        let upper = this.el.nativeElement.value.toUpperCase();
+    @HostListener("input", ["$event"]) onEvent($event: any) {
+        let upper = this.elementRef.nativeElement.value.toUpperCase();
         this.control.control.setValue(upper);
     }
-
 }

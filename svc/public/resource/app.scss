@@ -1,3 +1,5 @@
+$image-path: "/resource/image";
+
 @import "variables";
 @import "navbar-inverse-atos";
 @import "bootstrap-override";
@@ -44,3 +46,13 @@ a, [type="submit"] {
   pointer-events: none;
   color: gray;
 }
+
+.atos-logo:after {
+  background: url("#{$image-path}/logo_atos.svg") left center no-repeat;
+  width: 36px;
+  height: 12px;
+  background-size: 36px 12px;
+  display: inline-block;
+  content:"";
+}
+
