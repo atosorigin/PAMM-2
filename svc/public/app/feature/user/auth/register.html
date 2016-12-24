@@ -1,56 +1,53 @@
 <div>
-  <form [formGroup]="registerForm" (ngSubmit)="register()">
-    <div class="logo"><span class="sr-only">Logo</span></div>
+  <form [formGroup]="registerForm" (ngSubmit)="register()" novalidate>
     <div class="input-group">
       <label class="sr-only" for="email">EMail</label>
-      <span class="input-group-addon"><i class="fa fa-envelope">*</i></span>
+      <span class="input-group-addon"><i class="fa fa-fw fa-envelope">*</i></span>
       <input class="form-control" formControlName="email" id="email"
-             placeholder="Your Email.  This will be your log in username" pammLowerCase autofocus>
+             placeholder="Your Email.  This will be your log in username" pammLowerCase>
     </div>
 
     <div class="input-group">
       <label class="sr-only" for="email">Confirm EMail</label>
-      <span class="input-group-addon"><i class="fa fa-envelope">*</i></span>
-      <input class="form-control" type="email" formControlName="email" id="emailConfirm"
-             placeholder="Retype the email to confirm" data-match="email"
-             pammLowerCase>
+      <span class="input-group-addon"><i class="fa fa-fw fa-envelope">*</i></span>
+      <input class="form-control" formControlName="emailConfirm" id="emailConfirm"
+             placeholder="Retype the email to confirm" pammLowerCase>
     </div>
 
     <div class="input-group">
       <label class="sr-only" for="password">Password</label>
-      <span class="input-group-addon"><i class="fa fa-key">*</i></span>
+      <span class="input-group-addon"><i class="fa fa-fw fa-key">*</i></span>
       <input class="form-control" type="password" formControlName="password"
              id="password" placeholder="Password" minlength="8" maxlength="255">
     </div>
 
     <div class="input-group">
       <label class="sr-only" for="passwordConfirm">Confirm Password</label>
-      <span class="input-group-addon"><i class="fa fa-key">*</i></span>
-      <input class="form-control" type="password" formControlName="password"
+      <span class="input-group-addon"><i class="fa fa-fw fa-key">*</i></span>
+      <input class="form-control" type="password" formControlName="passwordConfirm"
              id="passwordConfirm" placeholder="Retype the password to confirm">
     </div>
 
     <div class="input-group">
       <label class="sr-only" for="forename">Your Forename</label>
-      <span class="input-group-addon"><i class="fa fa-user">*</i></span>
-      <input class="form-control" type="text" id="forename" name="forename"
-             formControlName="forename" placeholder="Forename">
+      <span class="input-group-addon"><i class="fa fa-fw fa-user">*</i></span>
+      <input class="form-control" id="forename"
+             formControlName="forename" placeholder="Forename" pammUpperCase>
     </div>
 
     <div class="input-group">
       <label class="sr-only" for="surname">Your Surname</label>
-      <span class="input-group-addon"><i class="fa fa-user">*</i></span>
-      <input class="form-control" type="text" formControlName="surname" id="surname"
-             placeholder="Surname">
+      <span class="input-group-addon"><i class="fa fa-fw fa-user">*</i></span>
+      <input class="form-control" formControlName="surname" id="surname"
+             placeholder="Surname" pammUpperCase>
     </div>
 
     <div class="box">
-      <input type="checkbox" formControlName="register.termsofuse" name="termsofuse"
-             title="Terms of use agreement"/>
-      * I have read and agree to the
-      <a class="link" data-ng-click="r.showTermsOfUse()">Terms of Use</a>
+      <label class="sr-only" for="terms">Terms of use agreement</label>
+      <input type="checkbox" formControlName="termsOfUse" id="terms"/>
+      * I have read and agree to the <a [routerLink]="['/terms-of-use']"><b>Terms of Use</b></a>
     </div>
     <button type="submit" class="btn btn-primary">REGISTER</button>
-    <button type="button" data-ng-click="r.cancel()" class="btn btn-cancel">CANCEL</button>
+    <button type="button" (*click)="cancel()" class="btn btn-cancel">CANCEL</button>
   </form>
 </div>

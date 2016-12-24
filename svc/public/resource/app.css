@@ -86,13 +86,16 @@ label {
       margin-right: 5px; }
 
 div.error {
-  border-top: 2px solid #b20000;
+  border-top: 1px solid #b20000;
   color: #b20000;
   font-size: 9pt;
   font-weight: bold; }
 
 a, [type="submit"] {
   cursor: pointer; }
+
+.link {
+  text-decoration: underline; }
 
 .disabled {
   pointer-events: none;
@@ -102,8 +105,19 @@ a, [type="submit"] {
   background: url("/resource/image/logo_atos.svg") left center no-repeat;
   width: 36px;
   height: 12px;
-  background-size: 36px 12px;
+  background-size: 100%;
   display: inline-block;
   content: ""; }
+
+.adria-logo:after {
+  background: url("/resource/image/adria-logo-blue.svg") left center no-repeat;
+  width: 150px;
+  height: 45px;
+  background-size: 100%;
+  display: inline-block;
+  content: ""; }
+.adria-logo.small:after {
+  width: 42px;
+  height: 13px; }
 
 /*# sourceMappingURL=app.css.map */

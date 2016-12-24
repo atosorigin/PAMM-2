@@ -11,7 +11,7 @@ import {SpinnerModalService} from "../../../lib/ui/spinner-modal/spinner-modal.s
 @Component({
     moduleId: module.id,
     templateUrl: "login.html",
-    styleUrls: ["auth-child.css"]
+    styleUrls: ["auth-form.css"]
 })
 
 export class LoginComponent implements OnInit {
@@ -61,6 +61,6 @@ export class LoginComponent implements OnInit {
     }
 
     navigateToRegistration() {
-        this.router.navigate(["/user/auth/register"]);
+        this.router.navigateByUrl("/user/auth/register");
     }
 }

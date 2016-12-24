@@ -6,6 +6,7 @@ import {CommonModule} from "@angular/common";
 import {RegisterComponent} from "./register.component";
 import {RouterModule} from "@angular/router";
 import {PammModule} from "../../../lib/pamm.module";
+import {SharedModule} from "../../shared/shared.module";
 
 @NgModule({
     imports: [
@@ -15,13 +16,14 @@ import {PammModule} from "../../../lib/pamm.module";
                 children: [
                     {path: "login", component: LoginComponent},
                     {path: "register", component: RegisterComponent},
-                    {path: "activate", component: RegisterComponent}
+                    {path: "activate", component: RegisterComponent},
                 ]
             }
         ]),
         ReactiveFormsModule,
         CommonModule,
-        PammModule
+        PammModule,
+        SharedModule
     ],
     declarations: [
         AuthComponent,

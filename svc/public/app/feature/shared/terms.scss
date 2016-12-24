@@ -1,7 +1,7 @@
 $image-path: "/resource/image";
-@import "../../../../resource/variables";
+@import "../../../resource/variables";
 
-div {
+.terms {
   position: fixed;
   height: 100%;
   width:100%;
@@ -9,25 +9,28 @@ div {
   overflow-y: auto;
   background: url("#{$image-path}/bg.jpg") left top no-repeat;
   background-size: cover;
+  padding: 5px;
 
   main {
     padding: 0 10px 0 10px;
-    position: relative;
-    max-width: 500px;
-    min-width: 450px;
     overflow-y: auto;
-    z-index: 100;
-    top: 40%;
-    margin: auto;
-    transform: translateY(-50%);
+    max-width: 800px;
+    margin: 5% auto auto auto;
     border-radius: 5px;
     border: 1px solid gray;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.9);
     box-shadow: 7px 7px 5px 0 rgba(30, 30, 50, 0.8);
+
+    button {
+      width: 100%;
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
 
     header {
       padding: 10px 5px 5px 5px;
       text-align: center;
+      border-bottom: 1px solid $logo-color;
     }
 
     footer {

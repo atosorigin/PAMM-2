@@ -1,7 +1,7 @@
-<form [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
+<form [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
   <div class="input-group">
     <label class="sr-only" for="username">Username</label>
-    <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+    <span class="input-group-addon"><i class="fa fa-fw fa-envelope"></i></span>
     <input class="form-control error" id="username" formControlName="username"
            placeholder="User Name (email address)" pammLowerCase>
   </div>
@@ -14,7 +14,7 @@
 
   <div class="input-group">
     <label class="sr-only" for="password">Password</label>
-    <span class="input-group-addon"><i class="fa fa-key"></i></span>
+    <span class="input-group-addon"><i class="fa fa-fw fa-key"></i></span>
     <input class="form-control" id="password" formControlName="password" placeholder="Password" type="password">
   </div>
   <div class="error" *ngIf="submitted && loginForm.controls.password.errors?.required">
@@ -28,6 +28,6 @@
     </div>
   </div>
 
-  <div><a (click)="navigateToRegistration()">Don't have an account? Register</a></div>
-  <div><a data-ng-click="login.forgotPassword()">Forgotten password</a></div>
+  <div><i class="fa fa-fw fa-user-circle-o"></i> <a (click)="navigateToRegistration()">Don't have an account? Register</a></div>
+  <div><i class="fa fa-fw fa-lock"></i> <a data-ng-click="login.forgotPassword()">Forgotten password</a></div>
 </form>

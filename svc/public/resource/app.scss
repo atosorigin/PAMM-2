@@ -32,7 +32,7 @@ label {
 }
 
 div.error {
-  border-top: 2px solid $error;
+  border-top: 1px solid $error;
   color: $error;
   font-size: 9pt;
   font-weight: bold;
@@ -42,17 +42,38 @@ a, [type="submit"] {
   cursor: pointer;
 }
 
+.link {
+  text-decoration: underline;
+}
+
 .disabled {
   pointer-events: none;
   color: gray;
 }
 
-.atos-logo:after {
-  background: url("#{$image-path}/logo_atos.svg") left center no-repeat;
-  width: 36px;
-  height: 12px;
-  background-size: 36px 12px;
-  display: inline-block;
-  content:"";
+.atos-logo {
+  &:after {
+    background: url("#{$image-path}/logo_atos.svg") left center no-repeat;
+    width: 36px;
+    height: 12px;
+    background-size: 100%;
+    display: inline-block;
+    content: "";
+  }
 }
 
+.adria-logo {
+  &:after {
+    background: url("#{$image-path}/adria-logo-blue.svg") left center no-repeat;
+    width: 150px;
+    height: 45px;
+    background-size:100%;
+    display: inline-block;
+    content: "";
+  }
+
+  &.small:after {
+    width: 42px;
+    height: 13px;
+  }
+}

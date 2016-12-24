@@ -1,29 +1,30 @@
-div {
+.terms {
   position: fixed;
   height: 100%;
   width: 100%;
   min-height: 100vh;
   overflow-y: auto;
   background: url("/resource/image/bg.jpg") left top no-repeat;
-  background-size: cover; }
-  div main {
+  background-size: cover;
+  padding: 5px; }
+  .terms main {
     padding: 0 10px 0 10px;
-    position: relative;
-    max-width: 500px;
-    min-width: 450px;
     overflow-y: auto;
-    z-index: 100;
-    top: 40%;
-    margin: auto;
-    transform: translateY(-50%);
+    max-width: 800px;
+    margin: 5% auto auto auto;
     border-radius: 5px;
     border: 1px solid gray;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.9);
     box-shadow: 7px 7px 5px 0 rgba(30, 30, 50, 0.8); }
-    div main header {
+    .terms main button {
+      width: 100%;
+      margin-top: 5px;
+      margin-bottom: 5px; }
+    .terms main header {
       padding: 10px 5px 5px 5px;
-      text-align: center; }
-    div main footer {
+      text-align: center;
+      border-bottom: 1px solid #003d68; }
+    .terms main footer {
       border-top: 1px solid #003d68;
       color: #003d68;
       padding: 5px;
@@ -31,4 +32,4 @@ div {
       font-weight: bold;
       text-align: center; }
 
-/*# sourceMappingURL=auth.css.map */
+/*# sourceMappingURL=terms.css.map */
