@@ -24,6 +24,8 @@
       padding: 10px 5px 5px 5px;
       text-align: center;
       border-bottom: 1px solid #003d68; }
+    .terms main section {
+      padding: 0 5px 0 5px; }
     .terms main footer {
       border-top: 1px solid #003d68;
       color: #003d68;

@@ -33,6 +33,10 @@ $image-path: "/resource/image";
       border-bottom: 1px solid $logo-color;
     }
 
+    section {
+      padding: 0 5px 0 5px;
+    }
+
     footer {
       border-top: 1px solid $logo-color;
       color: $logo-color;

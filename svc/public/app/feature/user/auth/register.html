@@ -1,53 +1,83 @@
-<div>
-  <form [formGroup]="registerForm" (ngSubmit)="register()" novalidate>
-    <div class="input-group">
-      <label class="sr-only" for="email">EMail</label>
-      <span class="input-group-addon"><i class="fa fa-fw fa-envelope">*</i></span>
-      <input class="form-control" formControlName="email" id="email"
-             placeholder="Your Email.  This will be your log in username" pammLowerCase>
-    </div>
+<form [formGroup]="registerForm" (ngSubmit)="register()" novalidate>
+  <div class="input-group">
+    <label class="sr-only" for="email">EMail</label>
+    <span class="input-group-addon"><i class="fa fa-fw fa-envelope">*</i></span>
+    <input class="form-control" formControlName="email" id="email"
+           placeholder="Your Email.  This will be your login username" pammLowerCase>
+  </div>
+  <div class="error" role="alert" *ngIf="submitted && registerForm.controls.email.errors?.required">
+    Please enter an email address that you wished to use for logging on
+  </div>
+  <div class="error" role="alert" *ngIf="registerForm.controls.email.errors?.email">
+    Please enter a valid email address
+  </div>
 
-    <div class="input-group">
-      <label class="sr-only" for="email">Confirm EMail</label>
-      <span class="input-group-addon"><i class="fa fa-fw fa-envelope">*</i></span>
-      <input class="form-control" formControlName="emailConfirm" id="emailConfirm"
-             placeholder="Retype the email to confirm" pammLowerCase>
-    </div>
+  <div class="input-group">
+    <label class="sr-only" for="email">Confirm EMail</label>
+    <span class="input-group-addon"><i class="fa fa-fw fa-envelope">*</i></span>
+    <input class="form-control" formControlName="emailConfirm" id="emailConfirm"
+           placeholder="Retype the email to confirm" pammLowerCase>
+  </div>
+  <div class="error" role="alert" *ngIf="submitted && registerForm.controls.emailConfirm.errors?.required">
+    Please confirm your login email address
+  </div>
+  <div class="error" role="alert" *ngIf="registerForm.controls.emailConfirm.errors?.match">
+    The entered email addresses do not match
+  </div>
 
-    <div class="input-group">
-      <label class="sr-only" for="password">Password</label>
-      <span class="input-group-addon"><i class="fa fa-fw fa-key">*</i></span>
-      <input class="form-control" type="password" formControlName="password"
-             id="password" placeholder="Password" minlength="8" maxlength="255">
-    </div>
+  <div class="input-group">
+    <label class="sr-only" for="password">Password</label>
+    <span class="input-group-addon"><i class="fa fa-fw fa-key">*</i></span>
+    <input class="form-control" type="password" formControlName="password" id="password"
+           placeholder="Password">
+  </div>
+  <div class="error" role="alert" *ngIf="submitted && registerForm.controls.password.errors?.required">
+    Please enter a password
+  </div>
+  <div class="error" role="alert" *ngIf="registerForm.controls.password.errors?.password">
+    Password needs to be a minimum of of characters and include at least 1 number
+  </div>
 
-    <div class="input-group">
-      <label class="sr-only" for="passwordConfirm">Confirm Password</label>
-      <span class="input-group-addon"><i class="fa fa-fw fa-key">*</i></span>
-      <input class="form-control" type="password" formControlName="passwordConfirm"
-             id="passwordConfirm" placeholder="Retype the password to confirm">
-    </div>
+  <div class="input-group">
+    <label class="sr-only" for="passwordConfirm">Confirm Password</label>
+    <span class="input-group-addon"><i class="fa fa-fw fa-key">*</i></span>
+    <input class="form-control" type="password" formControlName="passwordConfirm"
+           id="passwordConfirm" placeholder="Retype the password to confirm">
+  </div>
+  <div class="error" role="alert" *ngIf="submitted && registerForm.controls.passwordConfirm.errors?.required">
+    Please confirm your password
+  </div>
+  <div class="error" role="alert" *ngIf="registerForm.controls.passwordConfirm.errors?.match">
+    The entered passwords do not match
+  </div>
 
-    <div class="input-group">
-      <label class="sr-only" for="forename">Your Forename</label>
-      <span class="input-group-addon"><i class="fa fa-fw fa-user">*</i></span>
-      <input class="form-control" id="forename"
-             formControlName="forename" placeholder="Forename" pammUpperCase>
-    </div>
+  <div class="input-group">
+    <label class="sr-only" for="forename">Your Forename(s)</label>
+    <span class="input-group-addon"><i class="fa fa-fw fa-user">*</i></span>
+    <input class="form-control" id="forename" formControlName="forename" placeholder="Forename" pammUpperCase>
+  </div>
+  <div class="error" role="alert" *ngIf="submitted && registerForm.controls.forename.errors?.required">
+    Please enter your forename(s)
+  </div>
 
-    <div class="input-group">
-      <label class="sr-only" for="surname">Your Surname</label>
-      <span class="input-group-addon"><i class="fa fa-fw fa-user">*</i></span>
-      <input class="form-control" formControlName="surname" id="surname"
-             placeholder="Surname" pammUpperCase>
-    </div>
+  <div class="input-group">
+    <label class="sr-only" for="surname">Your Surname</label>
+    <span class="input-group-addon"><i class="fa fa-fw fa-user">*</i></span>
+    <input class="form-control" formControlName="surname" id="surname" placeholder="Surname" pammUpperCase>
+  </div>
+  <div class="error" role="alert" *ngIf="submitted && registerForm.controls.surname.errors?.required">
+    Please enter your forename(s)
+  </div>
 
-    <div class="box">
-      <label class="sr-only" for="terms">Terms of use agreement</label>
-      <input type="checkbox" formControlName="termsOfUse" id="terms"/>
-      * I have read and agree to the <a [routerLink]="['/terms-of-use']"><b>Terms of Use</b></a>
-    </div>
-    <button type="submit" class="btn btn-primary">REGISTER</button>
-    <button type="button" (*click)="cancel()" class="btn btn-cancel">CANCEL</button>
-  </form>
-</div>
+  <div class="box">
+    <label class="sr-only" for="terms">Terms of use agreement</label>
+    <input type="checkbox" formControlName="termsOfUse" id="terms"/>
+    * I have read and agree to the <a [routerLink]="['/terms-of-use']"><b>Terms of Use</b></a>
+  </div>
+  <div class="error" role="alert" *ngIf="submitted && registerForm.controls.termsOfUse.errors?.required">
+    You need to agree to the terms of use before proceeding
+  </div>
+
+  <button type="submit" class="btn btn-primary">REGISTER</button>
+  <button type="button" (click)="cancel()" class="btn btn-cancel">CANCEL</button>
+</form>

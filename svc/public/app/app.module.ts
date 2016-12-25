@@ -6,7 +6,7 @@ import {ModalModule} from "angular2-modal";
 import {BootstrapModalModule} from "angular2-modal/plugins/bootstrap";
 import {UserModule} from "./feature/user/user.module";
 import {AppComponent} from "./app.compponent";
-import {DataType} from "./service/data/data-type";
+import {DataTypeValidator} from "./lib/validator/data-type.validator";
 import {UserContext} from "./service/data/context/user.context";
 import {PammModule} from "./lib/pamm.module";
 
@@ -24,7 +24,7 @@ import {PammModule} from "./lib/pamm.module";
         AppComponent
     ],
     providers: [
-        DataType,
+        DataTypeValidator,
         UserContext
     ],
     bootstrap: [AppComponent]

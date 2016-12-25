@@ -1,7 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {FormGroup, Validators, FormControl} from "@angular/forms";
-import {DataType} from "../../../service/data/data-type";
-import {Router} from "@angular/router";
+import {DataTypeValidator} from "../../../lib/validator/data-type.validator";
+import {Location} from "@angular/common";
 
 @Component({
     moduleId: module.id,
@@ -13,28 +13,38 @@ export class RegisterComponent implements OnInit {
     private registerForm: FormGroup;
     private submitted: boolean = false;
 
-    constructor(private router: Router) {
+    constructor(private location: Location) {
     }
 
     ngOnInit() {
+        let emailControl: FormControl = new FormControl("",
+            Validators.compose([
+                Validators.required,
+                DataTypeValidator.email,
+            ]));
+
+        let passwordControl: FormControl = new FormControl("",
+            Validators.compose([
+                Validators.required,
+                DataTypeValidator.password,
+            ]));
+
         this.registerForm = new FormGroup({
-            "email": new FormControl("",
-                Validators.compose([
-                    Validators.required,
-                    DataType.email,
-                ])),
+            "email": emailControl,
             "emailConfirm": new FormControl("",
                 Validators.compose([
-                    Validators.required
+                    Validators.required,
+                    DataTypeValidator.match(emailControl)
                 ])),
             "password": new FormControl("",
                 Validators.compose([
                     Validators.required,
-                    DataType.password,
+                    DataTypeValidator.password
                 ])),
             "passwordConfirm": new FormControl("",
                 Validators.compose([
-                    Validators.required
+                    Validators.required,
+                    DataTypeValidator.match(passwordControl)
                 ])),
             "forename": new FormControl("",
                 Validators.compose([
@@ -52,10 +62,28 @@ export class RegisterComponent implements OnInit {
     }
 
     register() {
-        console.log("++++ Register submitted");
+        this.submitted = true;
+
+        if (this.registerForm.valid) {
+            //this.spinnerModalService.show();
+            this.submitted = false;
+
+            //this.userContext.login(this.loginForm.controls["username"].value, this.loginForm.controls["password"].value, Role.USER)
+            //    .subscribe(
+            //        (user: User) => this.router.navigate(["/user"]),
+            //        (error: DataAccessError) => {
+            //            this.spinnerModalService.hide();
+            //            if (error === DataAccessError.UNAUTHORIZED) {
+            //                this.hasAuthenticationError = true;
+            //            } else {
+            //            }
+            //        },
+            //        () => this.spinnerModalService.hide()
+            //    )
+        }
     }
 
     cancel() {
-        //this.router.
+        this.location.back();
     }
 }

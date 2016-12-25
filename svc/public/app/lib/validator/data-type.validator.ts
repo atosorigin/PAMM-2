@@ -1,7 +1,7 @@
-import {FormControl} from "@angular/forms";
+import {FormControl, FormGroup} from "@angular/forms";
 
-export class DataType {
-    static email(control: FormControl) {
+export class DataTypeValidator {
+    static email(control: FormControl): {[p: string]: any} {
         if (control.value.trim().length === 0) {
             return null;
         }
@@ -14,7 +14,7 @@ export class DataType {
             };
     }
 
-    static password(control: FormControl) {
+    static password(control: FormControl): {[p: string]: any} {
         if (control.value.trim().length === 0) {
             return null;
         }
@@ -25,5 +25,17 @@ export class DataType {
                     valid: false
                 }
             };
+    }
+
+    static match(valueToMatch: FormControl) {
+        return (confirm: FormControl): {[p: string]: any} => {
+            if (confirm.value.trim().length === 0) {
+                return null;
+            }
+
+            return (valueToMatch.value === confirm.value) ? null : {
+                    match: {valid: false}
+                };
+        }
     }
 }
