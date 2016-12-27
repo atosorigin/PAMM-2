@@ -1,4 +1,4 @@
-package pamm.dal;
+package pamm.data;
 
 import pamm.infrastructure.util.JSONHelper;
 

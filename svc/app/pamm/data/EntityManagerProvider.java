@@ -1,4 +1,4 @@
-package pamm.dal;
+package pamm.data;
 
 import play.Logger;
 import play.db.jpa.JPA;

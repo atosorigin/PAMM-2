@@ -3,6 +3,8 @@ import {UpperCaseDirective} from "./directives/uppercase.directive";
 import {LowerCaseDirective} from "./directives/lowercase.directive";
 import {SpinnerModalComponent} from "./ui/spinner-modal/spinner-modal.component";
 import {SpinnerModalService} from "./ui/spinner-modal/spinner-modal.service";
+import {AuditService} from "./audit.service";
+import {DialogHelperService} from "./ui/dialog-helper.service";
 
 @NgModule({
     imports: [],
@@ -17,7 +19,9 @@ import {SpinnerModalService} from "./ui/spinner-modal/spinner-modal.service";
         SpinnerModalComponent
     ],
     providers: [
-        SpinnerModalService
+        SpinnerModalService,
+        AuditService,
+        DialogHelperService
     ]
 })
 

@@ -24,19 +24,5 @@ div {
     border: 1px solid gray;
     background: rgba(255, 255, 255, 0.9);
     box-shadow: 7px 7px 5px 0 rgba(30, 30, 50, 0.8);
-
-    header {
-      padding: 10px 5px 5px 5px;
-      text-align: center;
-    }
-
-    footer {
-      border-top: 1px solid $logo-color;
-      color: $logo-color;
-      padding: 5px;
-      font-size: 10pt;
-      font-weight: bold;
-      text-align: center;
-    }
   }
 }

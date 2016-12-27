@@ -30,22 +30,11 @@ nav.navbar-fixed-top + * {
 
 /** Override Bootstrap defaults */
 .btn-cancel {
-  background-color: lightgray; }
+  background-color: lightgray;
+  border: 1px solid darkgray; }
 
 .nav-tabs .active a {
   font-weight: bold; }
-
-/* White modal background instead of black */
-.modal-backdrop {
-  background: white; }
-
-.tooltip > .tooltip-inner {
-  background-color: whitesmoke;
-  color: #204d74;
-  border: 1px solid #204d74; }
-
-.collapsing {
-  transition: 100ms; }
 
 fieldset {
   margin-top: 10px;
@@ -61,11 +50,27 @@ fieldset {
     font-size: 12pt;
     font-weight: bold; }
 
-/* Bootstrap dialog message */
-.bootstrap-dialog-message * {
-  vertical-align: middle; }
-.bootstrap-dialog-message i {
-  margin-right: 15px; }
+.modal-header {
+  color: #fff;
+  padding: 9px 15px;
+  border-bottom: 1px solid #eee;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; }
+  .modal-header.success {
+    background-color: #5cb85c; }
+  .modal-header.warning {
+    background-color: #f0ad4e; }
+  .modal-header.danger {
+    background-color: #d9534f; }
+  .modal-header.info {
+    background-color: #5bc0de; }
+  .modal-header.primary {
+    background-color: #428bca; }
+
+.modal-body {
+  font-size: 11pt; }
+  .modal-body * {
+    vertical-align: middle; }
 
 html, body {
   height: 100%; }

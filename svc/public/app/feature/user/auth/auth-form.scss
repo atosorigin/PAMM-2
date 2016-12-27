@@ -4,12 +4,11 @@ form {
     margin-top: 5px;
   }
 
-  .btn-cancel {
-    border: 1px solid darkgray;
-  }
-
   div {
-    margin-top: 5px;
+    margin-top: 2px;
+    &.input-group {
+      margin-top: 5px;
+    }
   }
 
   a {
@@ -17,6 +16,7 @@ form {
   }
 
   .box {
+    margin-top: 5px;
     background-color: white;
     border: 1px solid lightgray;
     padding: 5px;

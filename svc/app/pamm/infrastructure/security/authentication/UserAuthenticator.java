@@ -7,7 +7,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.SignatureException;
 import io.jsonwebtoken.impl.TextCodec;
 import org.apache.commons.lang3.time.DateUtils;
-import pamm.dal.user.UserRepository;
+import pamm.data.user.UserRepository;
 import pamm.domain.user.model.User;
 import pamm.infrastructure.security.cipher.Cipher;
 import pamm.infrastructure.util.RandomKeyGenerator;

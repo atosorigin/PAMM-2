@@ -1,8 +1,8 @@
 package pamm.domain.user.service;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import pamm.dal.user.UserRepository;
-import pamm.dal.user.WhiteListRepository;
+import pamm.data.user.UserRepository;
+import pamm.data.user.WhiteListRepository;
 import pamm.domain.user.model.User;
 import pamm.endpoint.ServiceResult;
 import pamm.infrastructure.mail.EmailService;

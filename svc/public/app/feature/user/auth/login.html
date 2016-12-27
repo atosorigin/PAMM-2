@@ -8,7 +8,7 @@
   <div class="error" *ngIf="submitted && loginForm.controls.username.errors?.required">
     Please enter the your registered email address
   </div>
-  <div class="error" *ngIf="submitted && loginForm.controls.username.errors?.email">
+  <div class="error" *ngIf="loginForm.controls.username.errors?.email">
     Please correct the entered email address
   </div>
 

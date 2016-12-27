@@ -7,12 +7,14 @@ import "rxjs/add/operator/catch";
 import "rxjs/add/observable/throw";
 import {Role} from "./role";
 import {User} from "./user";
-import {DataAccessError} from "../data-access.error";
-
 
 @Injectable()
 export class UserContext {
     private _user: User = null;
+
+    get user(): User {
+        return this._user;
+    }
 
     constructor(private http: Http) {
     }
@@ -20,15 +22,7 @@ export class UserContext {
     login(username: string, password: string, role: Role): Observable<User> {
         this.logout();
 
-        let loginUrl: string;
-
-        if (role === Role.ADMIN) {
-            loginUrl = "login/admin";
-        } else if (role === Role.USER) {
-            loginUrl = "login/user";
-        }
-
-        return this.http.post(loginUrl, {}, {
+        return this.http.post(role === Role.ADMIN ? "login/admin" : "login/user", {}, {
                 headers: new Headers({
                     "Authorization": `Basic ${btoa(username + ":" + password)}`,
                     "Accept": "application/json, text/plain, */*",
@@ -40,21 +34,21 @@ export class UserContext {
                 this._user = new User(username, result.forename, result.surname, result.authToken, role);
                 return this.user;
             }
-        ).catch((response: Response) => {
-            if (response.status === 401) {
-                return Observable.throw(DataAccessError.UNAUTHORIZED);
-            } else {
-                return Observable.throw(DataAccessError.SERVER);
-            }
-        })
+        )
     }
 
     logout() {
         this._user = null;
     }
 
-    get user(): User {
-        return this._user;
+    register(registration: any, role: Role) {
+        return this.http.post(role === Role.ADMIN ? "register/admin" : "register/user",
+            registration, {
+                headers: new Headers({
+                    "Accept": "application/json, text/plain, */*",
+                    "Content-Type": "application/json;charset=UTF-8"
+                })
+            });
     }
 }
 

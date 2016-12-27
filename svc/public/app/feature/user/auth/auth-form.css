@@ -1,15 +1,16 @@
 form button {
   width: 100%;
   margin-top: 5px; }
-form .btn-cancel {
-  border: 1px solid darkgray; }
 form div {
-  margin-top: 5px; }
+  margin-top: 2px; }
+  form div.input-group {
+    margin-top: 5px; }
 form a {
   color: #122b40; }
 form .box {
+  margin-top: 5px;
   background-color: white;
   border: 1px solid lightgray;
   padding: 5px; }
 
-/*# sourceMappingURL=auth-form.cssmap */
+/*# sourceMappingURL=auth-form.css.map */

@@ -6,7 +6,7 @@ import {Location} from "@angular/common";
     template: `
       <div class="terms">
         <main>
-          <header><i class="adria-logo"><span class="sr-only">ADRIA</span></i></header>
+          <heading></heading>
           <section>
             <h1>Disclaimer, Terms and Conditions</h1>
             <p>The content of the pages of this application and our other products and services are for your general information and use only. It is subject to change without notice.</p>
@@ -15,9 +15,7 @@ import {Location} from "@angular/common";
               <button class="btn btn-primary" type="button" (click)="acknowledge()">OK</button>
             </div>
           </section>
-          <footer>
-            <i class="atos-logo"><span class="sr-only">ATOS</span></i> &copy;2016 - powered by <i class="adria-logo small"><span class="sr-only">ADRIA</span></i>
-          </footer>
+          <copyright></copyright>
         </main>
       </div>`,
     styleUrls: ["terms.css"]

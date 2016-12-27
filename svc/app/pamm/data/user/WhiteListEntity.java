@@ -1,4 +1,4 @@
-package pamm.dal.user;
+package pamm.data.user;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

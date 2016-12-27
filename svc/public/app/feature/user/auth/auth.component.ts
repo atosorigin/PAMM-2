@@ -5,11 +5,9 @@ import {Component} from "@angular/core";
     template: `
       <div>
         <main>
-          <header><i class="adria-logo"><span class="sr-only">ADRIA</span></i></header>
+          <heading></heading>
           <router-outlet></router-outlet>
-          <footer>
-            <i class="atos-logo"><span class="sr-only">ATOS</span></i> &copy;2016 - powered by <i class="adria-logo small"><span class="sr-only">ADRIA</span></i>
-          </footer>
+          <copyright></copyright>
         </main>
       </div>`,
     styleUrls: ["auth.css"]

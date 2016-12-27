@@ -1,6 +1,6 @@
-package pamm.dal.user;
+package pamm.data.user;
 
-import pamm.dal.EntityManagerProvider;
+import pamm.data.EntityManagerProvider;
 import pamm.infrastructure.security.authentication.Principal;
 import play.Logger;
 

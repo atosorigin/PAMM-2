@@ -1,4 +1,4 @@
-package pamm.dal.user;
+package pamm.data.user;
 
 import static pamm.infrastructure.security.authentication.Principal.Role;
 

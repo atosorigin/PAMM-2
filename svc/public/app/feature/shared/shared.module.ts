@@ -1,17 +1,22 @@
 import {NgModule} from "@angular/core";
 import {RouterModule} from "@angular/router";
 import {TermsOfUseComponent} from "./terms.component";
-
+import {CopyrightComponent} from "./copyright.component";
+import {HeadingComponent} from "./heading.component";
 
 @NgModule({
     imports: [
-        RouterModule.forRoot([{path: "terms-of-use", component: TermsOfUseComponent}])
+        RouterModule.forChild([{path: "terms-of-use", component: TermsOfUseComponent}])
     ],
     declarations: [
-        TermsOfUseComponent
+        TermsOfUseComponent,
+        HeadingComponent,
+        CopyrightComponent
     ],
     exports: [
-        TermsOfUseComponent
+        TermsOfUseComponent,
+        HeadingComponent,
+        CopyrightComponent
     ]
 })
 export class SharedModule {

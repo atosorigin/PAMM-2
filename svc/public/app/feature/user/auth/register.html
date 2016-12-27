@@ -21,15 +21,17 @@
   <div class="error" role="alert" *ngIf="submitted && registerForm.controls.emailConfirm.errors?.required">
     Please confirm your login email address
   </div>
-  <div class="error" role="alert" *ngIf="registerForm.controls.emailConfirm.errors?.match">
+  <div class="error" role="alert"
+       *ngIf="!registerForm.controls.emailConfirm.errors?.required
+       && (registerForm.controls.emailConfirm.errors?.match || registerForm.controls.email.errors?.match)
+       && registerForm.controls.email.value !== registerForm.controls.emailConfirm.value">
     The entered email addresses do not match
   </div>
 
   <div class="input-group">
     <label class="sr-only" for="password">Password</label>
     <span class="input-group-addon"><i class="fa fa-fw fa-key">*</i></span>
-    <input class="form-control" type="password" formControlName="password" id="password"
-           placeholder="Password">
+    <input class="form-control" type="password" formControlName="password" id="password" placeholder="Password">
   </div>
   <div class="error" role="alert" *ngIf="submitted && registerForm.controls.password.errors?.required">
     Please enter a password
@@ -47,7 +49,10 @@
   <div class="error" role="alert" *ngIf="submitted && registerForm.controls.passwordConfirm.errors?.required">
     Please confirm your password
   </div>
-  <div class="error" role="alert" *ngIf="registerForm.controls.passwordConfirm.errors?.match">
+  <div class="error" role="alert"
+       *ngIf="!registerForm.controls.passwordConfirm.errors?.required
+       && (registerForm.controls.passwordConfirm.errors?.match || registerForm.controls.password.errors?.match)
+       && registerForm.controls.password.value !== registerForm.controls.passwordConfirm.value">
     The entered passwords do not match
   </div>
 
@@ -66,7 +71,7 @@
     <input class="form-control" formControlName="surname" id="surname" placeholder="Surname" pammUpperCase>
   </div>
   <div class="error" role="alert" *ngIf="submitted && registerForm.controls.surname.errors?.required">
-    Please enter your forename(s)
+    Please enter your surname
   </div>
 
   <div class="box">
@@ -74,10 +79,12 @@
     <input type="checkbox" formControlName="termsOfUse" id="terms"/>
     * I have read and agree to the <a [routerLink]="['/terms-of-use']"><b>Terms of Use</b></a>
   </div>
-  <div class="error" role="alert" *ngIf="submitted && registerForm.controls.termsOfUse.errors?.required">
+  <div class="error" role="alert" *ngIf="submitted && !registerForm.controls.termsOfUse.value">
     You need to agree to the terms of use before proceeding
   </div>
 
-  <button type="submit" class="btn btn-primary">REGISTER</button>
-  <button type="button" (click)="cancel()" class="btn btn-cancel">CANCEL</button>
+  <div>
+    <button type="submit" class="btn btn-primary">REGISTER</button>
+    <button type="button" (click)="cancel()" class="btn btn-cancel">CANCEL</button>
+  </div>
 </form>

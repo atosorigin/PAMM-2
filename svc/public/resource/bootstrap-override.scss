@@ -1,27 +1,13 @@
 /** Override Bootstrap defaults */
 .btn-cancel {
   background-color: lightgray;
+  border: 1px solid darkgray;
 }
 
 .nav-tabs {
   .active a {
     font-weight: bold;
   }
-}
-
-/* White modal background instead of black */
-.modal-backdrop {
-  background: white;
-}
-
-.tooltip > .tooltip-inner {
-  background-color: whitesmoke;
-  color: #204d74;
-  border: 1px solid #204d74;
-}
-
-.collapsing {
-  transition: 100ms;
 }
 
 // Restore bordered field set
@@ -41,13 +27,37 @@ fieldset {
   }
 }
 
-/* Bootstrap dialog message */
-.bootstrap-dialog-message {
-  * {
-    vertical-align: middle;
+.modal-header {
+  color: #fff;
+  padding: 9px 15px;
+  border-bottom: 1px solid #eee;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+
+  &.success {
+    background-color: #5cb85c;
   }
 
-  i {
-    margin-right: 15px
+  &.warning {
+    background-color: #f0ad4e;
+  }
+
+  &.danger {
+    background-color: #d9534f;
+  }
+
+  &.info {
+    background-color: #5bc0de;
+  }
+
+  &.primary {
+    background-color: #428bca;
+  }
+}
+
+.modal-body {
+  font-size: 11pt;
+  * {
+    vertical-align: middle;
   }
 }

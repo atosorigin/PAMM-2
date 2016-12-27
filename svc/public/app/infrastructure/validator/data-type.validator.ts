@@ -1,4 +1,4 @@
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl} from "@angular/forms";
 
 export class DataTypeValidator {
     static email(control: FormControl): {[p: string]: any} {
@@ -7,11 +7,7 @@ export class DataTypeValidator {
         }
 
         const EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
-        return EMAIL_REGEXP.test(control.value) ? null : {
-                email: {
-                    valid: false
-                }
-            };
+        return EMAIL_REGEXP.test(control.value) ? null : {email: true};
     }
 
     static password(control: FormControl): {[p: string]: any} {
@@ -20,11 +16,7 @@ export class DataTypeValidator {
         }
 
         const PASSWORD_REGEXP = /^(?=.*\d)(?=.*[a-zA-Z]).{8,255}$/;
-        return PASSWORD_REGEXP.test(control.value) ? null : {
-                password: {
-                    valid: false
-                }
-            };
+        return PASSWORD_REGEXP.test(control.value) ? null : {password: true};
     }
 
     static match(valueToMatch: FormControl) {
@@ -32,10 +24,7 @@ export class DataTypeValidator {
             if (confirm.value.trim().length === 0) {
                 return null;
             }
-
-            return (valueToMatch.value === confirm.value) ? null : {
-                    match: {valid: false}
-                };
+            return (valueToMatch.value === confirm.value) ? null : {match: true};
         }
     }
 }

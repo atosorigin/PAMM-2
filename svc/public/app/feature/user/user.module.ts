@@ -2,7 +2,7 @@ import {NgModule} from "@angular/core";
 import {UserComponent} from "./user.component";
 import {AuthModule} from "./auth/auth.module";
 import {RouterModule} from "@angular/router";
-import {PammModule} from "../../lib/pamm.module";
+import {PammModule} from "../../infrastructure/pamm.module";
 
 @NgModule({
     imports: [

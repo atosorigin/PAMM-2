@@ -1,8 +1,8 @@
-package pamm.dal.user;
+package pamm.data.user;
 import static pamm.infrastructure.security.authentication.Principal.Role;
 
-import pamm.dal.EntityManagerProvider;
-import pamm.dal.RepositoryObjectFactory;
+import pamm.data.EntityManagerProvider;
+import pamm.data.RepositoryObjectFactory;
 import pamm.domain.user.model.User;
 import play.Logger;
 

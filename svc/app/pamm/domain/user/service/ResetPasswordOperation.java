@@ -1,6 +1,6 @@
 package pamm.domain.user.service;
 
-import pamm.dal.user.UserRepository;
+import pamm.data.user.UserRepository;
 import pamm.domain.user.model.User;
 import pamm.endpoint.ServiceResult;
 import pamm.infrastructure.security.authentication.Principal;

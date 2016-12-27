@@ -1,0 +1,10 @@
+@import "../../../resource/variables";
+
+div {
+  border-top: 1px solid $logo-color;
+  color: $logo-color;
+  padding: 5px;
+  font-size: 10pt;
+  font-weight: bold;
+  text-align: center;
+}

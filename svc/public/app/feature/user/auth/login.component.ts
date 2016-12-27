@@ -1,12 +1,15 @@
 import {Component, OnInit} from "@angular/core";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
-import {UserContext} from "../../../service/data/context/user.context";
-import {DataTypeValidator} from "../../../lib/validator/data-type.validator";
-import {Role} from "../../../service/data/context/role";
-import {User} from "../../../service/data/context/user";
-import {DataAccessError} from "../../../service/data/data-access.error";
-import {SpinnerModalService} from "../../../lib/ui/spinner-modal/spinner-modal.service";
+import {UserContext} from "../../../domain/context/user.context";
+import {DataTypeValidator} from "../../../infrastructure/validator/data-type.validator";
+import {Role} from "../../../domain/context/role";
+import {User} from "../../../domain/context/user";
+import {SpinnerModalService} from "../../../infrastructure/ui/spinner-modal/spinner-modal.service";
+import {Response} from "@angular/http";
+import {STATUS} from "angular-in-memory-web-api";
+import {AuditService} from "../../../infrastructure/audit.service";
+import {DialogHelperService} from "../../../infrastructure/ui/dialog-helper.service";
 
 @Component({
     moduleId: module.id,
@@ -22,16 +25,14 @@ export class LoginComponent implements OnInit {
 
     constructor(private userContext: UserContext,
                 private router: Router,
-                private spinnerModalService: SpinnerModalService) {
+                private spinnerModalService: SpinnerModalService,
+                private dialog: DialogHelperService,
+                private audit: AuditService) {
     }
 
     ngOnInit() {
         this.loginForm = new FormGroup({
-            "username": new FormControl("",
-                Validators.compose([
-                    Validators.required,
-                    DataTypeValidator.email,
-                ])),
+            "username": new FormControl("", Validators.compose([Validators.required, DataTypeValidator.email])),
             "password": new FormControl("", Validators.required)
         });
     }
@@ -47,15 +48,18 @@ export class LoginComponent implements OnInit {
 
             this.userContext.login(this.loginForm.controls["username"].value, this.loginForm.controls["password"].value, Role.USER)
                 .subscribe(
-                    (user: User) => this.router.navigate(["/user"]),
-                    (error: DataAccessError) => {
+                    (user: User) => {
+                        this.router.navigate(["/user"]);
                         this.spinnerModalService.hide();
-                        if (error === DataAccessError.UNAUTHORIZED) {
+                    },
+                    (error: Response) => {
+                        this.spinnerModalService.hide();
+                        if (error.status === STATUS.UNAUTHORIZED) {
                             this.hasAuthenticationError = true;
                         } else {
+                            this.dialog.error("Service temporarily unavailable. Please try again later");
                         }
-                    },
-                    () => this.spinnerModalService.hide()
+                    }
                 )
         }
     }

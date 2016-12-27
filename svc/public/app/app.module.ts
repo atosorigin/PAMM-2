@@ -6,9 +6,9 @@ import {ModalModule} from "angular2-modal";
 import {BootstrapModalModule} from "angular2-modal/plugins/bootstrap";
 import {UserModule} from "./feature/user/user.module";
 import {AppComponent} from "./app.compponent";
-import {DataTypeValidator} from "./lib/validator/data-type.validator";
-import {UserContext} from "./service/data/context/user.context";
-import {PammModule} from "./lib/pamm.module";
+import {UserContext} from "./domain/context/user.context";
+import {PammModule} from "./infrastructure/pamm.module";
+import {DataAccessService} from "./data/data-access.service";
 
 @NgModule({
     imports: [
@@ -24,8 +24,8 @@ import {PammModule} from "./lib/pamm.module";
         AppComponent
     ],
     providers: [
-        DataTypeValidator,
-        UserContext
+        UserContext,
+        DataAccessService
     ],
     bootstrap: [AppComponent]
 })
