@@ -40,7 +40,7 @@ public class ActivateEndpoint extends Controller {
             if (serviceResult.getStatus().equals(ServiceResult.Status.OP_ERROR)) {
                 return badRequest();
             }
-            return redirect(requestUtil.getBaseUrl() + "/#/user/activated");
+            return redirect(requestUtil.getBaseUrl() + "/#/user/auth/activated");
         } else {
             return unauthorized();
         }

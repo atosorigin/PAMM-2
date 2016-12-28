@@ -28,7 +28,6 @@ nav.navbar-fixed-top + * {
     .navbar-inverse .navbar-nav .navbar-inverse .navbar-nav .open .dropdown-menu .divider {
       background-color: #01507a; } }
 
-/** Override Bootstrap defaults */
 .btn-cancel {
   background-color: lightgray;
   border: 1px solid darkgray; }
@@ -50,30 +49,39 @@ fieldset {
     font-size: 12pt;
     font-weight: bold; }
 
-.modal-header {
+.modal-header.dialog {
   color: #fff;
   padding: 9px 15px;
   border-bottom: 1px solid #eee;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px; }
-  .modal-header.success {
+  .modal-header.dialog.success {
     background-color: #5cb85c; }
-  .modal-header.warning {
+  .modal-header.dialog.warning {
     background-color: #f0ad4e; }
-  .modal-header.danger {
+  .modal-header.dialog.danger {
     background-color: #d9534f; }
-  .modal-header.info {
+  .modal-header.dialog.info {
     background-color: #5bc0de; }
-  .modal-header.primary {
+  .modal-header.dialog.primary {
     background-color: #428bca; }
 
-.modal-body {
-  font-size: 11pt; }
-  .modal-body * {
+.modal-body.dialog {
+  font-size: 12pt; }
+  .modal-body.dialog * {
     vertical-align: middle; }
+  .modal-body.dialog i {
+    margin-right: 10px; }
 
 html, body {
   height: 100%; }
+
+.centred {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #0066a1; }
 
 label {
   font-size: small; }
@@ -125,4 +133,4 @@ a, [type="submit"] {
   width: 42px;
   height: 13px; }
 
-/*# sourceMappingURL=app.css.map */
+/*# sourceMappingURL=main.csss.map */

@@ -58,7 +58,7 @@ public class RegisterAdminOperation {
         final User existingUser = repository.findUserByEmail(userEmail, Role.ADMIN);
         if (existingUser != null) {
             LOG.info("Registration attemp: " + userEmail);
-            return new ServiceResult(ServiceResult.Status.OP_ERROR, "Account Exists");
+            return new ServiceResult(ServiceResult.Status.CONFLICT, "Account Exists");
         }
 
         final User user = Json.fromJson(jsonRequest, User.class);

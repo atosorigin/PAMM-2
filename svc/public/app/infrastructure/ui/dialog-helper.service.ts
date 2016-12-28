@@ -3,7 +3,6 @@ import {Injectable} from "@angular/core";
 
 @Injectable()
 export class DialogHelperService {
-
     constructor(private modal: Modal) {
     }
 
@@ -12,8 +11,9 @@ export class DialogHelperService {
             .size("lg")
             .showClose(true)
             .title(title ? title : "")
-            .headerClass("modal-header error")
-            .body(`<i class="fa fa-exclamation-circle fa-2x"></i> ${message}`)
+            .headerClass("modal-header dialog danger")
+            .body(`<i class="fa fa-exclamation-circle fa-2x"></i>${message}`)
+            .bodyClass("modal-body dialog text-danger")
             .okBtnClass("btn btn-danger")
             .open();
     }
@@ -23,8 +23,9 @@ export class DialogHelperService {
             .size("lg")
             .showClose(true)
             .title(title ? title : "")
-            .headerClass("modal-header success")
-            .body(`<i class="fa fa-check-o fa-2x"></i> ${message}`)
+            .headerClass("modal-header dialog success")
+            .body(`<i class="fa fa-check fa-2x"></i>${message}`)
+            .bodyClass("modal-body dialog text-success")
             .okBtnClass("btn btn-success")
             .open();
     }
@@ -34,9 +35,9 @@ export class DialogHelperService {
             .size("lg")
             .showClose(true)
             .title(title ? title : "")
-            .headerClass("modal-header info")
-            .body(`<i class="fa fa-info-circle fa-2x"></i> ${message}`)
-            .bodyClass("modal-body text-info")
+            .headerClass("modal-header dialog info")
+            .body(`<i class="fa fa-info-circle fa-2x"></i>${message}`)
+            .bodyClass("modal-body dialog text-info")
             .okBtnClass("btn btn-info")
             .open();
     }
@@ -46,9 +47,9 @@ export class DialogHelperService {
             .size("lg")
             .showClose(true)
             .title(title ? title : "")
-            .headerClass("modal-header warning")
-            .body(`<i class="fa fa-exclamation-triangle fa-2x"></i> ${message}`)
-            .bodyClass("modal-body text-warning")
+            .headerClass("modal-header dialog warning")
+            .body(`<i class="fa fa-exclamation-triangle fa-2x"></i>${message}`)
+            .bodyClass("modal-body dialog text-warning")
             .okBtnClass("btn btn-warning")
             .open();
     }
@@ -58,9 +59,9 @@ export class DialogHelperService {
             .size("lg")
             .showClose(true)
             .title(title ? title : "")
-            .headerClass("modal-header primary")
-            .body(`<i class="fa fa-info-circle fa-2x"></i> ${message}`)
-            .bodyClass("modal-body text-primary")
+            .headerClass("modal-header dialog primary")
+            .body(`<i class="fa fa-info-circle fa-2x"></i>${message}`)
+            .bodyClass("modal-body dialog text-primary")
             .okBtnClass("btn btn-primary")
             .open();
     }

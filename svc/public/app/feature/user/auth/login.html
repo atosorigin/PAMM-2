@@ -6,7 +6,7 @@
            placeholder="User Name (email address)" pammLowerCase>
   </div>
   <div class="error" *ngIf="submitted && loginForm.controls.username.errors?.required">
-    Please enter the your registered email address
+    Please enter your registered email address
   </div>
   <div class="error" *ngIf="loginForm.controls.username.errors?.email">
     Please correct the entered email address
@@ -28,6 +28,6 @@
     </div>
   </div>
 
-  <div><i class="fa fa-fw fa-user-circle-o"></i> <a (click)="navigateToRegistration()">Don't have an account? Register</a></div>
-  <div><i class="fa fa-fw fa-lock"></i> <a data-ng-click="login.forgotPassword()">Forgotten password</a></div>
+  <div><i class="fa fa-fw fa-user-circle-o"></i> <a [routerLink]="['../register']">Don't have an account? Register</a></div>
+  <div><i class="fa fa-fw fa-lock"></i> <a [routerLink]="['../forgotten-password']">Forgotten password</a></div>
 </form>

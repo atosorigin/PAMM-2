@@ -29,7 +29,6 @@ import {DataAccessService} from "./data/data-access.service";
     ],
     bootstrap: [AppComponent]
 })
-
 export class AppModule {
 }
 

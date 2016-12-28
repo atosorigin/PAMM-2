@@ -41,7 +41,7 @@ public class ActivateEndpoint extends Controller {
                 return badRequest();
             }
 
-            return redirect(requestUtil.getBaseUrl() + "/#/admin/activated");
+            return redirect(requestUtil.getBaseUrl() + "/#/admin/auth/activated");
         } else {
             return unauthorized();
         }

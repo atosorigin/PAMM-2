@@ -6,7 +6,7 @@ import {PammModule} from "../../infrastructure/pamm.module";
 
 @NgModule({
     imports: [
-        RouterModule.forChild([{path: 'user', component: UserComponent}]),
+        RouterModule.forChild([{path: "user", component: UserComponent}]),
         AuthModule,
         PammModule
     ],

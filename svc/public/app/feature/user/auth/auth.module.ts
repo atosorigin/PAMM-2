@@ -7,6 +7,9 @@ import {RegisterComponent} from "./register.component";
 import {RouterModule} from "@angular/router";
 import {PammModule} from "../../../infrastructure/pamm.module";
 import {SharedModule} from "../../shared/shared.module";
+import {ActivatedNoticeComponent} from "./activated-notice.component";
+import {ForgottenPasswordComponent} from "./forgotten-password.component";
+import {ResetPasswordComponent} from "./reset-password.component";
 
 @NgModule({
     imports: [
@@ -16,19 +19,24 @@ import {SharedModule} from "../../shared/shared.module";
                 children: [
                     {path: "login", component: LoginComponent},
                     {path: "register", component: RegisterComponent},
-                    {path: "activate", component: RegisterComponent},
+                    {path: "activated", component: ActivatedNoticeComponent},
+                    {path: "forgotten-password", component: ForgottenPasswordComponent},
+                    {path: "reset-password/:token", component: ResetPasswordComponent}
                 ]
             }
         ]),
         ReactiveFormsModule,
         CommonModule,
         PammModule,
-        SharedModule
+        SharedModule,
     ],
     declarations: [
         AuthComponent,
         LoginComponent,
-        RegisterComponent
+        RegisterComponent,
+        ActivatedNoticeComponent,
+        ForgottenPasswordComponent,
+        ResetPasswordComponent
     ]
 })
 export class AuthModule {

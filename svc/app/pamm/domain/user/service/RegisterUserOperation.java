@@ -57,7 +57,7 @@ public class RegisterUserOperation {
         final User existingUser = repository.findUserByEmail(userEmail, Role.USER);
         if (existingUser != null) {
             LOG.info("Registration attempted with existing: " + userEmail);
-            return new ServiceResult(ServiceResult.Status.OP_ERROR, "Account Exists");
+            return new ServiceResult(ServiceResult.Status.CONFLICT, "Account Exists");
         }
 
         final User user = Json.fromJson(jsonRequest, User.class);

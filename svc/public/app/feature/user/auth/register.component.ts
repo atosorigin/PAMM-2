@@ -2,10 +2,11 @@ import {Component, OnInit} from "@angular/core";
 import {FormGroup, Validators, FormControl} from "@angular/forms";
 import {DataTypeValidator} from "../../../infrastructure/validator/data-type.validator";
 import {Location} from "@angular/common";
-import {Role} from "../../../domain/context/role";
-import {Response} from "@angular/http";
-import {UserContext} from "../../../domain/context/user.context";
 import {STATUS} from "angular-in-memory-web-api";
+import "rxjs/add/operator/finally";
+
+import {Role} from "../../../domain/context/role";
+import {UserContext} from "../../../domain/context/user.context";
 import {SpinnerModalService} from "../../../infrastructure/ui/spinner-modal/spinner-modal.service";
 import {DialogHelperService} from "../../../infrastructure/ui/dialog-helper.service";
 
@@ -89,13 +90,10 @@ export class RegisterComponent implements OnInit {
                     "forename": this.registerForm.controls["forename"].value,
                     "surname": this.registerForm.controls["surname"].value
                 }, Role.USER)
+                .finally(() => this.spinnerModalService.hide())
                 .subscribe(
-                    (sucesss: Response) => {
-                        this.spinnerModalService.hide();
-                        this.dialog.success("Registration is successful.  Plesae check your email for activation instruction");
-                    },
-                    (error: Response) => {
-                        this.spinnerModalService.hide();
+                    (sucesss) => this.dialog.success("Registration is successful.  Please check your email for activation instruction"),
+                    (error) => {
 
                         switch (error.status) {
                             case STATUS.FORBIDDEN : {

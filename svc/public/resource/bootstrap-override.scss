@@ -1,4 +1,3 @@
-/** Override Bootstrap defaults */
 .btn-cancel {
   background-color: lightgray;
   border: 1px solid darkgray;
@@ -27,7 +26,7 @@ fieldset {
   }
 }
 
-.modal-header {
+.modal-header.dialog {
   color: #fff;
   padding: 9px 15px;
   border-bottom: 1px solid #eee;
@@ -55,9 +54,14 @@ fieldset {
   }
 }
 
-.modal-body {
-  font-size: 11pt;
+.modal-body.dialog {
+  font-size: 12pt;
+
   * {
     vertical-align: middle;
+  }
+
+  i {
+    margin-right: 10px;
   }
 }

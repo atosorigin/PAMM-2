@@ -7,8 +7,9 @@ form div {
     margin-top: 5px; }
 form a {
   color: #122b40; }
-form .box {
-  margin-top: 5px;
+
+.box {
+  margin: 5px 0 5px 0;
   background-color: white;
   border: 1px solid lightgray;
   padding: 5px; }

@@ -25,6 +25,9 @@ public abstract class ResourceEndpoint extends Controller {
             case FORBIDDEN: {
                 return forbidden();
             }
+            case CONFLICT: {
+                return (serviceResult.getResult() == null) ? status(CONFLICT) : status(CONFLICT, serviceResult.getResult());
+            }
             case OP_ERROR: {
                 return badRequest();
             }

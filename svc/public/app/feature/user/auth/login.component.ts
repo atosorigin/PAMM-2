@@ -1,15 +1,16 @@
 import {Component, OnInit} from "@angular/core";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
-import {UserContext} from "../../../domain/context/user.context";
-import {DataTypeValidator} from "../../../infrastructure/validator/data-type.validator";
-import {Role} from "../../../domain/context/role";
-import {User} from "../../../domain/context/user";
-import {SpinnerModalService} from "../../../infrastructure/ui/spinner-modal/spinner-modal.service";
-import {Response} from "@angular/http";
 import {STATUS} from "angular-in-memory-web-api";
+import "rxjs/add/operator/finally";
+
+import {SpinnerModalService} from "../../../infrastructure/ui/spinner-modal/spinner-modal.service";
 import {AuditService} from "../../../infrastructure/audit.service";
 import {DialogHelperService} from "../../../infrastructure/ui/dialog-helper.service";
+import {DataTypeValidator} from "../../../infrastructure/validator/data-type.validator";
+
+import {UserContext} from "../../../domain/context/user.context";
+import {Role} from "../../../domain/context/role";
 
 @Component({
     moduleId: module.id,
@@ -46,14 +47,11 @@ export class LoginComponent implements OnInit {
             this.submitted = false;
             this.hasAuthenticationError = false;
 
-            this.userContext.login(this.loginForm.controls["username"].value, this.loginForm.controls["password"].value, Role.USER)
+            this.userContext.login(this.loginForm.controls["email"].value, this.loginForm.controls["password"].value, Role.USER)
+                .finally(() => this.spinnerModalService.hide())
                 .subscribe(
-                    (user: User) => {
-                        this.router.navigate(["/user"]);
-                        this.spinnerModalService.hide();
-                    },
-                    (error: Response) => {
-                        this.spinnerModalService.hide();
+                    (user) => this.router.navigate(["/user"]),
+                    (error) => {
                         if (error.status === STATUS.UNAUTHORIZED) {
                             this.hasAuthenticationError = true;
                         } else {
@@ -62,9 +60,5 @@ export class LoginComponent implements OnInit {
                     }
                 )
         }
-    }
-
-    navigateToRegistration() {
-        this.router.navigateByUrl("/user/auth/register");
     }
 }

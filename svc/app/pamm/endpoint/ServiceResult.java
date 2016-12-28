@@ -13,7 +13,7 @@ import java.io.File;
  */
 public class ServiceResult {
 
-    public enum Status {SUCCESS, UNAUTHORIZED, OP_ERROR, SYS_ERROR, NOT_IMPLEMENTED, FORBIDDEN}
+    public enum Status {SUCCESS, UNAUTHORIZED, OP_ERROR, SYS_ERROR, NOT_IMPLEMENTED, FORBIDDEN, CONFLICT}
 
     private final Status status;
     private JsonNode result;
