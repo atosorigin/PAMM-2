@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
             this.submitted = false;
             this.hasAuthenticationError = false;
 
-            this.userContext.login(this.loginForm.controls["email"].value, this.loginForm.controls["password"].value, Role.USER)
+            this.userContext.login(this.loginForm.controls["username"].value, this.loginForm.controls["password"].value, Role.USER)
                 .finally(() => this.spinnerModalService.hide())
                 .subscribe(
                     (user) => this.router.navigate(["/user"]),

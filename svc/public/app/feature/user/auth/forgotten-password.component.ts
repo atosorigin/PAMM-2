@@ -1,35 +1,38 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, OnDestroy} from "@angular/core";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Location} from "@angular/common";
 import "rxjs/add/operator/finally";
+import {STATUS} from "angular-in-memory-web-api";
+import {Router} from "@angular/router";
+import {Subscription} from "rxjs";
 import {SpinnerModalService} from "../../../infrastructure/ui/spinner-modal/spinner-modal.service";
 import {AuditService} from "../../../infrastructure/audit.service";
 import {DialogHelperService} from "../../../infrastructure/ui/dialog-helper.service";
 import {DataTypeValidator} from "../../../infrastructure/validator/data-type.validator";
 import {UserContext} from "../../../domain/context/user.context";
 import {Role} from "../../../domain/context/role";
-import {Response} from "@angular/http";
 
 @Component({
     moduleId: module.id,
     templateUrl: "forgotten-password.html",
     styles: [`
-        form {
-            border-top: 1px solid lightgray;
-            margin-top: 10px;
-            padding-top: 5px;
+        div.buttons {
+            margin-top: 5px;
         }`],
     styleUrls: ["auth-form.css"]
 })
-export class ForgottenPasswordComponent implements OnInit {
+export class ForgottenPasswordComponent implements OnInit, OnDestroy {
 
     private forgottenPasswordForm: FormGroup;
     private submitted: boolean = false;
+    private invalidAccount: boolean = false;
+    private emailSubscription: Subscription;
 
     constructor(private userContext: UserContext,
                 private location: Location,
                 private spinnerModalService: SpinnerModalService,
                 private dialog: DialogHelperService,
+                private router: Router,
                 private log: AuditService) {
     }
 
@@ -37,6 +40,14 @@ export class ForgottenPasswordComponent implements OnInit {
         this.forgottenPasswordForm = new FormGroup({
             "email": new FormControl("", Validators.compose([Validators.required, DataTypeValidator.email]))
         });
+
+        // watch email value changes to avoid to showing not valid email message after change
+        this.emailSubscription = this.forgottenPasswordForm.controls["email"].valueChanges
+            .subscribe(() => this.invalidAccount = false)
+    }
+
+    ngOnDestroy() {
+        this.emailSubscription.unsubscribe();
     }
 
     requestReset() {
@@ -50,11 +61,15 @@ export class ForgottenPasswordComponent implements OnInit {
                 .finally(() => this.spinnerModalService.hide())
                 .subscribe(
                     () => {
-                        this.dialog.success("Password request have been successfully been submited.  Please check your email for reset instruction.");
+                        this.dialog.success("Password request have been successfully been submitted.  Please check your email for reset instruction.")
+                            .then(() => this.router.navigateByUrl("/user/auth/login"))
                     },
-                    (error: Response) => {
-                        this.dialog.error("Service temporarily unavailable. Please try again later");
-                        this.log.error(`Unable to log on becuase ${error.text()}`);
+                    (error) => {
+                        if (error.status === STATUS.BAD_REQUEST) {
+                            this.invalidAccount = true;
+                        } else {
+                            this.dialog.error("Sorry, we are unable to reset your password at this time.  Please try again later.");
+                        }
                     }
                 )
         }

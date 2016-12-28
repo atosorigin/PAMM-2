@@ -4,19 +4,26 @@ form {
     margin-top: 5px;
   }
 
-  div {
+  div.input-group {
+    margin-top: 5px;
+  }
+
+  div.error {
     margin-top: 2px;
-    &.input-group {
-      margin-top: 5px;
-    }
   }
 
   a {
     color: #122b40;
   }
+
+  &.top-border {
+    border-top: 1px solid lightgray;
+    margin-top: 10px;
+    padding-top: 5px;
+  }
 }
 
-.box {
+div.box {
   margin: 5px 0 5px 0;
   background-color: white;
   border: 1px solid lightgray;

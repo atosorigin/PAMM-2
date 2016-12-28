@@ -6,20 +6,17 @@ import {UserContext} from "../../../domain/context/user.context";
 import {SpinnerModalService} from "../../../infrastructure/ui/spinner-modal/spinner-modal.service";
 import {DialogHelperService} from "../../../infrastructure/ui/dialog-helper.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {STATUS} from "angular-in-memory-web-api";
 
 @Component({
     moduleId: module.id,
     templateUrl: "reset-password.html",
-    styles: [`
-        form {
-            border-top: 1px solid lightgray;
-            margin-top: 10px;
-            padding-top: 5px;
-        }`],
     styleUrls: ["auth-form.css"]
 })
 
 export class ResetPasswordComponent implements OnInit {
+
+    private hasAuthenticationError: boolean = false;
     private resetPasswordForm: FormGroup;
     private submitted: boolean = false;
     private token: string;
@@ -62,6 +59,7 @@ export class ResetPasswordComponent implements OnInit {
 
     resetPassword() {
         this.submitted = true;
+        this.hasAuthenticationError = false;
 
         this.resetPasswordForm.controls["password"].updateValueAndValidity();
         this.resetPasswordForm.controls["passwordConfirm"].updateValueAndValidity();
@@ -79,12 +77,16 @@ export class ResetPasswordComponent implements OnInit {
                 .finally(() => this.spinnerModalService.hide())
                 .subscribe(
                     (sucesss) => {
-                        this.dialog.success("Your password has been reset. You can now login with your new password.");
-                        this.router.navigateByUrl("/user/auth/login")
-
+                        this.dialog.success("Your password has been reset. You can now login with your new password.")
+                        .then(() =>this.router.navigateByUrl("/user/auth/login"));
                     },
+
                     (error) => {
-                        this.dialog.error("Sorry, we are unable to reset your password at this time.  Please try again later.");
+                        if (error.status === STATUS.UNAUTHORIZED) {
+                            this.hasAuthenticationError = true;
+                        } else {
+                            this.dialog.error("Sorry, we are unable to reset your password at this time.  Please try again later.");
+                        }
                     }
                 )
         }

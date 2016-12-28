@@ -9,6 +9,7 @@ export class DialogHelperService {
     error(message : string, title?: string) {
         return this.modal.alert()
             .size("lg")
+            .isBlocking(true)
             .showClose(true)
             .title(title ? title : "")
             .headerClass("modal-header dialog danger")
@@ -21,6 +22,7 @@ export class DialogHelperService {
     success(message : string, title?: string) {
         return this.modal.alert()
             .size("lg")
+            .isBlocking(true)
             .showClose(true)
             .title(title ? title : "")
             .headerClass("modal-header dialog success")
@@ -33,6 +35,7 @@ export class DialogHelperService {
     info(message : string, title?: string) {
         return this.modal.alert()
             .size("lg")
+            .isBlocking(true)
             .showClose(true)
             .title(title ? title : "")
             .headerClass("modal-header dialog info")
@@ -45,6 +48,7 @@ export class DialogHelperService {
     warning(message : string, title?: string) {
         return this.modal.alert()
             .size("lg")
+            .isBlocking(true)
             .showClose(true)
             .title(title ? title : "")
             .headerClass("modal-header dialog warning")
@@ -57,6 +61,7 @@ export class DialogHelperService {
     alert(message : string, title?: string) {
         return this.modal.alert()
             .size("lg")
+            .isBlocking(true)
             .showClose(true)
             .title(title ? title : "")
             .headerClass("modal-header dialog primary")
