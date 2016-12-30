@@ -15,10 +15,6 @@ import {Role} from "../../../domain/context/role";
 @Component({
     moduleId: module.id,
     templateUrl: "forgotten-password.html",
-    styles: [`
-        div.buttons {
-            margin-top: 5px;
-        }`],
     styleUrls: ["auth-form.css"]
 })
 export class ForgottenPasswordComponent implements OnInit, OnDestroy {

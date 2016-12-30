@@ -8,24 +8,6 @@
     font-weight: bold;
   }
 }
-
-// Restore bordered field set
-fieldset {
-  margin-top: 10px;
-  border: 1px solid lightgray;
-  padding: 5px;
-  legend {
-    position: relative;
-    top: 10px;
-    left: 10px;
-    padding: 0 5px 0 5px;
-    width: auto;
-    border-bottom: none;
-    font-size: 12pt;
-    font-weight: bold;
-  }
-}
-
 .modal-header.dialog {
   color: #fff;
   padding: 9px 15px;

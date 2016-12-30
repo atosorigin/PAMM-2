@@ -5,18 +5,23 @@ import {SpinnerModalComponent} from "./ui/spinner-modal/spinner-modal.component"
 import {SpinnerModalService} from "./ui/spinner-modal/spinner-modal.service";
 import {AuditService} from "./audit.service";
 import {DialogHelperService} from "./ui/dialog-helper.service";
+import {NavbarComponent} from "./ui/navbar/navbar.component";
+import {CommonModule} from "@angular/common";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
-    imports: [],
+    imports: [RouterModule, CommonModule],
     declarations: [
         UpperCaseDirective,
         LowerCaseDirective,
-        SpinnerModalComponent
+        SpinnerModalComponent,
+        NavbarComponent
     ],
     exports: [
         UpperCaseDirective,
         LowerCaseDirective,
-        SpinnerModalComponent
+        SpinnerModalComponent,
+        NavbarComponent
     ],
     providers: [
         SpinnerModalService,
@@ -27,4 +32,3 @@ import {DialogHelperService} from "./ui/dialog-helper.service";
 
 export class PammModule {
 }
-

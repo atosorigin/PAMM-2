@@ -40,7 +40,7 @@ export class UserContext {
             }
         ).map((response: Response) => {
                 let result = response.json();
-                this._user = new User(username, result.forename, result.surname, result.authToken, role);
+                this._user = new User(username, result.user.forename, result.user.surname, role, result.authToken, result.user.id);
                 return this._user;
             }
         )

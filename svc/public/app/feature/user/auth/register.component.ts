@@ -15,7 +15,6 @@ import {DialogHelperService} from "../../../infrastructure/ui/dialog-helper.serv
     templateUrl: "register.html",
     styleUrls: ["auth-form.css"]
 })
-
 export class RegisterComponent implements OnInit {
     private registerForm: FormGroup;
     private submitted: boolean = false;

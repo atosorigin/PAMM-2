@@ -29,11 +29,7 @@
             "rxjs": "npm:rxjs",
             "angular-in-memory-web-api": "npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js",
 
-            "moment": "npm:moment/moment.js",
-            "ng2-bootstrap/ng2-bootstrap": "npm:ng2-bootstrap/bundles/ng2-bootstrap.umd.js",
-
             "angular2-modal": "npm:angular2-modal/bundles/angular2-modal.umd",
-            "angular2-modal/plugins/vex": "npm:angular2-modal/bundles/angular2-modal.vex.umd",
             "angular2-modal/plugins/bootstrap": "npm:angular2-modal/bundles/angular2-modal.bootstrap.umd"
         },
         // packages tells the System loader how to load when no filename and/or no extension

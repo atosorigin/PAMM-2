@@ -22,6 +22,5 @@ import {Component} from "@angular/core";
         padding: 15px;
     }`]
 })
-
 export class ActivatedNoticeComponent {
 }

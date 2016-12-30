@@ -17,7 +17,6 @@ import {Role} from "../../../domain/context/role";
     templateUrl: "login.html",
     styleUrls: ["auth-form.css"]
 })
-
 export class LoginComponent implements OnInit {
 
     private loginForm: FormGroup;

@@ -13,7 +13,6 @@ import {STATUS} from "angular-in-memory-web-api";
     templateUrl: "reset-password.html",
     styleUrls: ["auth-form.css"]
 })
-
 export class ResetPasswordComponent implements OnInit {
 
     private hasAuthenticationError: boolean = false;

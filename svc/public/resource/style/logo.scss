@@ -1,0 +1,61 @@
+.atos-logo.blue {
+  &:before {
+    background: url("#{$image-path}/logo_atos.svg") left center no-repeat;
+    background-size: 100%;
+    display: inline-block;
+    content: "";
+  }
+
+  &.small:before {
+    width: 36px;
+    height: 12px;
+  }
+
+  &.large:before {
+    width: 135px;
+    height: 45px;
+  }
+}
+
+.atos-logo.white {
+  &:before {
+    background: url("#{$image-path}/logo_atos_white.svg") left center no-repeat;
+    background-size: 100%;
+    display: inline-block;
+    content: "";
+  }
+
+  &.small:before {
+    width: 36px;
+    height: 12px;
+  }
+
+  &.medium:before {
+    width: 90px;
+    height: 30px;
+  }
+
+  &.large:before {
+    width: 135px;
+    height: 45px;
+  }
+}
+
+.adria-logo {
+  &:before {
+    background: url("#{$image-path}/adria-logo-blue.svg") left center no-repeat;
+    background-size: 100%;
+    display: inline-block;
+    content: "";
+  }
+
+  &.small:before {
+    width: 42px;
+    height: 13px;
+  }
+
+  &.large:before {
+    width: 150px;
+    height: 45px;
+  }
+}

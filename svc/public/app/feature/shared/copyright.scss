@@ -1,10 +1,9 @@
-@import "../../../resource/variables";
+@import "../../../resource/style/variables";
 
 div {
   border-top: 1px solid $logo-color;
   color: $logo-color;
   padding: 5px;
-  font-size: 10pt;
-  font-weight: bold;
+  font-size: 11pt;
   text-align: center;
 }

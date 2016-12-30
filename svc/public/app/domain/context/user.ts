@@ -1,6 +1,10 @@
 import {Role} from "./role";
 
 export class User {
+    get id(): string {
+        return this._id;
+    }
+
     get username(): string {
         return this._username;
     }
@@ -20,10 +24,12 @@ export class User {
     get role(): Role {
         return this._role;
     }
+
     constructor(private _username: string,
                 private _forename: string,
                 private _surname: string,
-                private _token: string,
-                private _role: Role) {
+                private _role: Role,
+                private _token?: string,
+                private _id?: string) {
     }
 }

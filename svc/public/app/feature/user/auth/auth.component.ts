@@ -12,6 +12,5 @@ import {Component} from "@angular/core";
       </div>`,
     styleUrls: ["auth.css"]
 })
-
 export class AuthComponent {
 }
