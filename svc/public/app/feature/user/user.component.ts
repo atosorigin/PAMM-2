@@ -1,29 +1,24 @@
 import {Component, OnInit} from "@angular/core";
 import {User} from "../../domain/context/user";
 import {UserContext} from "../../domain/context/user.context";
-import {MenuType, RouteInfo} from "../../infrastructure/ui/navbar/navbar";
+import {UUID} from "../../infrastructure/util/uuid";
 
 @Component({
     moduleId: module.id,
-    templateUrl: "user.html",
-    styleUrls: []
+    templateUrl: "user.html"
 })
 export class UserComponent implements OnInit {
 
+    uuid: string;
+    isCollapsed = true;
+
     private _user: User;
-
-    readonly navroutes: RouteInfo[] = [
-        {path: '', title: 'Amiga', menuType: MenuType.BRAND},
-        {path: 'heroes', title: `Heroes`, menuType: MenuType.LEFT},
-        {path: 'about', title: 'About Us', menuType: MenuType.RIGHT},
-        {path: 'contact', title: 'Contact', menuType: MenuType.RIGHT}
-    ];
-
     get user(): User {
         return this.userContext.user;
     }
 
     constructor(private userContext: UserContext) {
+        this.uuid = UUID.generate();
     }
 
     ngOnInit() {

@@ -10,7 +10,7 @@
         },
         // map tells the System loader where to look for things
         map: {
-            // our app is within the app folder
+            // location of the appliction
             app: "app",
 
             // angular bundles
@@ -45,6 +45,6 @@
     });
 
     System.import("app").catch(function (err) {
-        console.error(err);
+        console.error.bind(console);
     });
 })(this);

@@ -1,3 +1,4 @@
+import {BrowserModule} from "@angular/platform-browser";
 import {NgModule} from "@angular/core";
 import {UserComponent} from "./user.component";
 import {AuthModule} from "./auth/auth.module";
@@ -8,7 +9,8 @@ import {PammModule} from "../../infrastructure/pamm.module";
     imports: [
         RouterModule.forChild([{path: "user", component: UserComponent}]),
         AuthModule,
-        PammModule
+        PammModule,
+        BrowserModule
     ],
     declarations: [
         UserComponent

@@ -41,7 +41,7 @@
   background-color: lightgray;
   border: 1px solid darkgray; }
 
-.nav-tabs .active a {
+.nav-item.active {
   font-weight: bold; }
 
 .modal-header.dialog {

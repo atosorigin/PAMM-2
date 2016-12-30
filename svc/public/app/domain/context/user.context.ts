@@ -4,7 +4,6 @@ import {Observable} from "rxjs/Observable";
 import "rxjs/add/operator/map";
 import {Role} from "./role";
 import {User} from "./user";
-import * as testing from "selenium-webdriver/testing";
 
 @Injectable()
 export class UserContext {

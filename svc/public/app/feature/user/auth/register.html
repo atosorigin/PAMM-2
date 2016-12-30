@@ -1,8 +1,7 @@
 <form [formGroup]="registerForm" (ngSubmit)="register()" novalidate>
   <div class="input-group">
-    <label class="sr-only" for="email">EMail</label>
     <span class="input-group-addon"><i class="fa fa-fw fa-envelope">*</i></span>
-    <input class="form-control" formControlName="email" id="email"
+    <input class="form-control" formControlName="email" aria-label="email"
            placeholder="Your Email.  This will be your login username" pammLowerCase>
   </div>
   <div class="error" role="alert" *ngIf="submitted && registerForm.controls.email.errors?.required">
@@ -13,9 +12,8 @@
   </div>
 
   <div class="input-group">
-    <label class="sr-only" for="email">Confirm EMail</label>
     <span class="input-group-addon"><i class="fa fa-fw fa-envelope">*</i></span>
-    <input class="form-control" formControlName="emailConfirm" id="emailConfirm"
+    <input class="form-control" formControlName="emailConfirm" aria-label="Confirm email"
            placeholder="Retype the email to confirm" pammLowerCase>
   </div>
   <div class="error" role="alert" *ngIf="submitted && registerForm.controls.emailConfirm.errors?.required">
@@ -29,9 +27,8 @@
   </div>
 
   <div class="input-group">
-    <label class="sr-only" for="password">Password</label>
     <span class="input-group-addon"><i class="fa fa-fw fa-key">*</i></span>
-    <input class="form-control" type="password" formControlName="password" id="password" placeholder="Password">
+    <input class="form-control" type="password" formControlName="password" aria-label="password" placeholder="Password">
   </div>
   <div class="error" role="alert" *ngIf="submitted && registerForm.controls.password.errors?.required">
     Please enter a password
@@ -41,10 +38,9 @@
   </div>
 
   <div class="input-group">
-    <label class="sr-only" for="passwordConfirm">Confirm Password</label>
     <span class="input-group-addon"><i class="fa fa-fw fa-key">*</i></span>
     <input class="form-control" type="password" formControlName="passwordConfirm"
-           id="passwordConfirm" placeholder="Retype the password to confirm">
+           aria-label="Confirm Password" placeholder="Retype the password to confirm">
   </div>
   <div class="error" role="alert" *ngIf="submitted && registerForm.controls.passwordConfirm.errors?.required">
     Please confirm your password
@@ -57,26 +53,23 @@
   </div>
 
   <div class="input-group">
-    <label class="sr-only" for="forename">Your Forename(s)</label>
     <span class="input-group-addon"><i class="fa fa-fw fa-user">*</i></span>
-    <input class="form-control" id="forename" formControlName="forename" placeholder="Forename" pammUpperCase>
+    <input class="form-control" aria-label="Forenames" formControlName="forename" placeholder="Forename" pammUpperCase>
   </div>
   <div class="error" role="alert" *ngIf="submitted && registerForm.controls.forename.errors?.required">
     Please enter your forename(s)
   </div>
 
   <div class="input-group">
-    <label class="sr-only" for="surname">Your Surname</label>
     <span class="input-group-addon"><i class="fa fa-fw fa-user">*</i></span>
-    <input class="form-control" formControlName="surname" id="surname" placeholder="Surname" pammUpperCase>
+    <input class="form-control" formControlName="surname" placeholder="Surname" pammUpperCase>
   </div>
   <div class="error" role="alert" *ngIf="submitted && registerForm.controls.surname.errors?.required">
     Please enter your surname
   </div>
 
   <div class="box">
-    <label class="sr-only" for="terms">Terms of use agreement</label>
-    <input type="checkbox" formControlName="termsOfUse" id="terms"/>
+    <input type="checkbox" formControlName="termsOfUse" aria-label="Terms of Use" title="Terms of Use Agreement"/>
     * I have read and agree to the <a [routerLink]="['/terms-of-use']" class="link"><b>Terms of Use</b></a>
   </div>
   <div class="error" role="alert" *ngIf="submitted && !registerForm.controls.termsOfUse.value">

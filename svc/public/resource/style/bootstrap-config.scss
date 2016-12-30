@@ -3,11 +3,10 @@
   border: 1px solid darkgray;
 }
 
-.nav-tabs {
-  .active a {
-    font-weight: bold;
-  }
+.nav-item.active {
+  font-weight: bold;
 }
+
 .modal-header.dialog {
   color: #fff;
   padding: 9px 15px;

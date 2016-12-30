@@ -1,9 +1,8 @@
 <form [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
   <div class="input-group">
-    <label class="sr-only" for="username">Username</label>
     <span class="input-group-addon"><i class="fa fa-fw fa-envelope"></i></span>
-    <input class="form-control error" id="username" formControlName="username"
-           placeholder="User Name (email address)" pammLowerCase>
+    <input class="form-control error" formControlName="username"
+           placeholder="User Name (email address)" pammLowerCase aria-label="Username">
   </div>
   <div class="error" *ngIf="submitted && loginForm.controls.username.errors?.required">
     Please enter your registered email address
@@ -13,9 +12,8 @@
   </div>
 
   <div class="input-group">
-    <label class="sr-only" for="password">Password</label>
     <span class="input-group-addon"><i class="fa fa-fw fa-key"></i></span>
-    <input class="form-control" id="password" formControlName="password" placeholder="Password" type="password">
+    <input class="form-control" formControlName="password" placeholder="Password" type="password" aria-label="password">
   </div>
   <div class="error" *ngIf="submitted && loginForm.controls.password.errors?.required">
     Please enter the your password
@@ -28,6 +26,8 @@
     </div>
   </div>
 
-  <div><i class="fa fa-fw fa-user-circle-o"></i> <a [routerLink]="['../register']">Don't have an account? Register</a></div>
+  <div>
+    <i class="fa fa-fw fa-user-circle-o"></i> <a [routerLink]="['../register']">Don't have an account? Register</a>
+  </div>
   <div><i class="fa fa-fw fa-lock"></i> <a [routerLink]="['../forgotten-password']">Forgotten password</a></div>
 </form>

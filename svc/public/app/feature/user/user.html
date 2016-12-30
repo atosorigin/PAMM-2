@@ -1,2 +1,26 @@
-<navbar [routes]="navroutes"></navbar>
+<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+  <div class="clearfix hidden-sm-up">
+    <button (click)="isCollapsed = !isCollapsed" class="navbar-toggler pull-right " type="button"
+            [attr.aria-controls]="uuid" aria-label="Toggle navigation">
+    </button>
+    <a (click)="isCollapsed = true" class="navbar-brand">
+      <i class="atos-logo white small navbar-text" aria-label="ATOS logo"></i>
+    </a>
+  </div>
+  <div class="navbar-toggleable-xs navbar-collapse" [ngClass]="{collapse: isCollapsed}" id="{{uuid}}"
+       [attr.aria-expanded]="!isCollapsed">
+    <ul class="nav navbar-nav">
+      <li (click)="isCollapsed = true" class="nav-item">
+        <a class="navbar-brand hidden-xs-down"><i class="atos-logo white medium" aria-label="ATOS logo"></i></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-item nav-link" [routerLink]="['/user']" routerLinkActive="active">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-item nav-link" [routerLink]="['/user/another']" routerLinkActive="active">Another</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
 <router-outlet></router-outlet>

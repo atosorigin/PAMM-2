@@ -5,7 +5,6 @@ import {SpinnerModalComponent} from "./ui/spinner-modal/spinner-modal.component"
 import {SpinnerModalService} from "./ui/spinner-modal/spinner-modal.service";
 import {AuditService} from "./audit.service";
 import {DialogHelperService} from "./ui/dialog-helper.service";
-import {NavbarComponent} from "./ui/navbar/navbar.component";
 import {CommonModule} from "@angular/common";
 import {RouterModule} from "@angular/router";
 
@@ -14,14 +13,12 @@ import {RouterModule} from "@angular/router";
     declarations: [
         UpperCaseDirective,
         LowerCaseDirective,
-        SpinnerModalComponent,
-        NavbarComponent
+        SpinnerModalComponent
     ],
     exports: [
         UpperCaseDirective,
         LowerCaseDirective,
-        SpinnerModalComponent,
-        NavbarComponent
+        SpinnerModalComponent
     ],
     providers: [
         SpinnerModalService,
