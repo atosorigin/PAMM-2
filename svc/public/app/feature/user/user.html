@@ -29,8 +29,10 @@
           <a class="dropdown-item">Something else is here</a>
         </div>
       </li>
+    </ul>
 
-      <li ngbDropdown class="nav-item">
+    <ul class="nav navbar-nav" [ngClass]="{'pull-right': isCollapsed}">
+      <li ngbDropdown class="nav-item" [ngClass]="{'pull-left': !isCollapsed}">
         <a class="nav-item nav-link" ngbDropdownToggle><i class="fa fa-cogs"></i>Settings</a>
         <div class="dropdown-menu" aria-label="dropdownMenu1">
           <a class="dropdown-item"><i class="fa fa-info fa-fw"></i>About</a>
@@ -39,8 +41,8 @@
           <a class="dropdown-item"><i class="fa fa-power-off fa-fw"></i>Logout</a>
         </div>
       </li>
-    </ul>
 
+    </ul>
   </div>
 </nav>
 

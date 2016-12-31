@@ -14,6 +14,10 @@ import {UUID} from "../../infrastructure/util/uuid";
         
         nav {
             min-height: 60px;
+        }
+
+        .nav.pull-right .dropdown-menu {
+            margin-left: -60px
         }`
     ]
 })
