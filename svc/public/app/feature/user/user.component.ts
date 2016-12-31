@@ -9,8 +9,15 @@ import {UUID} from "../../infrastructure/util/uuid";
 })
 export class UserComponent implements OnInit {
 
-    uuid: string;
-    isCollapsed = true;
+    private _uuid: string;
+    get uuid(): string {
+        return this._uuid;
+    }
+
+    private _isCollapsed = true;
+    get isCollapsed(): boolean {
+        return this._isCollapsed;
+    }
 
     private _user: User;
     get user(): User {
@@ -18,18 +25,13 @@ export class UserComponent implements OnInit {
     }
 
     constructor(private userContext: UserContext) {
-        this.uuid = UUID.generate();
+        this._uuid = UUID.generate();
     }
 
     ngOnInit() {
-        console.log(this.user);
     }
 
-    isAtHome() {
-        return true;
+    toggleCollapse() {
+        this._isCollapsed = !this._isCollapsed;
     }
-
-    navigateToHome() {
-    }
-
 }

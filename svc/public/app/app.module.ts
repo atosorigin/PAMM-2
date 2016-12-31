@@ -9,12 +9,14 @@ import {AppComponent} from "./app.compponent";
 import {UserContext} from "./domain/context/user.context";
 import {PammModule} from "./infrastructure/pamm.module";
 import {DataAccessService} from "./data/data-access.service";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
     imports: [
         BrowserModule,
         RouterModule.forRoot([{path: "", redirectTo: "/user/auth/login", pathMatch: "full"},], {useHash: true}),
         HttpModule,
+        NgbModule.forRoot(),
         ModalModule.forRoot(),
         BootstrapModalModule,
         PammModule,

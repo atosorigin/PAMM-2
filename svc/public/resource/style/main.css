@@ -43,6 +43,12 @@
 
 .nav-item.active {
   font-weight: bold; }
+.nav-item i {
+  margin-right: 5px; }
+
+nav {
+  background-color: #0066a1;
+  border-color: #013855; }
 
 .modal-header.dialog {
   color: #fff;

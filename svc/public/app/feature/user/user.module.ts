@@ -4,13 +4,15 @@ import {UserComponent} from "./user.component";
 import {AuthModule} from "./auth/auth.module";
 import {RouterModule} from "@angular/router";
 import {PammModule} from "../../infrastructure/pamm.module";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
     imports: [
         RouterModule.forChild([{path: "user", component: UserComponent}]),
         AuthModule,
         PammModule,
-        BrowserModule
+        BrowserModule,
+        NgbModule
     ],
     declarations: [
         UserComponent
