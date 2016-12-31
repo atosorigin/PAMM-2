@@ -9,9 +9,10 @@
   </div>
   <div class="navbar-toggleable-xs navbar-collapse" [ngClass]="{collapse: isCollapsed}" id="{{uuid}}"
        [attr.aria-expanded]="!isCollapsed">
+
     <ul class="nav navbar-nav">
       <li (click)="isCollapsed = true" class="nav-item">
-        <a class="navbar-brand hidden-xs-down"><i class="atos-logo white medium" aria-label="ATOS logo"></i></a>
+        <a class="navbar-brand"><i class="atos-logo white medium" aria-label="ATOS logo"></i></a>
       </li>
       <li class="nav-item">
         <a class="nav-item nav-link" [routerLink]="['/user']" routerLinkActive="active">
@@ -22,7 +23,7 @@
         <a class="nav-item nav-link" [routerLink]="['/user/another']" routerLinkActive="active">Another</a>
       </li>
 
-      <li ngbDropdown class="nav-item d-inline-block">
+      <li ngbDropdown class="nav-item">
         <a class="nav-item nav-link" ngbDropdownToggle>Toggle dropdown</a>
         <div class="dropdown-menu" aria-label="dropdownMenu1">
           <a class="dropdown-item">Action - 1</a>
@@ -30,8 +31,20 @@
           <a class="dropdown-item">Something else is here</a>
         </div>
       </li>
+
+      <li ngbDropdown class="nav-item">
+        <a class="nav-item nav-link" ngbDropdownToggle><i class="fa fa-cogs"></i>Settings</a>
+        <div class="dropdown-menu" aria-label="dropdownMenu1">
+          <a class="dropdown-item"><i class="fa fa-info fa-fw"></i>About</a>
+          <a class="dropdown-item"><i class="fa fa-id-card fa-fw"></i>My Profile</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item"><i class="fa fa-power-off fa-fw"></i>Logout</a>
+        </div>
+      </li>
     </ul>
+
   </div>
 </nav>
 
 <router-outlet></router-outlet>
+<chart></chart>

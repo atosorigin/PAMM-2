@@ -7,18 +7,22 @@ import {AuditService} from "./audit.service";
 import {DialogHelperService} from "./ui/dialog-helper.service";
 import {CommonModule} from "@angular/common";
 import {RouterModule} from "@angular/router";
+import {NVD3Component} from "./ui/chart/nvd3.component";
+
 
 @NgModule({
     imports: [RouterModule, CommonModule],
     declarations: [
         UpperCaseDirective,
         LowerCaseDirective,
-        SpinnerModalComponent
+        SpinnerModalComponent,
+        NVD3Component
     ],
     exports: [
         UpperCaseDirective,
         LowerCaseDirective,
-        SpinnerModalComponent
+        SpinnerModalComponent,
+        NVD3Component
     ],
     providers: [
         SpinnerModalService,

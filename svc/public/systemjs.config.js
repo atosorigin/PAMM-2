@@ -27,8 +27,8 @@
 
             "rxjs": "npm:rxjs",
             "angular-in-memory-web-api": "npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js",
-            "@ng-bootstrap/ng-bootstrap": "node_modules/@ng-bootstrap/ng-bootstrap/bundles/ng-bootstrap.js",
 
+            "@ng-bootstrap/ng-bootstrap": "node_modules/@ng-bootstrap/ng-bootstrap/bundles/ng-bootstrap.js",
             "angular2-modal": "npm:angular2-modal/bundles/angular2-modal.umd",
             "angular2-modal/plugins/bootstrap": "npm:angular2-modal/bundles/angular2-modal.bootstrap.umd"
         },

@@ -5,6 +5,7 @@ import {AuthModule} from "./auth/auth.module";
 import {RouterModule} from "@angular/router";
 import {PammModule} from "../../infrastructure/pamm.module";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {ChartComponent} from "./chart.component";
 
 @NgModule({
     imports: [
@@ -15,7 +16,8 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
         NgbModule
     ],
     declarations: [
-        UserComponent
+        UserComponent,
+        ChartComponent
     ]
 })
 export class UserModule {

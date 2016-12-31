@@ -41,6 +41,8 @@
     "@ng-bootstrap/ng-bootstrap": "1.0.0-alpha.15",
     "bootstrap": "4.0.0-alpha.5",
     "font-awesome" : "4.7.0",
-    "angular2-modal" : "2.0.2"
+    "angular2-modal" : "2.0.2",
+    "d3" : "3.5.17",
+    "nvd3" : "1.8.2"
   }
 }
