@@ -6,8 +6,8 @@ declare let d3: any;
     template: `
     <div>
       <nvd3 [options]="options" [data]="data"></nvd3>
-    </div>
-  `
+    </div>`,
+    styles: [`div {margin: 10px; padding: 10px; border:1px solid }`]
 })
 
 export class ChartComponent implements OnInit {

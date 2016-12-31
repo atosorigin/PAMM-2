@@ -5,7 +5,17 @@ import {UUID} from "../../infrastructure/util/uuid";
 
 @Component({
     moduleId: module.id,
-    templateUrl: "user.html"
+    templateUrl: "user.html",
+    styles: [`
+        div.content {
+            position: relative; 
+            top: 60px;
+        }
+        
+        nav {
+            min-height: 60px;
+        }`
+    ]
 })
 export class UserComponent implements OnInit {
 
