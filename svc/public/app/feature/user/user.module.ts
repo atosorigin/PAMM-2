@@ -1,12 +1,10 @@
-import {BrowserModule} from "@angular/platform-browser";
 import {NgModule} from "@angular/core";
+import {CommonModule} from "@angular/common";
 import {RouterModule} from "@angular/router";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
-import {PammModule} from "../../infrastructure/pamm.module";
-import {AuthModule} from "./auth/auth.module";
-import {HomeModule} from "./home/home.module";
-import {HomeComponent} from "./home/home.component";
 import {UserComponent} from "./user.component";
+
+declare let app$: any;
 
 @NgModule({
     imports: [
@@ -16,15 +14,12 @@ import {UserComponent} from "./user.component";
                 component: UserComponent,
                 children: [
                     {path: "", redirectTo: "home", pathMatch: "full"},
-                    {path: "home", component: HomeComponent}
+                    {path: "auth", loadChildren: app$.modulePath(module.id, "auth/auth.module#AuthModule")},
+                    {path: "home", loadChildren: app$.modulePath(module.id, "home/home.module#HomeModule")}
                 ]
             }]),
-        PammModule,
-        BrowserModule,
+        CommonModule,
         NgbModule,
-
-        AuthModule,
-        HomeModule
     ],
     declarations: [
         UserComponent,

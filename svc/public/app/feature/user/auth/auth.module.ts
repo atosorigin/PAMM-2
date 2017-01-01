@@ -5,7 +5,6 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {RegisterComponent} from "./register.component";
 import {RouterModule} from "@angular/router";
-import {PammModule} from "../../../infrastructure/pamm.module";
 import {SharedModule} from "../../shared/shared.module";
 import {ActivatedNoticeComponent} from "./activated-notice.component";
 import {ForgottenPasswordComponent} from "./forgotten-password.component";
@@ -15,7 +14,7 @@ import {ResetPasswordComponent} from "./reset-password.component";
     imports: [
         RouterModule.forChild([
             {
-                path: "user/auth",
+                path: "",
                 component: AuthComponent,
                 children: [
                     {path: "", redirectTo: "login", pathMatch: "full"},
@@ -29,7 +28,6 @@ import {ResetPasswordComponent} from "./reset-password.component";
         ]),
         ReactiveFormsModule,
         CommonModule,
-        PammModule,
         SharedModule,
     ],
     declarations: [

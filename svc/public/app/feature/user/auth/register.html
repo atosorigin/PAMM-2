@@ -70,7 +70,7 @@
 
   <div class="box">
     <input type="checkbox" formControlName="termsOfUse" aria-label="Terms of Use" title="Terms of Use Agreement"/>
-    * I have read and agree to the <a [routerLink]="['/terms-of-use']" class="link"><b>Terms of Use</b></a>
+    * I have read and agree to the <a [routerLink]="['/user/auth/terms-of-use']" class="link"><b>Terms of Use</b></a>
   </div>
   <div class="error" role="alert" *ngIf="submitted && !registerForm.controls.termsOfUse.value">
     You need to agree to the terms of use before proceeding
