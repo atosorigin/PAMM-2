@@ -14,9 +14,10 @@ declare let app$: any;
                 component: UserComponent,
                 children: [
                     {path: "", redirectTo: "home", pathMatch: "full"},
-                    {path: "auth", loadChildren: app$.modulePath(module.id, "auth/auth.module#AuthModule")},
                     {path: "home", loadChildren: app$.modulePath(module.id, "home/home.module#HomeModule")}
                 ]
+            }, {
+                path: "user/auth", loadChildren: app$.modulePath(module.id, "auth/auth.module#AuthModule")
             }]),
         CommonModule,
         NgbModule,
