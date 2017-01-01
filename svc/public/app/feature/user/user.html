@@ -1,11 +1,11 @@
 <nav class="navbar navbar-fixed-top navbar-dark">
-  <div class="clearfix hidden-sm-up">
+  <div class="clearfix hidden-md-up">
     <i class="atos-logo white medium navbar-brand" aria-label="ATOS logo"></i>
-    <button (click)="toggleCollapse()" class="navbar-toggler pull-right" type="button"
-            [attr.aria-controls]="uuid" aria-label="Toggle navigation">
+    <button (click)="toggleCollapse()" class="navbar-toggler float-xs-right" type="button"
+            [attr.aria-controls]="user_nav" aria-label="Toggle navigation">
     </button>
   </div>
-  <div class="navbar-toggleable-xs navbar-collapse" [ngClass]="{collapse: isCollapsed}" id="{{uuid}}"
+  <div class="navbar-toggleable-sm navbar-collapse" [ngClass]="{'collapse': isCollapsed}" id="user_nav"
        [attr.aria-expanded]="!isCollapsed">
 
     <ul class="nav navbar-nav">
@@ -21,6 +21,11 @@
         <a class="nav-item nav-link" [routerLink]="['/user/another']" routerLinkActive="active">Another</a>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-item nav-link" [routerLink]="['/user/more']" routerLinkActive="active">More</a>
+      </li>
+
+
       <li ngbDropdown class="nav-item">
         <a class="nav-item nav-link" ngbDropdownToggle>Toggle dropdown</a>
         <div class="dropdown-menu" aria-label="dropdownMenu1">
@@ -29,24 +34,18 @@
           <a class="dropdown-item">Something else is here</a>
         </div>
       </li>
-    </ul>
 
-    <ul class="nav navbar-nav" [ngClass]="{'pull-right': isCollapsed}">
-      <li ngbDropdown class="nav-item" [ngClass]="{'pull-left': !isCollapsed}">
-        <a class="nav-item nav-link" ngbDropdownToggle><i class="fa fa-cogs"></i>Settings</a>
-        <div class="dropdown-menu" aria-label="dropdownMenu1">
+      <li ngbDropdown class="nav-item" [ngClass]="{'float-xs-right': isCollapsed}">
+        <a class="nav-item nav-link navbar-text" ngbDropdownToggle><i class="fa fa-cogs"></i>Settings</a>
+        <div class="dropdown-menu" aria-label="Settings">
           <a class="dropdown-item"><i class="fa fa-info fa-fw"></i>About</a>
           <a class="dropdown-item"><i class="fa fa-user-circle fa-fw"></i>My Profile</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item"><i class="fa fa-power-off fa-fw"></i>Logout</a>
         </div>
       </li>
-
     </ul>
   </div>
 </nav>
 
-<div class="content">
-  <router-outlet></router-outlet>
-  <chart></chart>
-</div>
+<div class="content"><router-outlet></router-outlet></div>

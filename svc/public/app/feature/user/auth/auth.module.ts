@@ -15,8 +15,10 @@ import {ResetPasswordComponent} from "./reset-password.component";
     imports: [
         RouterModule.forChild([
             {
-                path: "user/auth", component: AuthComponent,
+                path: "user/auth",
+                component: AuthComponent,
                 children: [
+                    {path: "", redirectTo: "login", pathMatch: "full"},
                     {path: "login", component: LoginComponent},
                     {path: "register", component: RegisterComponent},
                     {path: "activated", component: ActivatedNoticeComponent},

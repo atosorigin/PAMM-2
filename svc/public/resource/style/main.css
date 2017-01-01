@@ -68,7 +68,7 @@ nav {
     background-color: #428bca; }
 
 .modal-body.dialog {
-  font-size: 12pt; }
+  font-size: 1em; }
   .modal-body.dialog * {
     vertical-align: middle; }
   .modal-body.dialog i {
@@ -100,8 +100,8 @@ label {
       margin-right: 5px; }
 
 div.error {
-  border-top: 1px solid #d9534f;
-  color: #d9534f;
+  border-top: 1px solid #cc0033;
+  color: #cc0033;
   font-size: 10pt;
   font-weight: bold; }
 
