@@ -9,8 +9,8 @@ import {SpinnerModalService} from "../../../infrastructure/ui/spinner-modal/spin
 import {AuditService} from "../../../infrastructure/audit.service";
 import {DialogHelperService} from "../../../infrastructure/ui/dialog-helper.service";
 import {DataTypeValidator} from "../../../infrastructure/validator/data-type.validator";
-import {UserContext} from "../../../domain/context/user.context";
-import {Role} from "../../../domain/context/role";
+import {UserContext} from "../../../domain/user/user.context";
+import {Role} from "../../../domain/user/role";
 
 @Component({
     moduleId: module.id,

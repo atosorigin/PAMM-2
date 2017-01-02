@@ -1,8 +1,6 @@
 import {Injectable} from "@angular/core";
 import {Http, Headers, URLSearchParams} from "@angular/http";
-import {UserContext} from "../domain/context/user.context";
-
-// TODO add unauthorized handler
+import {UserContext} from "../domain/user/user.context";
 
 @Injectable()
 export class DataAccessService {

@@ -2,7 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {FormGroup, Validators, FormControl} from "@angular/forms";
 import {DataTypeValidator} from "../../../infrastructure/validator/data-type.validator";
 import "rxjs/add/operator/finally";
-import {UserContext} from "../../../domain/context/user.context";
+import {UserContext} from "../../../domain/user/user.context";
 import {SpinnerModalService} from "../../../infrastructure/ui/spinner-modal/spinner-modal.service";
 import {DialogHelperService} from "../../../infrastructure/ui/dialog-helper.service";
 import {ActivatedRoute, Router} from "@angular/router";

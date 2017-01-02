@@ -7,8 +7,8 @@ import {ModalModule} from "angular2-modal";
 import {BootstrapModalModule} from "angular2-modal/plugins/bootstrap";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
-import {UserContext} from "./domain/context/user.context";
-import {PammModule} from "./infrastructure/pamm.module";
+import {UserContext} from "./domain/user/user.context";
+import {InfrastructureModule} from "./infrastructure/infrastructure.module";
 import {DataAccessService} from "./data/data-access.service";
 
 import {AdminModule} from "./feature/admin/admin.module";
@@ -24,7 +24,7 @@ import {AppComponent} from "./app.compponent";
         NgbModule.forRoot(),
         ModalModule.forRoot(),
         BootstrapModalModule,
-        PammModule,
+        InfrastructureModule,
         UserModule,
         AdminModule
     ],

@@ -1,7 +1,7 @@
 import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router} from "@angular/router";
 import {Observable} from "rxjs";
-import {UserContext} from "../../domain/context/user.context";
-import {Role} from "../../domain/context/role";
+import {UserContext} from "../../domain/user/user.context";
+import {Role} from "../../domain/user/role";
 import {Injectable} from "@angular/core";
 
 @Injectable()

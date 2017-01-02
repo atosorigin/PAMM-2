@@ -5,8 +5,8 @@ import {Location} from "@angular/common";
 import {STATUS} from "angular-in-memory-web-api";
 import "rxjs/add/operator/finally";
 
-import {Role} from "../../../domain/context/role";
-import {UserContext} from "../../../domain/context/user.context";
+import {Role} from "../../../domain/user/role";
+import {UserContext} from "../../../domain/user/user.context";
 import {SpinnerModalService} from "../../../infrastructure/ui/spinner-modal/spinner-modal.service";
 import {DialogHelperService} from "../../../infrastructure/ui/dialog-helper.service";
 import {Router} from "@angular/router";

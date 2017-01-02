@@ -30,5 +30,5 @@ import {DialogHelperService} from "./ui/dialog-helper.service";
         DialogHelperService
     ]
 })
-export class PammModule {
+export class InfrastructureModule {
 }

@@ -4,21 +4,20 @@ import {RouterModule} from "@angular/router";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {AdminComponent} from "./admin.component";
 import {AdminGuard} from "./admin.guard";
-
-declare let app$: any;
+import {Util} from "../../infrastructure/util/util";
 
 @NgModule({
     imports: [
         RouterModule.forChild([
             {path: "", redirectTo: "admin/auth", pathMatch: "full"},
-            {path: "admin/auth", loadChildren: app$.modulePath(module.id, "auth/auth.module#AuthModule")},
+            {path: "admin/auth", loadChildren: Util.modulePath(module.id, "auth/auth.module#AuthModule")},
             {
                 path: "admin",
                 component: AdminComponent,
                 canActivate: [AdminGuard],
                 children: [
                     {path: "", redirectTo: "home", pathMatch: "full"},
-                    {path: "home", loadChildren: app$.modulePath(module.id, "home/home.module#HomeModule")}
+                    {path: "home", loadChildren: Util.modulePath(module.id, "home/home.module#HomeModule")}
                 ]
             }]),
         CommonModule,
@@ -28,5 +27,4 @@ declare let app$: any;
     providers: [AdminGuard]
 })
 export class AdminModule {
-
 }

@@ -2,7 +2,7 @@ import {NgModule} from "@angular/core";
 import {ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
 import {CommonModule} from "@angular/common";
-import {PammModule} from "../../../infrastructure/pamm.module";
+import {InfrastructureModule} from "../../../infrastructure/infrastructure.module";
 import {HomeComponent} from "./home.component";
 import {ChartComponent} from "./chart.component";
 import {UserGuard} from "../user.guard";
@@ -18,7 +18,7 @@ import {UserGuard} from "../user.guard";
 
         ReactiveFormsModule,
         CommonModule,
-        PammModule
+        InfrastructureModule
     ],
     declarations: [
         HomeComponent,

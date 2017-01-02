@@ -1,6 +1,6 @@
 import {Component, OnInit} from "@angular/core";
-import {User} from "../../domain/context/user";
-import {UserContext} from "../../domain/context/user.context";
+import {User} from "../../domain/user/user";
+import {UserContext} from "../../domain/user/user.context";
 
 @Component({
     moduleId: module.id,
