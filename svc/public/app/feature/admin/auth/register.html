@@ -1,0 +1,83 @@
+<form [formGroup]="registerForm" (ngSubmit)="register()" novalidate>
+  <div class="input-group">
+    <span class="input-group-addon"><i class="fa fa-fw fa-envelope">*</i></span>
+    <input class="form-control" formControlName="email" aria-label="email"
+           placeholder="Your Email.  This will be your login username" pammLowerCase>
+  </div>
+  <div class="error" role="alert" *ngIf="submitted && registerForm.controls.email.errors?.required">
+    Please enter an email address that you wished to use for logging on
+  </div>
+  <div class="error" role="alert" *ngIf="registerForm.controls.email.errors?.email">
+    Please enter a valid email address
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon"><i class="fa fa-fw fa-envelope">*</i></span>
+    <input class="form-control" formControlName="emailConfirm" aria-label="Confirm email"
+           placeholder="Retype the email to confirm" pammLowerCase>
+  </div>
+  <div class="error" role="alert" *ngIf="submitted && registerForm.controls.emailConfirm.errors?.required">
+    Please confirm your login email address
+  </div>
+  <div class="error" role="alert"
+       *ngIf="!registerForm.controls.emailConfirm.errors?.required
+       && (registerForm.controls.emailConfirm.errors?.match || registerForm.controls.email.errors?.match)
+       && registerForm.controls.email.value !== registerForm.controls.emailConfirm.value">
+    The entered email addresses do not match
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon"><i class="fa fa-fw fa-key">*</i></span>
+    <input class="form-control" type="password" formControlName="password" aria-label="password" placeholder="Password">
+  </div>
+  <div class="error" role="alert" *ngIf="submitted && registerForm.controls.password.errors?.required">
+    Please enter a password
+  </div>
+  <div class="error" role="alert" *ngIf="registerForm.controls.password.errors?.password">
+    Password needs to be a minimum of of characters and include at least 1 number
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon"><i class="fa fa-fw fa-key">*</i></span>
+    <input class="form-control" type="password" formControlName="passwordConfirm"
+           aria-label="Confirm Password" placeholder="Retype the password to confirm">
+  </div>
+  <div class="error" role="alert" *ngIf="submitted && registerForm.controls.passwordConfirm.errors?.required">
+    Please confirm your password
+  </div>
+  <div class="error" role="alert"
+       *ngIf="!registerForm.controls.passwordConfirm.errors?.required
+       && (registerForm.controls.passwordConfirm.errors?.match || registerForm.controls.password.errors?.match)
+       && registerForm.controls.password.value !== registerForm.controls.passwordConfirm.value">
+    The entered passwords do not match
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon"><i class="fa fa-fw fa-user">*</i></span>
+    <input class="form-control" aria-label="Forenames" formControlName="forename" placeholder="Forename" pammUpperCase>
+  </div>
+  <div class="error" role="alert" *ngIf="submitted && registerForm.controls.forename.errors?.required">
+    Please enter your forename(s)
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon"><i class="fa fa-fw fa-user">*</i></span>
+    <input class="form-control" formControlName="surname" placeholder="Surname" pammUpperCase>
+  </div>
+  <div class="error" role="alert" *ngIf="submitted && registerForm.controls.surname.errors?.required">
+    Please enter your surname
+  </div>
+
+  <div class="box">
+    <input type="checkbox" formControlName="termsOfUse" aria-label="Terms of Use" title="Terms of Use Agreement"/>
+    * I have read and agree to the <a [routerLink]="['/user/auth/terms-of-use']" class="link"><b>Terms of Use</b></a>
+  </div>
+  <div class="error" role="alert" *ngIf="submitted && !registerForm.controls.termsOfUse.value">
+    You need to agree to the terms of use before proceeding
+  </div>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">REGISTER</button>
+    <button type="button" (click)="cancel()" class="btn btn-cancel">CANCEL</button>
+  </div>
+</form>

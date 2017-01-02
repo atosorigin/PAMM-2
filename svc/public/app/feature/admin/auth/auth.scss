@@ -1,0 +1,28 @@
+$image-path: "/resource/image";
+@import "../../../../resource/style/variables";
+
+div {
+  position: fixed;
+  height: 100%;
+  width:100%;
+  min-height: 100vh;
+  overflow-y: auto;
+  background: url("#{$image-path}/bg.jpg") left top no-repeat;
+  background-size: cover;
+
+  main {
+    padding: 0 10px 0 10px;
+    position: relative;
+    max-width: 500px;
+    min-width: 450px;
+    overflow-y: auto;
+    z-index: 100;
+    top: 40%;
+    margin: auto;
+    transform: translateY(-50%);
+    border-radius: 5px;
+    border: 1px solid gray;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 7px 7px 5px 0 rgba(30, 30, 50, 0.8);
+  }
+}
