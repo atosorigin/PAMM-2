@@ -9,6 +9,8 @@ import {Role} from "../../../domain/context/role";
 import {UserContext} from "../../../domain/context/user.context";
 import {SpinnerModalService} from "../../../infrastructure/ui/spinner-modal/spinner-modal.service";
 import {DialogHelperService} from "../../../infrastructure/ui/dialog-helper.service";
+import {Router} from "@angular/router";
+import {TermsOfUseComponent} from "../../shared/terms.component";
 
 @Component({
     moduleId: module.id,
@@ -20,6 +22,7 @@ export class RegisterComponent implements OnInit {
     private submitted: boolean = false;
 
     constructor(private location: Location,
+                private router: Router,
                 private userContext: UserContext,
                 private spinnerModalService: SpinnerModalService,
                 private dialog: DialogHelperService) {
@@ -114,5 +117,9 @@ export class RegisterComponent implements OnInit {
 
     cancel() {
         this.location.back();
+    }
+
+    showTermsOfUse() {
+        this.router.navigate(["user/auth/terms-of-use"]);
     }
 }

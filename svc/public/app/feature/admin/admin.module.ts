@@ -3,6 +3,7 @@ import {CommonModule} from "@angular/common";
 import {RouterModule} from "@angular/router";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {AdminComponent} from "./admin.component";
+import {AdminGuard} from "./admin.guard";
 
 declare let app$: any;
 
@@ -14,17 +15,17 @@ declare let app$: any;
             {
                 path: "admin",
                 component: AdminComponent,
+                canActivate: [AdminGuard],
                 children: [
                     {path: "", redirectTo: "home", pathMatch: "full"},
                     {path: "home", loadChildren: app$.modulePath(module.id, "home/home.module#HomeModule")}
                 ]
             }]),
         CommonModule,
-        NgbModule,
+        NgbModule
     ],
-    declarations: [
-        AdminComponent
-    ]
+    declarations: [AdminComponent],
+    providers: [AdminGuard]
 })
 export class AdminModule {
 

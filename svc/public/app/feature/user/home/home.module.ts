@@ -5,6 +5,7 @@ import {CommonModule} from "@angular/common";
 import {PammModule} from "../../../infrastructure/pamm.module";
 import {HomeComponent} from "./home.component";
 import {ChartComponent} from "./chart.component";
+import {UserGuard} from "../user.guard";
 
 @NgModule({
     imports: [
