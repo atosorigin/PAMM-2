@@ -5,9 +5,8 @@ div {
   position: fixed;
   height: 100%;
   width:100%;
-  min-height: 100vh;
   overflow-y: auto;
-  background: url("#{$image-path}/bg.jpg") left top no-repeat;
+  background: url("#{$image-path}/bg.jpg");
   background-size: cover;
 
   main {
