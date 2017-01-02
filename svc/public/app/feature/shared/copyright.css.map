@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAEA,GAAI;EACF,UAAU,EAAE,iBAAqB;EACjC,KAAK,ECEM,OAAe;EDD1B,OAAO,EAAE,GAAG;EACZ,SAAS,EAAE,GAAG;EACd,UAAU,EAAE,MAAM",
-"sources": ["copyright.scss","../../../resource/style/variables.scss"],
-"names": [],
-"file": "copyright.css"
-}
