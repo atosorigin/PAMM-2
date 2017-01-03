@@ -6,7 +6,7 @@ import {STATUS} from "angular-in-memory-web-api";
 import {Router} from "@angular/router";
 import {Subscription} from "rxjs";
 import {SpinnerModalService} from "../../../infrastructure/ui/spinner-modal/spinner-modal.service";
-import {AuditService} from "../../../infrastructure/audit.service";
+import {AuditService} from "../../../infrastructure/util/audit.service";
 import {DialogHelperService} from "../../../infrastructure/ui/dialog-helper.service";
 import {DataTypeValidator} from "../../../infrastructure/validator/data-type.validator";
 import {UserContext} from "../../../domain/user/user.context";
@@ -53,7 +53,7 @@ export class ForgottenPasswordComponent implements OnInit, OnDestroy {
             this.spinnerModalService.show();
             this.submitted = false;
 
-            this.userContext.requestPasswordReset(this.forgottenPasswordForm.controls["email"].value, Role.USER)
+            this.userContext.requestPasswordReset(this.forgottenPasswordForm.controls["email"].value, Role.ADMIN)
                 .finally(() => this.spinnerModalService.hide())
                 .subscribe(
                     () => {

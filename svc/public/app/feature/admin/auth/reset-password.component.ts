@@ -1,12 +1,12 @@
 import {Component, OnInit} from "@angular/core";
 import {FormGroup, Validators, FormControl} from "@angular/forms";
-import {DataTypeValidator} from "../../../infrastructure/validator/data-type.validator";
+import {ActivatedRoute, Router} from "@angular/router";
+import {STATUS} from "angular-in-memory-web-api";
 import "rxjs/add/operator/finally";
+import {DataTypeValidator} from "../../../infrastructure/validator/data-type.validator";
 import {UserContext} from "../../../domain/user/user.context";
 import {SpinnerModalService} from "../../../infrastructure/ui/spinner-modal/spinner-modal.service";
 import {DialogHelperService} from "../../../infrastructure/ui/dialog-helper.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {STATUS} from "angular-in-memory-web-api";
 
 @Component({
     moduleId: module.id,
@@ -30,9 +30,7 @@ export class ResetPasswordComponent implements OnInit {
     ngOnInit() {
         this.route.params
             .map(params => params["token"])
-            .subscribe((token) => {
-                this.token = token;
-            });
+            .subscribe(token => this.token = token);
 
         let passwordControl: FormControl = new FormControl("");
         let passwordConfirmControl: FormControl = new FormControl("",
@@ -49,10 +47,7 @@ export class ResetPasswordComponent implements OnInit {
         this.resetPasswordForm = new FormGroup({
             "password": passwordControl,
             "passwordConfirm": passwordConfirmControl,
-            "verificationCode": new FormControl("",
-                Validators.compose([
-                    Validators.required
-                ]))
+            "verificationCode": new FormControl("", Validators.compose([Validators.required]))
         });
     }
 
@@ -75,12 +70,11 @@ export class ResetPasswordComponent implements OnInit {
                 )
                 .finally(() => this.spinnerModalService.hide())
                 .subscribe(
-                    (sucesss) => {
+                    sucesss => {
                         this.dialog.success("Your password has been reset. You can now login with your new password.")
-                        .then(() =>this.router.navigateByUrl("/user/auth/login"));
+                            .then(() => this.router.navigateByUrl("/user/auth/login"));
                     },
-
-                    (error) => {
+                    error => {
                         if (error.status === STATUS.UNAUTHORIZED) {
                             this.hasAuthenticationError = true;
                         } else {

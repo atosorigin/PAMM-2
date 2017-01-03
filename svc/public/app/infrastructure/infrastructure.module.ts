@@ -6,7 +6,7 @@ import {UpperCaseDirective} from "./directives/uppercase.directive";
 import {LowerCaseDirective} from "./directives/lowercase.directive";
 import {SpinnerModalComponent} from "./ui/spinner-modal/spinner-modal.component";
 import {SpinnerModalService} from "./ui/spinner-modal/spinner-modal.service";
-import {AuditService} from "./audit.service";
+import {AuditService} from "./util/audit.service";
 import {DialogHelperService} from "./ui/dialog-helper.service";
 
 

@@ -88,7 +88,7 @@ export class RegisterComponent implements OnInit {
                     "password": this.registerForm.controls["password"].value,
                     "forename": this.registerForm.controls["forename"].value,
                     "surname": this.registerForm.controls["surname"].value
-                }, Role.USER)
+                }, Role.ADMIN)
                 .finally(() => this.spinnerModalService.hide())
                 .subscribe(
                     (sucesss) => this.dialog.success("Registration is successful.  Please check your email for activation instruction"),

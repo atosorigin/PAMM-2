@@ -15,7 +15,7 @@ export class DataAccessService {
             "Accept": "application/json, text/plain, */*"
         });
 
-        if (this.userContext.user.token) {
+        if (this.userContext.user && this.userContext.user.token) {
             headers.append("Authorization", `Bearer ${this.userContext.user.token}`);
         }
 

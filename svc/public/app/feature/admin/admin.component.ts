@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core";
-import {User} from "../../domain/user/user";
 import {UserContext} from "../../domain/user/user.context";
+import {Router} from "@angular/router";
+import {DialogHelperService} from "../../infrastructure/ui/dialog-helper.service";
 
 @Component({
     moduleId: module.id,
@@ -26,12 +27,9 @@ export class AdminComponent implements OnInit {
         return this._isCollapsed;
     }
 
-    private _user: User;
-    get user(): User {
-        return this.userContext.user;
-    }
-
-    constructor(private userContext: UserContext) {
+    constructor(private userContext: UserContext,
+                private router: Router,
+                private dialog: DialogHelperService) {
     }
 
     ngOnInit() {
@@ -39,5 +37,15 @@ export class AdminComponent implements OnInit {
 
     toggleCollapse() {
         this._isCollapsed = !this._isCollapsed;
+    }
+
+    logout() {
+        this.dialog.confirm("Are you that you want to logout?")
+            .then(ok => {
+                this.userContext.logout();
+                this.router.navigate(["/admin/auth/login"]);
+            })
+            .catch(cancelled => {
+            })
     }
 }

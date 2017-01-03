@@ -3,10 +3,10 @@ import {Component} from "@angular/core";
 @Component({
     moduleId: module.id,
     template: `
-      <div>
+      <div class="background">
         <main>
           <heading></heading>
-          <h3>Admin</h3>
+          <div class="sub-heading">Admin Portal</div>
           <router-outlet></router-outlet>
           <copyright></copyright>
         </main>

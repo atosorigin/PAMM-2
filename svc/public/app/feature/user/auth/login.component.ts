@@ -5,7 +5,7 @@ import {STATUS} from "angular-in-memory-web-api";
 import "rxjs/add/operator/finally";
 
 import {SpinnerModalService} from "../../../infrastructure/ui/spinner-modal/spinner-modal.service";
-import {AuditService} from "../../../infrastructure/audit.service";
+import {AuditService} from "../../../infrastructure/util/audit.service";
 import {DialogHelperService} from "../../../infrastructure/ui/dialog-helper.service";
 import {DataTypeValidator} from "../../../infrastructure/validator/data-type.validator";
 

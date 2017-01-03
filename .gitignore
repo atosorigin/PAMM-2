@@ -8,8 +8,8 @@ svc/target/
 svc/test/webapp/unit/test-results.xml
 svc/test/webapp/unit/reports
 svc/test/java/integration/logs
-svc/public/**/*.js
-svc/public/**/*.js.map
+svc/public/app/**/*.js
+svc/public/app/**/*.js.map
 svc/public/**/*.css
 svc/public/**/*.css.map
 target/

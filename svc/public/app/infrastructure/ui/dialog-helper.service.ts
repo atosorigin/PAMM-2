@@ -1,15 +1,17 @@
 import {Modal} from "angular2-modal/plugins/bootstrap";
 import {Injectable} from "@angular/core";
+import {AuditService} from "../util/audit.service";
 
 @Injectable()
 export class DialogHelperService {
-    constructor(private modal: Modal) {
+
+    constructor(private modal: Modal,
+                private audit: AuditService) {
     }
 
-    error(message : string, title?: string) {
+    error(message: string, title?: string) {
         return this.modal.alert()
             .size("lg")
-            .isBlocking(true)
             .showClose(true)
             .title(title ? title : "")
             .headerClass("modal-header dialog danger")
@@ -19,10 +21,9 @@ export class DialogHelperService {
             .open();
     }
 
-    success(message : string, title?: string) {
+    success(message: string, title?: string) {
         return this.modal.alert()
             .size("lg")
-            .isBlocking(true)
             .showClose(true)
             .title(title ? title : "")
             .headerClass("modal-header dialog success")
@@ -32,10 +33,9 @@ export class DialogHelperService {
             .open();
     }
 
-    info(message : string, title?: string) {
+    info(message: string, title?: string) {
         return this.modal.alert()
             .size("lg")
-            .isBlocking(true)
             .showClose(true)
             .title(title ? title : "")
             .headerClass("modal-header dialog info")
@@ -45,10 +45,9 @@ export class DialogHelperService {
             .open();
     }
 
-    warning(message : string, title?: string) {
+    warning(message: string, title?: string) {
         return this.modal.alert()
             .size("lg")
-            .isBlocking(true)
             .showClose(true)
             .title(title ? title : "")
             .headerClass("modal-header dialog warning")
@@ -58,10 +57,9 @@ export class DialogHelperService {
             .open();
     }
 
-    alert(message : string, title?: string) {
+    alert(message: string, title?: string) {
         return this.modal.alert()
             .size("lg")
-            .isBlocking(true)
             .showClose(true)
             .title(title ? title : "")
             .headerClass("modal-header dialog primary")
@@ -69,5 +67,20 @@ export class DialogHelperService {
             .bodyClass("modal-body dialog text-primary")
             .okBtnClass("btn btn-primary")
             .open();
+    }
+
+    confirm(message: string, title?: string) {
+        return this.modal.confirm()
+            .size('lg')
+            .isBlocking(true)
+            .showClose(true)
+            .keyboard(27)
+            .title(title ? title : "")
+            .headerClass("modal-header dialog primary")
+            .body(`<i class="fa fa-question fa-2x"></i>${message}`)
+            .bodyClass("modal-body dialog text-primary")
+            .open()
+            .catch(error => this.audit.error(`DialogHelperService::confirm ${error}`))
+            .then(dialog => dialog.result); // dialog has more properties,lets just return the promise for a result.
     }
 }

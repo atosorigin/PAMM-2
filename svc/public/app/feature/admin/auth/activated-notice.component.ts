@@ -5,7 +5,7 @@ import {Component} from "@angular/core";
     template: `
       <div class="box">
         <p class="heading">Your account has been successfully activate</p>
-        <a [routerLink]="['/user/auth/login']"> <i class="fa fa-arrow-right"></i> Go to login</a>
+        <a [routerLink]="['/admin/auth/login']"> <i class="fa fa-arrow-right"></i> Go to login</a>
       </div>`,
     styles: [`
     .heading {

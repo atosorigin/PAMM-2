@@ -3,7 +3,7 @@ import {Component} from "@angular/core";
 @Component({
     moduleId: module.id,
     template: `
-      <div>
+      <div class="background">
         <main>
           <heading></heading>
           <router-outlet></router-outlet>

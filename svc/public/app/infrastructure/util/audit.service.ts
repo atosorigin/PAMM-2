@@ -1,5 +1,5 @@
-import {DataAccessService} from "../data/data-access.service";
-import {UserContext} from "../domain/user/user.context";
+import {DataAccessService} from "../../data/data-access.service";
+import {UserContext} from "../../domain/user/user.context";
 import {Injectable} from "@angular/core";
 
 const AUDIT_URL: string = "/audit";

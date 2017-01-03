@@ -1,10 +1,10 @@
 $image-path: "/resource/image";
 @import "../../../../resource/style/variables";
 
-div {
+div.background {
   position: fixed;
   height: 100%;
-  width:100%;
+  width: 100%;
   overflow-y: auto;
   background: url("#{$image-path}/bg.jpg");
   background-size: cover;
@@ -24,4 +24,12 @@ div {
     background: rgba(255, 255, 255, 0.8);
     box-shadow: 7px 7px 5px 0 rgba(30, 30, 50, 0.8);
   }
+}
+
+.sub-heading {
+  border-top: 1px solid darkred;
+  font-size: 1.5em;
+  font-weight: normal;
+  color: darkred;
+  margin-bottom: 5px;
 }

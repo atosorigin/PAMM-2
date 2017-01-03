@@ -5,7 +5,7 @@ import {STATUS} from "angular-in-memory-web-api";
 import "rxjs/add/operator/finally";
 
 import {SpinnerModalService} from "../../../infrastructure/ui/spinner-modal/spinner-modal.service";
-import {AuditService} from "../../../infrastructure/audit.service";
+import {AuditService} from "../../../infrastructure/util/audit.service";
 import {DialogHelperService} from "../../../infrastructure/ui/dialog-helper.service";
 import {DataTypeValidator} from "../../../infrastructure/validator/data-type.validator";
 
@@ -46,10 +46,10 @@ export class LoginComponent implements OnInit {
             this.submitted = false;
             this.hasAuthenticationError = false;
 
-            this.userContext.login(this.loginForm.controls["username"].value, this.loginForm.controls["password"].value, Role.USER)
+            this.userContext.login(this.loginForm.controls["username"].value, this.loginForm.controls["password"].value, Role.ADMIN)
                 .finally(() => this.spinnerModalService.hide())
                 .subscribe(
-                    user => this.router.navigate(["/user"]),
+                    user => this.router.navigate(["/admin"]),
                     error => {
                         if (error.status === STATUS.UNAUTHORIZED) {
                             this.hasAuthenticationError = true;
